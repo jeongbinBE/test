@@ -1,4 +1,8 @@
 MenuMap::Application.routes.draw do
+  get "home/index"
+  get "home/manual"
+  get "home/search"
+  get "home/qna"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

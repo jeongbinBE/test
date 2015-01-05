@@ -43,3 +43,9 @@ gem 'passenger'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Useful test tools
+group :test do
+	gem 'minitest-reporters'
+	gem 'mini_backtrace'
+end
