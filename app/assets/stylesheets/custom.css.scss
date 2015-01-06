@@ -1,9 +1,12 @@
-/* test version */
 @import url(http://fonts.googleapis.com/css?family=Ubuntu);
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
+/* mixins, variables, etc. */
+
 $menumap-main-orange: #dd4814;
 $nav-orange-hover: #97310e;
+
+/* test version */
 
 html {
 	body {
@@ -11,16 +14,57 @@ html {
 	}
 }
 
-#menumap-home-logo {
-	color: white;
-	font-size: 4em;
-	text-align: center;
+#home01 {
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/images/dark_menu.jpg');
+	.row:first-child {
+		color: white;
+		font-size: 1.6em;
+		text-align: center;
+		margin-top: 130px;
+	}
+	.row:nth-child(2) {
+		p {
+			color: white;
+			font-size: 9em;
+			text-align: center;
+			margin-top: -50px;
+		}
+	}
+	button {
+		background-color: white;
+		margin-bottom: 50px;	
+		border-width: 0px;
+		border-radius: 4px;
+		color: #a8a8a8;
+		font-weight: bold;
+		font-size: 1.2em;
+		p {
+			display: inline;
+		}
+		span {
+			float: right;
+			color: black;
+		}
+		.glyphicon {
+			line-height: normal;
+			font-weight: bold;
+		}
+	}
+	.btn-primary {
+		color: #a8a8a8;
+		background-color: white;
+		font-size: 1.2em;
+		font-weight: bold;
+		text-align: left;
+		border-radius: 4px;
+	}
+	.row:nth-child(3) {
+		a:hover {
+			text-decoration: none;
+		}
+	}
 }
 
-#menumap-home-logoinfo {
-	color: white;
-	text-align: center;
-}
 
 a.navbar-brand {
 	font-size: 2em;
@@ -63,14 +107,6 @@ a {
 	border-radius: 0px;
 	margin-bottom: 0px;
 }
-
-#home01 {
-	background-position: 70%, 200%;
-	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/images/dark_menu.jpg');
-}
-
-/* mixins, variables, etc. */
-
 
 /* universal */
 
