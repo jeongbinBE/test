@@ -10,4 +10,7 @@ class HomeController < ApplicationController
 
   def help
   end
+
+	def test
+	end
 end

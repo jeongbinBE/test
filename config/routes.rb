@@ -8,6 +8,8 @@ MenuMap::Application.routes.draw do
   get "search"		=>		 "home#search"
   get "help"			=>		 "home#help"
 
+	get "test" => "home#test"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -17,3 +17,9 @@
 
 # Ignore temporary(?) files.
 *.swp
+
+# Ignore image files.
+/public/images
+
+# Test for bootstrap on static pages.
+/app/views/home/test.html.erb

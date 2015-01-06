@@ -3,13 +3,11 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
-# Use mysql as the database for Active Record
+# Database
 gem 'mysql2'
 
-# Use bootstrap.
+# Stylesheets
 gem 'bootstrap-sass', '3.2.0.0'
-
-# Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets

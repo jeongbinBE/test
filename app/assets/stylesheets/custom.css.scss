@@ -1,30 +1,81 @@
 /* test version */
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
+$menumap-main-orange: #dd4814;
+$nav-orange-hover: #97310e;
+
+html {
+	body {
+		font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;  
+	}
+}
+
+#menumap-home-logo {
+	color: white;
+	font-size: 4em;
+	text-align: center;
+}
+
+#menumap-home-logoinfo {
+	color: white;
+	text-align: center;
+}
+
+a.navbar-brand {
+	font-size: 2em;
+	font-family: 'Ubuntu', sans-serif  !important;
+}
+
+.navbar-default {
+	.navbar-brand {
+		&:hover {
+			color: white;
+			background-color: $menumap-main-orange;
+		}
+	}
+	.navbar-nav {
+		li {
+			a {
+				color: white;
+				font-size: 1em;
+				&:hover {
+					background-color: $nav-orange-hover;
+					color: white;
+				}
+			}
+		}
+	}
+}
+
+a {
+	font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;  
+}
+.navbar-header {
+	.navbar-brand {
+		color: white;
+	}
+}
+
+.navbar {
+	background-color: $menumap-main-orange;
+	border-color: $menumap-main-orange;
+	border-radius: 0px;
+	margin-bottom: 0px;
+}
+
+#home01 {
+	background-position: 70%, 200%;
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/images/dark_menu.jpg');
+}
 
 /* mixins, variables, etc. */
 
-$menumap-main-orange: #dd4814;
 
 /* universal */
 
-/*
-html {
-  overflow-y: scroll;
-}
-
-section {
-  overflow: auto;
-}
-*/
 textarea {
   resize: vertical;
-}
-
-.center {
-  text-align: center;
-	h1 {
-		margin-bottom: 10px;
-	}
 }
 
 /* typography */
@@ -54,17 +105,6 @@ p {
   line-height: 1.7em;
 }
 
-/*
-.navbar-inverse {
-	.navbar-nav {
-		li { 
-			a {
-				color: white;
-			}
-		}
-	}
-}
-*/
 /* header */
 
 #logo {
@@ -80,14 +120,6 @@ p {
 		 text-decoration: none;
 	}
 }
-
-/*
-.navbar {
-	background-color: $menumap-main-orange;
-	border-color: $menumap-main-orange;
-}
-*/
-
 
 
 /* footer */
@@ -114,10 +146,4 @@ footer {
 			margin-left: 15px;
 		}
 	}
-}
-
-/* background-image */
-
-#home01 {
-	background-image: url("/images/dark_menu.jpg");
 }
