@@ -10,4 +10,9 @@ class NavigationLinkTest < ActionDispatch::IntegrationTest
 		assert_select 'a[href=?]', help_path
 		assert_select 'a[href=?]', search_path
 	end
+
+	test "Brandpage should have adequate path" do
+		get root_path
+		assert_select 'a[href=?]', search_path
+	end
 end

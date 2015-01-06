@@ -1,112 +1,9 @@
-@import url(http://fonts.googleapis.com/css?family=Ubuntu);
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
 /* mixins, variables, etc. */
 
 $menumap-main-orange: #dd4814;
 $nav-orange-hover: #97310e;
 
 /* test version */
-
-html {
-	body {
-		font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;  
-	}
-}
-
-#home01 {
-	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/images/dark_menu.jpg');
-	.row:first-child {
-		color: white;
-		font-size: 1.6em;
-		text-align: center;
-		margin-top: 130px;
-	}
-	.row:nth-child(2) {
-		p {
-			color: white;
-			font-size: 9em;
-			text-align: center;
-			margin-top: -50px;
-		}
-	}
-	button {
-		background-color: white;
-		margin-bottom: 50px;	
-		border-width: 0px;
-		border-radius: 4px;
-		color: #a8a8a8;
-		font-weight: bold;
-		font-size: 1.2em;
-		p {
-			display: inline;
-		}
-		span {
-			float: right;
-			color: black;
-		}
-		.glyphicon {
-			line-height: normal;
-			font-weight: bold;
-		}
-	}
-	.btn-primary {
-		color: #a8a8a8;
-		background-color: white;
-		font-size: 1.2em;
-		font-weight: bold;
-		text-align: left;
-		border-radius: 4px;
-	}
-	.row:nth-child(3) {
-		a:hover {
-			text-decoration: none;
-		}
-	}
-}
-
-
-a.navbar-brand {
-	font-size: 2em;
-	font-family: 'Ubuntu', sans-serif  !important;
-}
-
-.navbar-default {
-	.navbar-brand {
-		&:hover {
-			color: white;
-			background-color: $menumap-main-orange;
-		}
-	}
-	.navbar-nav {
-		li {
-			a {
-				color: white;
-				font-size: 1em;
-				&:hover {
-					background-color: $nav-orange-hover;
-					color: white;
-				}
-			}
-		}
-	}
-}
-
-a {
-	font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;  
-}
-.navbar-header {
-	.navbar-brand {
-		color: white;
-	}
-}
-
-.navbar {
-	background-color: $menumap-main-orange;
-	border-color: $menumap-main-orange;
-	border-radius: 0px;
-	margin-bottom: 0px;
-}
 
 /* universal */
 
@@ -115,6 +12,15 @@ textarea {
 }
 
 /* typography */
+
+html {
+	body {
+		font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;  
+		a {
+			font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;  
+		}
+	}
+}
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -141,24 +47,43 @@ p {
   line-height: 1.7em;
 }
 
-/* header */
+/* Navigation bar */
 
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: #fff;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-	&:hover {
-		 color: #fff;
-		 text-decoration: none;
+.navbar-header {
+	.navbar-brand {
+		color: white;
+	}
+	a.navbar-brand {
+		font-size: 2em;
+		font-family: 'Ubuntu', sans-serif;
 	}
 }
 
+.navbar {
+	background-color: $menumap-main-orange;
+	border-color: $menumap-main-orange;
+	border-width: 0px;
+	border-radius: 0px;
+	margin-bottom: 0px;
+	.navbar-brand {
+		&:hover {
+			color: white;
+			background-color: $menumap-main-orange;
+		}
+	}
+	.navbar-nav {
+		li a { 
+			color: white;
+			font-size: 1em;
+			&:hover {
+				background-color: $nav-orange-hover;
+				color: white;
+			}
+		}
+	}
+}
 
-/* footer */
+/* Footer */
 
 footer {
   margin-top: 45px;
