@@ -3,9 +3,11 @@ MenuMap::Application.routes.draw do
 	# Root page is index and it's also brandpage.
 	root 'home#index'
 
-  get "home/manual"
-  get "home/search"
-  get "home/help"
+	# Static pages.
+  get "manual"		=>		 "home#manual"
+  get "search"		=>		 "home#search"
+  get "help"			=>		 "home#help"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
