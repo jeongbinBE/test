@@ -6,6 +6,9 @@ gem 'rails', '4.0.1'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
+# Use bootstrap.
+gem 'bootstrap-sass', '3.2.0.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
