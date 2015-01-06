@@ -3,6 +3,14 @@
 $menumap-main-orange: #dd4814;
 $nav-orange-hover: #97310e;
 
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 /* test version */
 
 /* universal */
@@ -108,3 +116,216 @@ footer {
 		}
 	}
 }
+
+/* First info */
+
+#home01 {
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/images/dark_menu.jpg');
+	.row:first-child {
+		color: white;
+		font-size: 1.6em;
+		text-align: center;
+		margin-top: 130px;
+	}
+	.row:nth-child(2) {
+		p {
+			color: white;
+			font-size: 9em;
+			text-align: center;
+			margin-top: -50px;
+		}
+	}
+	button {
+		background-color: white;
+		margin-bottom: 50px;	
+		border-width: 0px;
+		border-radius: 4px;
+		color: #a8a8a8;
+		font-weight: bold;
+		font-size: 1.2em;
+		p {
+			display: inline;
+		}
+		span {
+			float: right;
+			color: black;
+		}
+		.glyphicon {
+			line-height: inherit;
+			font-weight: bold;
+		}
+	}
+	.btn-primary {
+		color: #a8a8a8;
+		background-color: white;
+		font-size: 1.2em;
+		font-weight: bold;
+		text-align: left;
+		border-radius: 4px;
+	}
+	.row:nth-child(3) {
+		a:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+/* Second info */
+
+#home02 {
+	.container {
+		padding: 70px 100px
+	}
+	.row {
+		p {
+			font-size: 2em;
+		}
+		.col-md-4 .menumap-text {
+			font-size: 2em;
+			color: $menumap-main-orange;
+		}
+		.col-md-8 {
+			border-left-style: solid;
+			border-width: 7px;
+			border-color: black;
+			padding-left: 30px;
+			ol {
+				list-style-type: none;
+			}
+			li {
+				font-size: 2.2em;
+				padding-top: 10px;
+			}
+		}
+	}
+}
+
+/* Short manual title */
+
+#home03 {
+	background-color: Wheat;
+	.container {
+		padding: 70px 100px
+	}
+	.row {
+		p {
+			font-size: 2em;
+		}
+		.menumap-text {
+			font-size: 2em;
+			color: $menumap-main-orange;
+		}
+	}
+}
+
+/* Short Manual 01 */
+
+#home04 {
+	height: 500px;
+	.container {
+		padding: 60px 0px 30px;
+	}
+	.row {
+		p {
+			font-size: 40px;
+		}
+		.menumap-text {
+			font-size: 50px;
+			color: $menumap-main-orange;
+		}
+	}
+	.row:nth-child(2) {
+		margin-top: 20px;
+		.image {
+			background-color: lightgrey;
+			height: 270px;
+			border-radius: 20px;
+		}
+		.col-md-6:nth-child(2) {
+			height: 270px;
+			ul {
+				list-style-type: none;
+				@include vertical-align;
+				li {
+				text-align: center;
+				font-size: 30px;
+				}
+			}
+		}
+	}
+}
+
+/* Short Manual 02 */
+
+#home05 {
+	height: 800px;
+	.container {
+		padding: 30px 0px;
+	}
+	.row {
+		p {
+			font-size: 40px;
+		}
+		.menumap-text {
+			font-size: 50px;
+			color: $menumap-main-orange;
+		}
+	}
+	.row:nth-child(2) {
+		margin-top: 20px;
+		.image {
+			background-color: lightgrey;
+			height: 600px;
+			border-radius: 20px;
+		}
+		.col-md-6:first-child {
+			height: 600px;
+			ul {
+				list-style-type: none;
+				@include vertical-align;
+				li {
+				text-align: center;
+				font-size: 30px;
+				}
+			}
+		}
+	}
+}
+
+/* Short Manual 03 */
+
+#home06 {
+	height: 1100px;
+	.container {
+		padding: 30px 0px;
+	}
+	.row {
+		p {
+			font-size: 40px;
+		}
+		.menumap-text {
+			font-size: 50px;
+			color: $menumap-main-orange;
+		}
+	}
+	.row:nth-child(2) {
+		margin-top: 20px;
+		.image {
+			background-color: lightgrey;
+			height: 800px;
+			border-radius: 20px;
+		}
+		.col-md-6:nth-child(2) {
+			height: 800px;
+			ul {
+				list-style-type: none;
+				@include vertical-align;
+				li {
+				text-align: center;
+				font-size: 30px;
+				}
+			}
+		}
+	}
+}
+
