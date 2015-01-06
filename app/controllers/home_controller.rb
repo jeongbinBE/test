@@ -8,6 +8,6 @@ class HomeController < ApplicationController
   def search
   end
 
-  def qna
+  def help
   end
 end
