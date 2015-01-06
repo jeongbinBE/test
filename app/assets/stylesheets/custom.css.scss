@@ -1,23 +1,21 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+/* test version */
+
 
 /* mixins, variables, etc. */
 
+$menumap-main-orange: #dd4814;
 
 /* universal */
 
+/*
 html {
   overflow-y: scroll;
-}
-
-body {
-  padding-top: 60px;
 }
 
 section {
   overflow: auto;
 }
-
+*/
 textarea {
   resize: vertical;
 }
@@ -56,6 +54,17 @@ p {
   line-height: 1.7em;
 }
 
+/*
+.navbar-inverse {
+	.navbar-nav {
+		li { 
+			a {
+				color: white;
+			}
+		}
+	}
+}
+*/
 /* header */
 
 #logo {
@@ -71,6 +80,15 @@ p {
 		 text-decoration: none;
 	}
 }
+
+/*
+.navbar {
+	background-color: $menumap-main-orange;
+	border-color: $menumap-main-orange;
+}
+*/
+
+
 
 /* footer */
 
@@ -96,4 +114,10 @@ footer {
 			margin-left: 15px;
 		}
 	}
+}
+
+/* background-image */
+
+#home01 {
+	background-image: url("/images/dark_menu.jpg");
 }
