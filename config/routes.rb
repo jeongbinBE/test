@@ -1,5 +1,6 @@
 MenuMap::Application.routes.draw do
 
+  get "users/new"
 	# Root page is index and it's also brandpage.
 	root 'home#index'
 
@@ -9,6 +10,9 @@ MenuMap::Application.routes.draw do
   get "help"			=>		 "home#help"
 
 	get "test" => "home#test"
+
+	# User pages
+	get 'signup'			=>		'users#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,5 +1,11 @@
-/* mixins, variables, etc. */
+/* necessary import parts */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+/* mixins, variables, etc. */
 $menumap-main-orange: #dd4814;
 $nav-orange-hover: #97310e;
 $basic-bg-grey: #f4f4f4;
@@ -153,6 +159,7 @@ footer {
 
 #home01 {
 	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/images/dark_menu.jpg');
+	margin-top: -45px;
 	.row:first-child {
 		color: white;
 		font-size: 1.6em;

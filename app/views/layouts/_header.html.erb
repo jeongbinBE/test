@@ -1,30 +1,32 @@
 <!-- Header -->
-<nav class="navbar navbar-default container-nav-bottom">
-	<div class="container-fluid">
-		<!-- Brand -->
-		<div class="navbar-header">
-			<!-- Not customized -->
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-			<%= link_to "MenuMap", root_path, class: "navbar-brand" %>
-		</div>
+<header>
+	<nav class="navbar navbar-default container-nav-bottom">
+		<div class="container-fluid">
+			<!-- Brand -->
+			<div class="navbar-header">
+				<!-- Not customized -->
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<%= link_to "MenuMap", root_path, class: "navbar-brand" %>
+			</div>
 
-		<!-- Navigation menu collapsed w/ sm device -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-left"> 
-				<li><%= link_to "MenuMap 소개",   root_path %></li>
-				<li><%= link_to "이용방법", manual_path %></li>
-				<li><%= link_to "자주묻는 질문",   help_path %></li>
-				<li><%= link_to "음식점 검색", search_path %></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><%= link_to "로그인", '#' %></li>
-				<li><%= link_to "회원가입", '#' %></li>
-			</ul>
+			<!-- Navigation menu collapsed w/ sm device -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-left"> 
+					<li><%= link_to "MenuMap 소개",			root_path %></li>
+					<li><%= link_to "이용방법",					manual_path %></li>
+					<li><%= link_to "자주묻는 질문",		help_path %></li>
+					<li><%= link_to "음식점 검색",			search_path %></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><%= link_to "로그인", '#' %></li>
+					<li><%= link_to "회원가입", signup_path %></li>
+				</ul>
+			</div>
 		</div>
-	</div>
-</nav>
+	</nav>
+</header>
