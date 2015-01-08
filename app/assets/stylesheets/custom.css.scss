@@ -467,11 +467,11 @@ footer {
 /* Search page */
 
 .home-search {
-	> .col-md-8 {
+	> .col-md-8 > .col-md-10 {
 		border-style: solid;
 		border-radius: 10px;
 		border-color: $basic-bg-grey;
-		padding: 2em 0px 0.8em;
+		padding: 2em 2em 0.8em;
 		background-color: $basic-bg-grey;
 		legend {
 			margin-bottom: 0.5em;
@@ -511,18 +511,25 @@ footer {
 @media (max-width: 767px) {
 	.home-search {
 		padding: 0 10px;
-		.col-md-8 .form-group {
-			&:nth-of-type(2) {
-				margin-bottom: 1px;
+		.col-md-8 {
+			> .col-md-10 {
+				padding: 2em 0.8em 0.8em;
 			}
-			&:nth-of-type(3) > .col-md-5 {
-				&:nth-child(2) {
-					padding-right: 15px;
+			padding: 0;
+			.form-group {
+				&:nth-of-type(2) {
+					margin-bottom: 1px;
 				}
-				&:nth-child(3) {
-					padding-left: 15px;
+				&:nth-of-type(3) > .col-xs-6 {
+					&:first-of-type {
+						padding-right: 3px;
+					}
+					&:last-of-type {
+						padding-left: 3px;
+					}
 				}
 			}
 		}
 	}
 }
+
