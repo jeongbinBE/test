@@ -1,15 +1,53 @@
-/* necessary import parts */
+/*==================================================
+=                  Neccesities                     =
+==================================================*/
+
+/*=========         Imports         =========*/
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Ubuntu);
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(http://fonts.googleapis.com/css?family=Noto+Sans);
 
-/* mixins, variables, etc. */
+/*=========          Test           =========*/
+
+.ts1 {
+	font-family: 'Noto Sans', sans-serif;
+}
+
+.ts2 {
+	background-color: yellow;
+}
+
+.ts3 {
+	background-color: grey;
+}
+
+.ts4 {
+	background-color: blue;
+}
+
+.ts5 {
+	background-color: green;
+}
+
+.ts6 {
+	background-color: purple;
+}
+
+/*==================================================
+=               Universal settings                 =
+==================================================*/
+
+/*=========        variables        =========*/
+
 $menumap-main-orange: #dd4814;
 $nav-orange-hover: #97310e;
 $basic-bg-grey: #f4f4f4;
 $btn-dark-grey: #777;
+
+/*==========         mixins        ==========*/
 
 @mixin vertical-align {
   position: relative;
@@ -19,8 +57,18 @@ $btn-dark-grey: #777;
   transform: translateY(-50%);
 }
 
+/*=========        typography       =========*/
 
-/* universal */
+html {
+	body {
+		font-family: 'Noto Sans', sans-serif;  
+		a {
+			font-family: 'Noto Sans', sans-serif;  
+		}
+	}
+}
+
+/*==========        MenuMap        ==========*/
 
 span.menumap-span {
 	color: $menumap-main-orange;
@@ -38,43 +86,12 @@ span.menumap-span {
 	color: white;
 }
 
-/* typography */
 
-html {
-	body {
-		font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;  
-		a {
-			font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;  
-		}
-	}
-}
+/*==================================================
+=               Navigation, Footer                 =
+==================================================*/
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-}
-
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: #777;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
-
-/* Navigation bar */
+/*==========       Navigation      ==========*/
 
 .navbar-header {
 	.navbar-brand {
@@ -129,7 +146,7 @@ p {
     }
 }
 
-/* Footer */
+/*=========         Footer         ==========*/
 
 footer {
   margin-top: 45px;
@@ -155,7 +172,11 @@ footer {
 	}
 }
 
-/* First info */
+/*==================================================
+=                    Home CSS                      =
+==================================================*/
+
+/*=========       Index page       ==========*/
 
 #home01 {
 	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/images/dark_menu.jpg');
