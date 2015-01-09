@@ -59,6 +59,7 @@ html, body {
 /*=========        variables        =========*/
 
 $mm-mc-orange: #dd4814;
+$mm-mc-org-d: #97310e;
 $mm-bg-grey: #f4f4f4;
 $mm-bg-title: #E5E6E0;
 $btn-dark-grey: #777;
@@ -83,6 +84,12 @@ html, body, h1, h2, h3, h4, h5, h6, p, a {
 
 span.mm-logo-font {
 	color: $mm-mc-orange;
+	font-weight: bold;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+span.mm-logo-font-inv {
+	color: white;
 	font-weight: bold;
 	font-family: 'Ubuntu', sans-serif;
 }
@@ -352,9 +359,12 @@ h5#mm-index-h5 {
 
 /* Index section 04 */
 
-#home007 {
+#home04 {
 	background-color: $mm-bg-grey;
 	padding-bottom: 3em;
+	a:hover {
+		text-decoration: none;
+	}
 }
 
 .intro-image1,
@@ -380,6 +390,18 @@ h5#mm-index-h5 {
 	}
 }
 
+#mm-index-btn2 {
+	background-color: blue;
+	background-color: $mm-mc-orange;
+	border-color: #dd4814;
+	font-weight: bold;
+	&:hover {
+		background-color: $mm-mc-org-d;
+		border-color: $mm-mc-org-d;
+		text-decoration: none;
+	}
+}
+
 @media (max-width: 767px) {
 	h6.mm-index-h6 {
 		font-size: 2em;
@@ -390,6 +412,9 @@ h5#mm-index-h5 {
 		p {
 			font-size: 1.5em;
 		}
+	}
+	#mm-index-btn2 {
+		margin-top: 1em;
 	}
 }
 
@@ -406,6 +431,11 @@ h5#mm-index-h5 {
 	}
 	h6.mm-index-h6-2nd {
 		text-align: right;
+	}
+	#mm-index-btn2 {
+		margin-top: 3em;
+		height: 3em;
+		font-size: 1.3em;
 	}
 }
 
