@@ -42,7 +42,7 @@
 
 /*=========        variables        =========*/
 
-$menumap-main-orange: #dd4814;
+$mm-mc-orange: #dd4814;
 $nav-orange-hover: #97310e;
 $basic-bg-grey: #f4f4f4;
 $btn-dark-grey: #777;
@@ -71,13 +71,13 @@ html {
 /*==========        MenuMap        ==========*/
 
 span.menumap-span {
-	color: $menumap-main-orange;
+	color: $mm-mc-orange;
 	font-weight: bold;
 }
 
 .btn-orange {
-	background-color: $menumap-main-orange;
-	border-color: $menumap-main-orange;
+	background-color: $mm-mc-orange;
+	border-color: $mm-mc-orange;
 }
 
 .btn-dark-grey {
@@ -92,7 +92,52 @@ span.menumap-span {
 ==================================================*/
 
 /*==========       Navigation      ==========*/
+#mm-nav {
+	border-radius: 0;
+}
 
+#mm-ph-nav-toggle > ul > li > a {
+	&:hover {
+		background-color: #eeeeee;
+	}
+}
+
+#mm-nav-font {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 2em;
+	color: $mm-mc-orange;
+}
+
+#mm-dt-div {
+	padding: 15px 0;
+}
+
+@media (max-width: 767px) {
+	#mm-nav-font {
+		font-weight: bold;
+	}
+	#mm-ph-nav-div {
+		border-color: #e7e7e7;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	}
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+	#mm-nav-font {
+		font-weight: normal;
+	}
+}
+
+@media (min-width: 1200px) {
+}
+
+
+
+
+/*
 .navbar-header {
 	.navbar-brand {
 		color: white;
@@ -104,14 +149,14 @@ span.menumap-span {
 }
 
 .navbar {
-	background-color: $menumap-main-orange;
-	border-color: $menumap-main-orange;
+	background-color: $mm-mc-orange;
+	border-color: $mm-mc-orange;
 	border-width: 0px;
 	border-radius: 0px;
 	.navbar-brand {
 		&:hover {
 			color: white;
-			background-color: $menumap-main-orange;
+			background-color: $mm-mc-orange;
 		}
 	}
 	.navbar-nav {
@@ -145,6 +190,8 @@ span.menumap-span {
     .container-nav-bottom {
     }
 }
+
+*/
 
 /*=========         Footer         ==========*/
 
@@ -242,7 +289,7 @@ footer {
 		}
 		.col-md-4 .menumap-text {
 			font-size: 2em;
-			color: $menumap-main-orange;
+			color: $mm-mc-orange;
 		}
 		.col-md-8 {
 			border-left-style: solid;
@@ -273,7 +320,7 @@ footer {
 		}
 		.menumap-text {
 			font-size: 2em;
-			color: $menumap-main-orange;
+			color: $mm-mc-orange;
 		}
 	}
 }
@@ -293,7 +340,7 @@ footer {
 		}
 		.menumap-text {
 			font-size: 50px;
-			color: $menumap-main-orange;
+			color: $mm-mc-orange;
 		}
 	}
 	.row:nth-child(2) {
@@ -332,7 +379,7 @@ footer {
 		}
 		.menumap-text {
 			font-size: 50px;
-			color: $menumap-main-orange;
+			color: $mm-mc-orange;
 		}
 	}
 	.row:nth-child(2) {
@@ -371,7 +418,7 @@ footer {
 		}
 		.menumap-text {
 			font-size: 50px;
-			color: $menumap-main-orange;
+			color: $mm-mc-orange;
 		}
 	}
 	.row:nth-child(2) {
