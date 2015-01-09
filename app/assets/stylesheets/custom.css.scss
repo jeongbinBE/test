@@ -2,6 +2,7 @@
 =                  Neccesities                     =
 ==================================================*/
 
+
 /*=========         Imports         =========*/
 
 @import "bootstrap-sprockets";
@@ -36,14 +37,15 @@
 	background-color: purple;
 }
 
+
 /*==================================================
 =               Universal settings                 =
 ==================================================*/
 
+
 /*=========        variables        =========*/
 
 $mm-mc-orange: #dd4814;
-$nav-orange-hover: #97310e;
 $basic-bg-grey: #f4f4f4;
 $btn-dark-grey: #777;
 
@@ -70,9 +72,10 @@ html {
 
 /*==========        MenuMap        ==========*/
 
-span.menumap-span {
+span.mm-logo-font {
 	color: $mm-mc-orange;
 	font-weight: bold;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 .btn-orange {
@@ -91,7 +94,9 @@ span.menumap-span {
 =               Navigation, Footer                 =
 ==================================================*/
 
+
 /*==========       Navigation      ==========*/
+
 #mm-nav {
 	border-radius: 0;
 }
@@ -134,65 +139,6 @@ span.menumap-span {
 @media (min-width: 1200px) {
 }
 
-
-
-
-/*
-.navbar-header {
-	.navbar-brand {
-		color: white;
-	}
-	a.navbar-brand {
-		font-size: 2em;
-		font-family: 'Ubuntu', sans-serif;
-	}
-}
-
-.navbar {
-	background-color: $mm-mc-orange;
-	border-color: $mm-mc-orange;
-	border-width: 0px;
-	border-radius: 0px;
-	.navbar-brand {
-		&:hover {
-			color: white;
-			background-color: $mm-mc-orange;
-		}
-	}
-	.navbar-nav {
-		li a { 
-			color: white;
-			font-size: 1em;
-			&:hover {
-				background-color: $nav-orange-hover;
-				color: white;
-			}
-		}
-	}
-}
-
-@media (max-width: 767px) {
-    .container-nav-bottom {
-        margin-bottom: 10px;
-    }
-}
-@media (min-width: 768px) {
-    .container-nav-bottom {
-        margin-bottom: 20px;
-    }
-}
-@media (min-width: 992px) {
-    .container-nav-bottom {
-        margin-bottom: 45px;
-    }
-}
-@media (min-width: 1200px) {
-    .container-nav-bottom {
-    }
-}
-
-*/
-
 /*=========         Footer         ==========*/
 
 footer {
@@ -219,49 +165,27 @@ footer {
 	}
 }
 
+
 /*==================================================
 =                    Home CSS                      =
 ==================================================*/
 
+
 /*=========       Index page       ==========*/
 
 #home01 {
-	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/images/dark_menu.jpg');
-	margin-top: -45px;
-	.row:first-child {
-		color: white;
-		font-size: 1.6em;
-		text-align: center;
-		margin-top: 130px;
-	}
-	.row:nth-child(2) {
-		p {
-			color: white;
-			font-size: 9em;
-			text-align: center;
-			margin-top: -50px;
+	background: url('/images/dark_menu.jpg');
+	background-position: center top;
+	margin-top: -21px;
+	.row {
+		&:last-of-type {
+			margin-bottom: 2.5em;
+			a:hover {
+				text-decoration: none;
+			}
 		}
 	}
-	button {
-		background-color: white;
-		margin-bottom: 50px;	
-		border-width: 0px;
-		border-radius: 4px;
-		color: #a8a8a8;
-		font-weight: bold;
-		font-size: 1.2em;
-		p {
-			display: inline;
-		}
-		span {
-			float: right;
-			color: black;
-		}
-		.glyphicon {
-			line-height: inherit;
-			font-weight: bold;
-		}
-	}
+
 	.btn-primary {
 		color: #a8a8a8;
 		background-color: white;
@@ -270,41 +194,96 @@ footer {
 		text-align: left;
 		border-radius: 4px;
 	}
-	.row:nth-child(3) {
-		a:hover {
-			text-decoration: none;
+}
+
+h2#mm-index-h2 {
+	color: white;
+	font-size: 1.1em;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 3em;
+}
+
+@media (min-width: 992px) {
+	h2#mm-index-h2 {
+		font-size: 1.6em;
+		margin-top: 5em;
+	}
+}
+
+h1#mm-index-h1 {
+	color: white;
+	font-size: 5em;
+	font-family: 'Ubuntu', sans-serif;
+	text-align: center;
+	margin-top: -0.1em; 
+	margin-bottom: 0.2em;
+}
+
+@media (min-width: 992px) {
+	h1#mm-index-h1 {
+		font-size: 9em;
+	}
+}
+
+button#mm-index-btn {
+	background-color: white;
+	border-width: 0px;
+	border-radius: 4px;
+	color: #a8a8a8;
+	font-weight: bold;
+	font-size: 1.2em;
+	span {
+		float: right;
+		color: black;
+	}
+	.glyphicon {
+		line-height: inherit;
+		font-weight: bold;
+	}
+}
+
+/* Second intro */
+
+#home02 {
+	.row {
+		margin-top: 1.5em;
+		p {
+			font-size: 2.8em;
+		}
+		.col-md-8 {
+			padding-left: 30px;
 		}
 	}
 }
 
-/* Second info */
+@media (max-width: 767px) {
+	h3.mm-index-h3 {
+		font-size: 1em;
+	}
+}
+	
+@media (min-width: 992px) {
+	#home02 .row p {
+		font-size: 4em;
+		text-align: center;
+		margin-top: 0.3em;
+	}
+	h3.mm-index-h3 {
+		font-size: 1.5em;
+	}
+}
 
-#home02 {
-	.container {
-		padding: 70px 100px
-	}
-	.row {
-		p {
-			font-size: 2em;
-		}
-		.col-md-4 .menumap-text {
-			font-size: 2em;
-			color: $mm-mc-orange;
-		}
-		.col-md-8 {
-			border-left-style: solid;
-			border-width: 7px;
-			border-color: black;
-			padding-left: 30px;
-			ol {
-				list-style-type: none;
-			}
-			li {
-				font-size: 2.2em;
-				padding-top: 10px;
-			}
-		}
-	}
+@media (max-width: 767px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
 }
 
 /* Short manual title */
