@@ -46,14 +46,15 @@
 /*=========        variables        =========*/
 
 $mm-mc-orange: #dd4814;
-$basic-bg-grey: #f4f4f4;
+$mm-bg-grey: #f4f4f4;
+$mm-bg-title: #E5E6E0;
 $btn-dark-grey: #777;
 
 /*==========         mixins        ==========*/
 
 @mixin vertical-align {
   position: relative;
-  top: 50%;
+  top: -50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -68,6 +69,10 @@ html {
 			font-family: 'Noto Sans', sans-serif;  
 		}
 	}
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+	font-family: 'Noto Sans', sans-serif;
 }
 
 /*==========        MenuMap        ==========*/
@@ -110,33 +115,26 @@ span.mm-logo-font {
 #mm-nav-font {
 	font-family: 'Ubuntu', sans-serif;
 	font-size: 2em;
+	font-weight: bold;
 	color: $mm-mc-orange;
 }
 
-#mm-dt-div {
+#mm-dt-nav-div {
 	padding: 15px 0;
 }
 
-@media (max-width: 767px) {
-	#mm-nav-font {
-		font-weight: bold;
-	}
-	#mm-ph-nav-div {
-		border-color: #e7e7e7;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-	}
-}
-
-@media (min-width: 768px) {
+#mm-ph-nav-div {
+	border-color: #e7e7e7;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 @media (min-width: 992px) {
 	#mm-nav-font {
 		font-weight: normal;
 	}
-}
-
-@media (min-width: 1200px) {
+	#mm-ph-nav-div {
+		border-width: 0px;
+	}
 }
 
 /*=========         Footer         ==========*/
@@ -173,6 +171,8 @@ footer {
 
 /*=========       Index page       ==========*/
 
+/* Index section 01 */
+
 #home01 {
 	background: url('/images/dark_menu.jpg');
 	background-position: center top;
@@ -196,21 +196,6 @@ footer {
 	}
 }
 
-h2#mm-index-h2 {
-	color: white;
-	font-size: 1.1em;
-	font-weight: bold;
-	text-align: center;
-	margin-top: 3em;
-}
-
-@media (min-width: 992px) {
-	h2#mm-index-h2 {
-		font-size: 1.6em;
-		margin-top: 5em;
-	}
-}
-
 h1#mm-index-h1 {
 	color: white;
 	font-size: 5em;
@@ -220,9 +205,21 @@ h1#mm-index-h1 {
 	margin-bottom: 0.2em;
 }
 
+h2#mm-index-h2 {
+	color: white;
+	font-size: 1.1em;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 3em;
+}
+
 @media (min-width: 992px) {
 	h1#mm-index-h1 {
 		font-size: 9em;
+	}
+	h2#mm-index-h2 {
+		font-size: 1.6em;
+		margin-top: 5em;
 	}
 }
 
@@ -243,7 +240,7 @@ button#mm-index-btn {
 	}
 }
 
-/* Second intro */
+/* Index section 02 */
 
 #home02 {
 	.row {
@@ -274,152 +271,111 @@ button#mm-index-btn {
 	}
 }
 
-@media (max-width: 767px) {
+/* Index section 03 */
+
+#home03 {
+	background-color: $mm-bg-title;
 }
 
-@media (min-width: 768px) {
+#mm-index-step-title {
+	padding: 1em 1.2em 0.5em;
+}
+
+h4#mm-index-h4 {
+	font-size: 0.8em;
+}
+
+h5#mm-index-h5 {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+@media (max-width: 767px) {
+	h5#mm-index-h5 {
+		margin-top: -0.3em;
+	}
 }
 
 @media (min-width: 992px) {
+	#mm-index-step-title {
+		padding: 2em;
+	}
+	h4#mm-index-h4 {
+		font-size: 1.4em;
+	}
+	h5#mm-index-h5 {
+		font-size: 3.5em;
+	}
 }
 
+/* Index section 04 */
+
+#home007 {
+	background-color: $mm-bg-grey;
+	padding-bottom: 3em;
+}
+
+.intro-image1,
+.intro-image2,
+.intro-image3 {
+	background-color: white;
+	border-radius: 20px;
+}
+
+.intro-image1 {
+	height: 270px;
+}
+.intro-image2 {
+	height: 460px;
+}
+.intro-image3 {
+	height: 600px;
+}
+
+.mm-index-step-contents {
+	p {
+		text-align: center;
+	}
+}
+
+@media (max-width: 767px) {
+	h6.mm-index-h6 {
+		font-size: 2em;
+		padding: 0.4em 15px;
+	}
+	.mm-index-step-contents {
+		padding: 1.4em 0 0;
+		p {
+			font-size: 1.5em;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	h6.mm-index-h6 {
+		font-size: 3em;
+		padding: 0.6em 15px;
+	}
+	.mm-index-step-contents {
+		padding: 4em 0 0;
+		p {
+			font-size: 2.3em;
+		}
+	}
+	h6.mm-index-h6-2nd {
+		text-align: right;
+	}
+}
+
+@media (max-width: 767px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+}
 @media (min-width: 1200px) {
 }
 
-/* Short manual title */
-
-#home03 {
-	background-color: #E5E6E0;
-	.container {
-		padding: 25px 100px
-	}
-	.row {
-		p {
-			font-size: 2em;
-		}
-		.menumap-text {
-			font-size: 2em;
-			color: $mm-mc-orange;
-		}
-	}
-}
-
-/* Short Manual 01 */
-
-#home04 {
-	height: 500px;
-	.container {
-		padding: 60px 0px 30px;
-	}
-	.row:first-child {
-		padding-left: 20px;
-		p {
-			font-size: 40px;
-			text-align: left;
-		}
-		.menumap-text {
-			font-size: 50px;
-			color: $mm-mc-orange;
-		}
-	}
-	.row:nth-child(2) {
-		margin-top: 20px;
-		.image {
-			background-color: lightgrey;
-			height: 270px;
-			border-radius: 20px;
-		}
-		.col-md-6:nth-child(2) {
-			height: 270px;
-			ul {
-				list-style-type: none;
-				@include vertical-align;
-				li {
-				text-align: center;
-				font-size: 30px;
-				}
-			}
-		}
-	}
-}
-
-/* Short Manual 02 */
-
-#home05 {
-	height: 800px;
-	.container {
-		padding: 30px 0px;
-	}
-	.row:first-child {
-		padding-right: 20px;
-		p {
-			font-size: 40px;
-			text-align: right;
-		}
-		.menumap-text {
-			font-size: 50px;
-			color: $mm-mc-orange;
-		}
-	}
-	.row:nth-child(2) {
-		margin-top: 20px;
-		.image {
-			background-color: lightgrey;
-			height: 600px;
-			border-radius: 20px;
-		}
-		.col-md-6:first-child {
-			height: 600px;
-			ul {
-				list-style-type: none;
-				@include vertical-align;
-				li {
-				text-align: center;
-				font-size: 30px;
-				}
-			}
-		}
-	}
-}
-
-/* Short Manual 03 */
-
-#home06 {
-	height: 1100px;
-	.container {
-		padding: 30px 0px;
-	}
-	.row:first-child {
-		padding-left: 20px;
-		p {
-			font-size: 40px;
-			text-align: left;
-		}
-		.menumap-text {
-			font-size: 50px;
-			color: $mm-mc-orange;
-		}
-	}
-	.row:nth-child(2) {
-		margin-top: 20px;
-		.image {
-			background-color: lightgrey;
-			height: 800px;
-			border-radius: 20px;
-		}
-		.col-md-6:nth-child(2) {
-			height: 800px;
-			ul {
-				list-style-type: none;
-				@include vertical-align;
-				li {
-				text-align: center;
-				font-size: 30px;
-				}
-			}
-		}
-	}
-}
 
 /* Manual page */
 
@@ -524,9 +480,9 @@ button#mm-index-btn {
 	> .col-md-8 > .col-md-10 {
 		border-style: solid;
 		border-radius: 10px;
-		border-color: $basic-bg-grey;
+		border-color: $mm-bg-grey;
 		padding: 2em 2em 0.8em;
-		background-color: $basic-bg-grey;
+		background-color: $mm-bg-grey;
 		legend {
 			margin-bottom: 0.5em;
 			&:first-child {
