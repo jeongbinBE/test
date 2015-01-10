@@ -12,7 +12,9 @@ MenuMap::Application.routes.draw do
 	get "test" => "home#test"
 
 	# User pages
-	get 'signup'			=>		'users#new'
+	resource :users   #show를 비롯한 미사용 부분 없애야함.
+	get 'signup'				 => 		'users#new'
+	get '/:id'		 => 		'users#profile'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
 
-	# before save func.
-	before_save { username.downcase! }
+	# Callbacks
 	before_save { email.downcase! }
 	
 	# Basic validations
