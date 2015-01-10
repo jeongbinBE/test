@@ -34,7 +34,8 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'bcrypt',      '3.1.7'
+gem 'bcrypt-ruby'
 
 # Use Passenger as the app server
 gem 'passenger'

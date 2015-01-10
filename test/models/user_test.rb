@@ -3,7 +3,8 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
 	
 	def setup
-		@user = User.new(username: "TestUser", email: "TestUser@menumap.co.kr")
+		@user = User.new(username: "TestUser", email: "TestUser@menumap.co.kr",
+										 password: "testpass", password_confirmation: "testpass")
 	end
 
 	test "user should be valid" do
@@ -34,6 +35,13 @@ class UserTest < ActiveSupport::TestCase
 		assert_not duplicate.valid?
 	end
 
+  test "username should be saved as lower-case" do
+    mixed_case = "TestUser01"
+    @user.username = mixed_case
+    @user.save
+    assert_equal mixed_case.downcase, @user.reload.username
+  end
+
 	# Email
 	test "email should be present" do
 		@user.email = ""
@@ -50,8 +58,8 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "here are invalid addresses" do
-    invalid_addresses = %w[user@example,com user_at_foo.org user.name@example.
-                           foo@bar_baz.com foo@bar+baz.com]
+    invalid_addresses = %w[comma@email,com no_at_mark.org no.com@example.
+                           underscore@bar_baz.com plus@br+bz.com dotdot@email..com]
     invalid_addresses.each do |invalid_address|
       @user.email = invalid_address
       assert_not @user.valid?, "#{invalid_address.inspect} should be invalid"
@@ -66,4 +74,22 @@ class UserTest < ActiveSupport::TestCase
 		assert_not duplicate.valid?
 	end
 
+  test "email should be saved as lower-case" do
+    mixed_case = "TestEmaiL@MenuMap.co.kr"
+    @user.email = mixed_case
+    @user.save
+    assert_equal mixed_case.downcase, @user.reload.email
+  end
+
+	# Password
+
+	test "password should not be too short" do
+		@user.password = @user.password_confirmation = "a" * 7
+		assert_not @user.valid?
+	end
+
+	test "password should not be too long" do
+		@user.password = @user.password_confirmation = "a" * 26
+		assert_not @user.valid?
+	end
 end
