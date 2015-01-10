@@ -1,26 +1,20 @@
 MenuMap::Application.routes.draw do
 
-  get "users/new"
 	# Root page is index and it's also brandpage.
 	root 'home#index'
 
 	# Static pages.
-  get "manual"		=>		 "home#manual"
-  get "search"		=>		 "home#search"
-  get "help"			=>		 "home#help"
+  get "manual", 	to:		 "home#manual"
+  get "search", 	to:		 "home#search"
+  get "help", 		to: 	 "home#help"
 
-	get "test" => "home#test"
+	get "test",     to:		 "home#test"
 
 	# User pages
-	resource :users   #show를 비롯한 미사용 부분 없애야함.
-	get 'signup'				 => 		'users#new'
-	get '/:id'		 => 		'users#profile'
+	get 'signup',				to:  'users#new' 
+	get '/:username',   to:  'users#show',  as: :user
+	resources :users, except: [:show, :new]
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
