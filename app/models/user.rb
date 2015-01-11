@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
 		
 	has_secure_password
 	validates :password,
+						:presence		=> { :message => "비밀번호를 입력해주세요."},
 						:length     => { :minimum   => 8, :maximum => 25,
 														 :too_short => "비밀번호는 8자 이상으로 해주세요.",
 														 :too_long  => "비밀번호는 25자 이하로 설정해주세요."}
