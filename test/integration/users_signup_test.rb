@@ -22,5 +22,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 																						password_confirmation: "goodpass" }
 		end
 		assert_template 'users/show'
+		assert_not flash.empty?
 	end
 end
