@@ -10,6 +10,11 @@
 
 				<%= f.label :password, "비밀번호", class: "control-label" %>
 				<%= f.password_field :password, class: "form-control" %>
+				
+				<%= f.label :remember_me, class: "checkbox inline" do %>
+					<%= f.check_box :remember_me %>
+					<span>로그인 상태 유지</span>
+				<% end %>
 
 				<%= f.submit "로그인", class: "btn btn-primary btn-orange" %>
 			<% end %>

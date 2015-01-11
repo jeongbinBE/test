@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 		if user
 			if user.authenticate(params[:session][:password])
 				log_in user
+				params[:session][:remember_me] == '1' ? remember(user) : forget(user)
 				redirect_to user_url(user.username)
 			else
 				flash.now[:danger] = "비밀번호가 잘못되었습니다."
@@ -19,7 +20,7 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		log_out
+		log_out if logged_in?
 		redirect_to root_url
 	end
 end
