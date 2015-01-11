@@ -7,7 +7,8 @@ class UsersController < ApplicationController
 	def create
     @user = User.new(user_params)
     if @user.save
-      # Handle a successful save.
+			flash[:success] = "MenuMap에 성공적으로 가입하셨습니다."
+			redirect_to user_url(@user.username)
     else
 			render 'new'
     end
