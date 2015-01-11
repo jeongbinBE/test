@@ -1,5 +1,6 @@
 MenuMap::Application.routes.draw do
 
+  get "sessions/new"
 	# Root page is index and it's also brandpage.
 	root 'home#index'
 
@@ -13,10 +14,15 @@ MenuMap::Application.routes.draw do
 	# User pages
 	get  'signup',			to:  'users#signup'
 	post 'signup',      to:  'users#create'
-	get  '/:username',  to:  'users#show',  as: :user
 
-#	resources :users, except: [:show, :new]
+	# Log in/out.
+	get    'login',    to:	 'sessions#new'
+	post   'login', 	 to:	 'sessions#create'
+	delete 'logout',   to:   'sessions#destroy' 
 
+	get  '/:username',  to:  'users#show',  as: :user  # for priority issue
+	#	resources :users, except: [:show, :new]
+	# resoucees should be at the bottom because of the priority issue.
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
