@@ -6,9 +6,9 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 		get signup_path
 		assert_no_difference 'User.count' do
 			post signup_path, user: { username: '',
-															 email: 'invalid@eamil',
-															 password:              "good?",
-															 password_confirmation: "nogood" }
+															  email: 'invalid@eamil',
+															  password:              "good?",
+															  password_confirmation: "nogood" }
 		end
 		assert_template 'users/signup'
 	end
@@ -17,11 +17,12 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 		get signup_path
 		assert_difference 'User.count', 1 do
 			post_via_redirect signup_path, user: { username: 'validman',
-																						email: 'valid@eamil.com',
-																				 	  password:              "goodpass",
-																						password_confirmation: "goodpass" }
+																						 email: 'valid@eamil.com',
+																						 password:              "goodpass",
+																						 password_confirmation: "goodpass" }
 		end
 		assert_template 'users/show'
 		assert_not flash.empty?
+		assert is_logged_in?
 	end
 end

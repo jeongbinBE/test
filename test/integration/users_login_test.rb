@@ -2,7 +2,11 @@ require 'test_helper'
 
 class UsersLoginTest < ActionDispatch::IntegrationTest
 
-	test "user's login path check" do
+	def setup
+		@user = users(:jeongbin)
+	end
+
+	test "user's login w/ invalid info" do
 		get login_path
 		assert_template 'sessions/new'
 		post login_path, session: { email: "", password: "" }
@@ -10,5 +14,24 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 		assert_not flash.empty?
 		get root_path
 		assert flash.empty?
+	end
+
+	test "user's login w/ valid info and subsequent logout" do
+		get login_path
+		post login_path, session: { email: @user.email, password: 'password' }
+		assert is_logged_in?
+		assert_redirected_to user_url(@user.username)
+		follow_redirect!
+		assert_template 'users/show'
+		assert_select "a[href=?]", login_path, count: 0
+		assert_select "a[href=?]", logout_path
+		assert_select "a[href=?]", @user.username
+		delete logout_path
+		assert_not is_logged_in?
+		assert_redirected_to root_url
+		follow_redirect!
+		assert_select "a[href=?]", login_path
+		assert_select "a[href=?]", logout_path, count: 0
+		assert_select "a[href=?]", @user.username, count: 0
 	end
 end

@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
 		user = User.find_by(email: params[:session][:email].downcase)
 		if user
 			if user.authenticate(params[:session][:password])
-				# when successful login
+				log_in user
+				redirect_to user_url(user.username)
 			else
 				flash.now[:danger] = "비밀번호가 잘못되었습니다."
 				render 'new'
@@ -18,5 +19,7 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
+		log_out
+		redirect_to root_url
 	end
 end

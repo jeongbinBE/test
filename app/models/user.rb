@@ -26,4 +26,11 @@ class User < ActiveRecord::Base
 						:length     => { :minimum   => 8, :maximum => 25,
 														 :too_short => "비밀번호는 8자 이상으로 해주세요.",
 														 :too_long  => "비밀번호는 25자 이하로 설정해주세요."}
+
+	# Hash digest
+	def User.digest(string)
+		cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+																									BCrypt::Engine.cost
+		BCrypt::Password.create(string, cost: cost)
+	end
 end
