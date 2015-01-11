@@ -11,9 +11,11 @@ MenuMap::Application.routes.draw do
 	get "test",     to:		 "home#test"
 
 	# User pages
-	get 'signup',				to:  'users#new' 
-	get '/:username',   to:  'users#show',  as: :user
-	resources :users, except: [:show, :new]
+	get  'signup',			to:  'users#signup'
+	post 'signup',      to:  'users#create'
+	get  '/:username',  to:  'users#show',  as: :user
+
+#	resources :users, except: [:show, :new]
 
 
   # Example of regular route:

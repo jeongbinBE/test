@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  def new
+  def signup 
 		@user = User.new
   end
 
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 			flash[:success] = "MenuMap에 성공적으로 가입하셨습니다."
 			redirect_to user_url(@user.username)
     else
-			render 'new'
+			render 'signup'
     end
   end
 
