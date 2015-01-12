@@ -20,6 +20,8 @@ MenuMap::Application.routes.draw do
 	post   'login', 	 to:	 'sessions#create'
 	delete 'logout',   to:   'sessions#destroy' 
 
+  # User account activation
+	resources :account_activations, only: [:edit]
 	#get  '/:username',  to:  'users#show',  as: :user  # for priority issue
 
 
