@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 			if user.authenticate(params[:session][:password])
 				log_in user
 				params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-				redirect_to user_url(user.username)
+				redirect_back_or user_url(user.username)
 			else
 				flash.now[:danger] = "비밀번호가 잘못되었습니다."
 				render 'new'

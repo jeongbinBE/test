@@ -7,6 +7,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
 	end
 
 	test "unsuccessful edit" do
+		log_in_as(@user)
 		get edit_user_path(@user.username)
 		assert_template 'users/edit'
 		patch user_path(@user.username), user: { username: "",
@@ -16,18 +17,19 @@ class UsersEditTest < ActionDispatch::IntegrationTest
 		assert_template 'users/edit'
 	end
 
-	test "successful edit" do
+	test "successful edit w/ route back to the intended page" do
 		get edit_user_path(@user.username)
-		update_username =  "update"
-		update_email =  	 "update@email.com"
+		log_in_as(@user)
+		assert_redirected_to edit_user_path(@user.username)
+		update_username =  "update_test_username"
+		update_email =  	 "update_test_email@email.com"
 		patch user_path(@user.username), user: { username: update_username,
 																						 email: 	 update_email,
 																						 password: 							 "",
 																						 password_confirmation:  "" }
 		assert_not flash.empty?
-		# username으로 redirect이므로 이전의 page와 다른 곳임.
-		# assert_redirected_to user_path(@user.username)
-		@user.reload
+		@user.reload   # username is changed
+		assert_redirected_to user_path(@user.username)
 		assert_equal @user.username, update_username
 		assert_equal @user.email, 	 update_email
 	end

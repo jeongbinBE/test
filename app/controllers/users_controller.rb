@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+	
+	# Before filters
+	before_action :logged_in_user?, only: [:edit, :update]
+	before_action :correct_user?,   only: [:edit, :update]
+
 
   def signup 
 		@user = User.new
@@ -38,5 +43,21 @@ class UsersController < ApplicationController
 		def user_params
 			params.require(:user).permit(:username, :email, :password,
 																	 :password_confirmation)
+		end
+
+		# Before filters
+
+		# check if a user is logged in?
+		def logged_in_user?
+			unless logged_in?
+				store_location
+				flash[:danger] = "로그인을 해주세요."
+				redirect_to login_url
+			end
+		end
+
+		def correct_user?
+			@user = User.find_by(username: params[:username])
+			redirect_to(root_url) unless current_user?(@user)
 		end
 end

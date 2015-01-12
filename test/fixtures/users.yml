@@ -4,3 +4,8 @@ jeongbin:
   username: JeongbinKim
   email: jeongbin@menumap.co.kr
   password_digest: <%= User.digest('password') %>
+
+haemiroo:
+  username: HaemirooKim
+  email: haemiroo@menumap.co.kr
+  password_digest: <%= User.digest('password') %>
