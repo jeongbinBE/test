@@ -22,7 +22,7 @@ MenuMap::Application.routes.draw do
 
   # User account activation
 	resources :account_activations, only: [:edit]
-	#get  '/:username',  to:  'users#show',  as: :user  # for priority issue
+
 
 
 	#	resources :users, except: [:show, :new]

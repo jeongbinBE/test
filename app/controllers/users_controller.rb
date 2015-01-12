@@ -13,9 +13,9 @@ class UsersController < ApplicationController
 	def create
     @user = User.new(user_params)
     if @user.save
-			log_in @user
-			flash[:success] = "MenuMap에 성공적으로 가입하셨습니다."
-			redirect_to user_url(@user.username)
+			UserMailer.account_activation(@user).deliver
+			flash[:info] = "이메일을 확인해주시면 회원가입이 완료됩니다."
+			redirect_to root_url
     else
 			render 'signup'
     end
