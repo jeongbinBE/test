@@ -1,4 +1,10 @@
 <li>
 	<%= link_to user.username, user_path(user.username) %>
+	<% if current_user.admin? && !current_user?(user) %>
+		|	<%= link_to "계정 삭제", user_path(user.username),
+															 method: :delete,
+															 data: { confirm: "계정을 삭제하시겠습니까?" } %>
+	<% end %>
 </li>
+	
 

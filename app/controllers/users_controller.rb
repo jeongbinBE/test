@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
 	
 	# Before filters
-	before_action :logged_in_user?, only: [:edit, :update, :index] # index -> admin
-	before_action :correct_user?,   only: [:edit, :update]
+	before_action :logged_in_user?, only: [:edit,  :update, 
+																				 :index, :destroy] # index -> admin
+	before_action :correct_user?,   only: [:edit,  :update]
+	before_action :admin_user?, 		only: :destroy
 
   def signup 
 		@user = User.new
@@ -41,6 +43,11 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def destroy
+		User.find_by(username: params[:username]).destroy
+		flash[:success] = "계정이 삭제되었습니다."
+		redirect_to users_url
+	end
 
 	private
 		def user_params
@@ -62,5 +69,9 @@ class UsersController < ApplicationController
 		def correct_user?
 			@user = User.find_by(username: params[:username])
 			redirect_to(root_url) unless current_user?(@user)
+		end
+
+		def admin_user?
+			redirect_to(root_url) unless current_user.admin?
 		end
 end

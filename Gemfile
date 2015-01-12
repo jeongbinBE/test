@@ -44,6 +44,9 @@ gem 'bcrypt-ruby'
 # Use Passenger as the app server
 gem 'passenger'
 
+# Make a fake user
+gem 'faker', 			 '1.4.2'
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
