@@ -19,6 +19,20 @@ class UsersController < ApplicationController
 		@user = User.find_by(username: params[:username])
 	end
 
+	def edit
+		@user = User.find_by(username: params[:username])
+	end
+
+	def update
+		@user = User.find_by(username: params[:username])
+		if @user.update_attributes(user_params)
+			flash[:success] = "계정 정보를 변경하였습니다."
+			redirect_to user_path(@user.username)
+		else
+			render 'edit'
+		end
+	end
+
 
 	private
 		def user_params
