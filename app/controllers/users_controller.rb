@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
 	
 	# Before filters
-	before_action :logged_in_user?, only: [:edit, :update]
+	before_action :logged_in_user?, only: [:edit, :update, :index] # index -> admin
 	before_action :correct_user?,   only: [:edit, :update]
-
 
   def signup 
 		@user = User.new
@@ -19,6 +18,10 @@ class UsersController < ApplicationController
 			render 'signup'
     end
   end
+
+	def index
+		@users = User.paginate(page: params[:page], :per_page => 5)
+	end
 
 	def show
 		@user = User.find_by(username: params[:username])

@@ -13,7 +13,7 @@ MenuMap::Application.routes.draw do
 	# User pages
 	get  'signup',			to:  'users#signup'
 	post 'signup',      to:  'users#create'
-	resources :users, param: :username, except: [:new, :create, :index]
+	resources :users, param: :username, except: [:new, :create]
 
 	# Log in/out.
 	get    'login',    to:	 'sessions#new'

@@ -649,7 +649,7 @@ h5#mm-index-h5 {
 
 
 /*==================================================
-=                       User                       =
+=                      Users                       =
 ==================================================*/
 
 
@@ -682,3 +682,14 @@ input {
   margin-left: 0;
 }
 
+/*=========  Index page for users  ==========*/
+
+.users {
+	list-style: none;
+	margin: 0;
+	li {
+		overflow: auto;
+		padding: 10px 0;
+		border-bottom: 1px solid grey;
+	}
+}
