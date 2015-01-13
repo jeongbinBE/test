@@ -8,7 +8,7 @@ class UserMailer < ActionMailer::Base
   #
   def account_activation(user)
 		@user = user
-		mail to: user.email, subject: "MenuMap 계정을 활성화해주세요."
+		mail to: @user.email, subject: "MenuMap 계정을 활성화해주세요."
   end
 
   def password_reset
