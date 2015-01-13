@@ -1,8 +1,12 @@
-<div class="container">
-	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
+<div class="container mm-field">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-10 col-md-offset-1">
 			
-			<h2>로그인</h2>
+			<h1 id="mm-field-h1">이 세상 모든 메뉴판이 검색되는 그날까지
+				<span class="mm-logo-font">MenuMap</span>
+			</h1>
+			<legend id="mm-field-legend">로그인</legend>
+
 			<%= form_for(:session, url: login_path) do |f| %>
 
 				<%= f.label :email, "이메일(ID)", class: "control-label" %>
@@ -16,7 +20,7 @@
 					<span>로그인 상태 유지</span>
 				<% end %>
 
-				<%= f.submit "로그인", class: "btn btn-primary btn-orange" %>
+				<%= f.submit "로그인", class: "btn btn-primary mm-btn-orange" %>
 			<% end %>
 
 			<%= link_to "회원가입", signup_path %>	

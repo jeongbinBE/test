@@ -1,13 +1,16 @@
-<div class="container">
-	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
-			
-			<h2>회원가입</h2>
-			<%= form_for(:user, url: signup_path) do |f| %>
-				<%= render 'fields', f: f %>
-				<%= f.submit "회원가입", class: "btn btn-primary btn-orange" %>
-			<% end %>
-
+<div class="container mm-field">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-10 col-md-offset-1">
+				
+				<h1 id="mm-field-h1">이 세상 모든 메뉴판이 검색되는 그날까지
+					<span class="mm-logo-font">MenuMap</span>
+				</h1>
+				<legend id="mm-field-legend">회원가입</legend>
+				<%= form_for(:user, url: signup_path) do |f| %>
+					<%= render 'fields', f: f %>
+					<%= f.submit "회원가입", class: "btn btn-primary mm-btn-orange" %>
+				<% end %>
+				
 		</div>
 	</div>
 </div>

@@ -1,11 +1,15 @@
-<div class="container">
-	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
+<div class="container mm-field">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-10 col-md-offset-1">
 			
-			<h2>계정 설정 변경</h2>
+			<h1 id="mm-field-h1">이 세상 모든 메뉴판이 검색되는 그날까지
+				<span class="mm-logo-font">MenuMap</span>
+			</h1>
+			<legend id="mm-field-legend">계정 설정 변경</legend>
+
 			<%= form_for(:user, url: user_path, method: :patch) do |f| %>
 				<%= render 'fields', f: f %>
-				<%= f.submit "변경사항 저장", class: "btn btn-primary btn-orange" %>
+				<%= f.submit "변경사항 저장", class: "btn btn-primary mm-btn-orange" %>
 			<% end %>
 
 		</div>

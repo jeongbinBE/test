@@ -43,17 +43,10 @@
 ==================================================*/
 
 
-/*=========    html, body, wrap     =========*/
+/*=========        html, body       =========*/
 
 html, body {
 	height: 100%;
-}
-
-#wrap {
-	min-height: 100%;
-	height: auto;
-	margin: 0 auto -3.7em;
-	padding: 0 0 3.7em;
 }
 
 /*=========        variables        =========*/
@@ -65,7 +58,12 @@ $mm-mc-org-d: #97310e;
 $mm-bg-grey: #f4f4f4;
 $mm-bg-title: #E5E6E0;
 $mm-ft-grey: #494949;
-$mm-btn-dark-grey: #777;
+$mm-btn-dark-grey: #aea79f;
+$mm-btn-dark-grey-hover: #978e83;
+$mm-bg-nav-grey: #f8f8f8;
+$mm-ft-nav-grey: #777777;
+$mm-bg-nav-hover: #eeeeee;
+$mm-org-hover: #97310e;
 
 /*==========         mixins        ==========*/
 
@@ -95,21 +93,41 @@ span.mm-logo-font-inv {
 	font-family: 'Ubuntu', sans-serif;
 }
 
-.btn-orange {
+.mm-btn-orange {
 	background-color: $mm-mc-orange;
 	border-color: $mm-mc-orange;
+	font-weight: bold;
+	&:hover, &:focus, &:active {
+		background-color: $mm-org-hover;
+		border-color: $mm-org-hover;
+	}
 }
 
 .mm-btn-dark-grey {
 	background-color: $mm-btn-dark-grey;
 	border-color: $mm-btn-dark-grey;
 	color: white;
+	font-weight: bold;
+	&:hover, &:focus, &:active {
+		background-color: $mm-btn-dark-grey-hover;
+		border-color: $mm-btn-dark-grey-hover;
+		color: white;
+	}
 }
 
 
 /*==================================================
 =               Navigation, Footer                 =
 ==================================================*/
+
+/*==========          Wrap         ==========*/
+
+#wrap {
+	min-height: 100%;
+	height: auto;
+	margin: 0 auto -3.5em;
+	padding: 0 0 3.5em;
+}
 
 
 /*==========       Navigation      ==========*/
@@ -134,6 +152,17 @@ span.mm-logo-font-inv {
 
 #mm-dt-nav-div {
 	padding: 15px 0;
+}
+
+ul#mm-dt-nav-ul {
+	background-color: $mm-bg-nav-grey;
+	border-radius: 0.5em;
+	color: $mm-ft-nav-grey;
+	li a {
+		&:hover, &:focus {
+			background-color: $mm-bg-nav-hover;
+		}
+	}
 }
 
 #mm-ph-nav-div {
@@ -177,7 +206,7 @@ footer {
 }
 
 #footer {
-	height: 3.7em;
+	height: 3.5em;
 }
 
 @media (max-width: 767px) {
@@ -270,6 +299,9 @@ footer {
 		font-weight: bold;
 		text-align: left;
 		border-radius: 4px;
+		&:hover {
+			background-color: $mm-bg-title;
+		}
 	}
 }
 
@@ -655,19 +687,45 @@ h5#mm-index-h5 {
 
 /*=========      Signup page       ==========*/
 
-input, textarea {
-  border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
-  @include box_sizing;
+#mm-field-legend {
+	font-size: 2.4em;
+	margin-bottom: 0.5em;
 }
 
-input {
-  height: auto !important;
+#mm-field-h1 {
+	font-size: 0.9em;
+	margin-bottom: 0.5em;
+	.mm-logo-font {
+		font-size: 1.4em;
+	}
 }
+
+.mm-field {
+	padding: 0 10px;
+	> .col-md-8 {
+		padding: 0;
+		> .col-md-10 {
+			border-style: solid;
+			border-radius: 10px;
+			border-color: $mm-bg-grey;
+			padding: 0 0.8em 0.8em;
+			background-color: $mm-bg-grey;
+			input, textarea, select {
+				border: 1px solid #bbb;
+				width: 100%;
+				margin-bottom: 15px;
+				@include box_sizing;
+			}
+			input {
+				height: auto !important;
+			}
+		}
+	}
+}
+
 
 /*=========       Login page       ==========*/
-
+/*
 .checkbox {
   margin-top: -10px;
   margin-bottom: 10px;
@@ -681,9 +739,9 @@ input {
   width: auto;
   margin-left: 0;
 }
-
+*/
 /*=========  Index page for users  ==========*/
-
+/*
 .users {
 	list-style: none;
 	margin: 0;
@@ -693,3 +751,4 @@ input {
 		border-bottom: 1px solid grey;
 	}
 }
+*/
