@@ -3,8 +3,7 @@ class AccountActivationsController < ApplicationController
 	def edit
 		user = User.find_by(email: params[:email])
 		if user && !user.activated? && user.authenticated?(:activation, params[:id])
-			user.update_attribute(:activated, 	 true)
-			user.update_attribute(:activated_at, Time.now)
+			user.activate
 			log_in user
 			flash[:success] = "계정이 활성화되었습니다. MenuMap에 오신것을 환영합니다."
 			redirect_to user_url(user.username)

@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 	def create
     @user = User.new(user_params)
     if @user.save
-			UserMailer.account_activation(@user).deliver
+			@user.send_activation_email
 			flash[:info] = "이메일을 확인해주시면 회원가입이 완료됩니다."
 			redirect_to root_url
     else
