@@ -1,0 +1,20 @@
+<div class="container mm-field">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-10 col-md-offset-1">
+			
+			<h1 id="mm-field-h1">이 세상 모든 메뉴판이 검색되는 그날까지
+				<span class="mm-logo-font">MenuMap</span>
+			</h1>
+			<legend id="mm-field-legend">비밀번호 찾기</legend>
+
+			<%= form_for(:password_reset, url: password_resets_path) do |f| %>
+
+				<%= f.label :email, "이메일(ID)", class: "control-label" %>
+				<%= f.email_field :email, class: "form-control" %>
+
+				<%= f.submit "비밀번호 이메일로 보내기", 
+													class: "btn btn-primary mm-btn-orange" %>
+			<% end %>
+		</div>
+	</div>
+</div>

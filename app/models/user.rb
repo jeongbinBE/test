@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	
 	# attributes
-	attr_accessor :remember_token, :activation_token
+	attr_accessor :remember_token, :activation_token, :reset_token
 
 	# Callbacks
 	before_save 	:downcase_email
@@ -66,12 +66,26 @@ class User < ActiveRecord::Base
 
 	# Activates an account.
 	def activate
-		update_attribute(:activated,    true)
-		update_attribute(:activated_at, Time.now)
+		update_columns(activated: true, activated_at: Time.now)
 	end
 
 	def send_activation_email
 		UserMailer.account_activation(self).deliver
+	end
+
+	# Reset password.
+	def create_reset_digest
+		self.reset_token = User.new_token
+		update_columns(reset_digest: User.digest(reset_token),
+									 reset_sent_at: Time.now)
+	end
+
+	def send_password_reset_email
+		UserMailer.password_reset(self).deliver
+	end
+
+	def password_reset_expired?
+		reset_sent_at < 2.hours.ago
 	end
 
 	private

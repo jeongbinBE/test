@@ -1,5 +1,7 @@
 MenuMap::Application.routes.draw do
 
+  get "password_resets/new"
+  get "password_resets/edit"
 	# Root page is index and it's also brandpage.
 	root 'home#index'
 
@@ -23,6 +25,8 @@ MenuMap::Application.routes.draw do
   # User account activation
 	resources :account_activations, only: [:edit]
 
+	# User's password resets.
+	resources :password_resets, only: [:new, :create, :edit, :update]
 
 
 	#	resources :users, except: [:show, :new]
