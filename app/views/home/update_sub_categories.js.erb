@@ -1,1 +1,1 @@
-$('#sub_category_select').html("<%= escape_javascript(options_for_select(@sub_categories.collect { |sub| [sub.name, sub.name] }, 0)) %>");
+$('#sub_category_select').html("<%= escape_javascript(options_for_select(@sub.collect { |sub| [sub.name, sub.name] }, 0)) %>");

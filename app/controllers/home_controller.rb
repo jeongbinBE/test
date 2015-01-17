@@ -6,12 +6,12 @@ class HomeController < ApplicationController
   end
 
   def search
-		@categories = Category.all
-		@sub_categories = SubCategory.all
+		@cat = Category.all
+		@sub = SubCategory.all
   end
 
 	def update_sub_categories
-		@sub_categories = SubCategory.where("category_id = ?", params[:category_id])
+		@sub = SubCategory.where("category_id = ?", params[:category_id])
 		respond_to do |format|
 			format.js
 		end
