@@ -341,6 +341,9 @@ button#mm-index-btn {
 	color: #a8a8a8;
 	font-weight: bold;
 	font-size: 1.2em;
+	&:focus {
+		outline: none;
+	}
 	span {
 		float: right;
 		color: black;
