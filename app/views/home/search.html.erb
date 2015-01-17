@@ -51,3 +51,24 @@
 		</div>
 	</div>
 </div>
+
+<div class="container home-search">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-10 col-md-offset-1">
+				
+			<h1 id="mm-field-h1">이 세상 모든 메뉴판이 검색되는 그날까지
+				<span class="mm-logo-font">MenuMap</span>
+			</h1>
+			<legend id="mm-field-legend">검색</legend>
+
+			<%= form_tag restaurants_path, method: "get" do %>
+				<%= label_tag :name, "업소명", class: "control-label" %>
+				<%= text_field_tag :name, nil, class: 'form-control' %>
+				<%= label_tag :addr, "지역", class: "control-label" %>
+				<%= text_field_tag :addr, nil, class: "form-control" %>
+				<%= submit_tag "검색", class: "btn btn-primary mm-btn-orange" %>
+			<% end %>
+
+		</div>
+	</div>
+</div>

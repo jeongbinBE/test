@@ -1,5 +1,7 @@
 MenuMap::Application.routes.draw do
 
+  get "restaurants/index"
+  get "restaurants/show"
   get "password_resets/new"
   get "password_resets/edit"
 	# Root page is index and it's also brandpage.
@@ -28,6 +30,8 @@ MenuMap::Application.routes.draw do
 	# User's password resets.
 	resources :password_resets, only: [:new, :create, :edit, :update]
 
+	# Restaurants' index and page
+	resources :restaurants, only: [:index, :show]
 
 	#	resources :users, except: [:show, :new]
 	# resoucees should be at the bottom because of the priority issue.
