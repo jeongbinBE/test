@@ -11,7 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114171014) do
+ActiveRecord::Schema.define(version: 20150116172125) do
+
+  create_table "rest_keys", force: true do |t|
+    t.integer  "restaurant_id"
+    t.integer  "cat_code"
+    t.string   "name"
+    t.text     "addr"
+    t.boolean  "delivery"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rest_keys", ["addr"], name: "by_addr", length: {"addr"=>255}, using: :btree
+  add_index "rest_keys", ["cat_code"], name: "by_cat_code", using: :btree
+  add_index "rest_keys", ["delivery"], name: "by_delivery", using: :btree
+  add_index "rest_keys", ["name"], name: "by_name", using: :btree
+  add_index "rest_keys", ["restaurant_id"], name: "by_restaurant_id", using: :btree
+
+  create_table "restaurants", force: true do |t|
+    t.string   "name"
+    t.string   "cat"
+    t.string   "sub_cat"
+    t.string   "addr"
+    t.string   "phnum"
+    t.boolean  "delivery"
+    t.integer  "menu_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username"

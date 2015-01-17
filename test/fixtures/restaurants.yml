@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  cat: MyString
+  sub_cat: MyString
+  addr: MyString
+  phnum: MyString
+  delivery: false
+  menu_on: 1
+
+two:
+  name: MyString
+  cat: MyString
+  sub_cat: MyString
+  addr: MyString
+  phnum: MyString
+  delivery: false
+  menu_on: 1

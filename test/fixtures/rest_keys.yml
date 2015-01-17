@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  restaurant_id: 1
+  cat_code: 1
+  name: MyString
+  addr: MyText
+  delivery: false
+
+two:
+  restaurant_id: 1
+  cat_code: 1
+  name: MyString
+  addr: MyText
+  delivery: false
