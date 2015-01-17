@@ -65,9 +65,8 @@
 				<%= label_tag :name, "업소명", class: "control-label" %>
 				<%= text_field_tag :name, nil, class: 'form-control' %>
 
-				<%= select_tag 
-
-
+				<%= select_tag(:category, options_for_select(@categories.collect { |category| [category.name, category.id] }, 1), {id: 'category_select'}) %>
+				<%= select_tag(:sub_category, options_for_select(@sub_categories.collect { |sub| [sub.name, sub.name] }, 0), { id: 'sub_category_select' }) %>
 
 				<%= label_tag :addr, "지역", class: "control-label" %>
 				<%= text_field_tag :addr, nil, class: "form-control" %>
@@ -77,3 +76,17 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	$(document).ready(function() {
+		$('#category_select').change(function() {
+			$.ajax({
+				url: "<%= update_sub_categories_path %>",
+				data: {
+					category_id : $('#category_select').val()
+				},
+				dataType: "script"
+			});
+		});
+	});
+</script>

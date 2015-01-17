@@ -1,18 +1,17 @@
 MenuMap::Application.routes.draw do
 
-  get "restaurants/index"
-  get "restaurants/show"
-  get "password_resets/new"
-  get "password_resets/edit"
 	# Root page is index and it's also brandpage.
 	root 'home#index'
 
 	# Static pages.
   get "manual", 	to:		 "home#manual"
-  get "search", 	to:		 "home#search"
   get "help", 		to: 	 "home#help"
 
 	get "test",     to:		 "home#test"
+
+	# update sub_categories on select box.
+  get "search", 	to:		 "home#search"
+	get "home/update_sub_categories", as: "update_sub_categories"
 
 	# User pages
 	get  'signup',			to:  'users#signup'
