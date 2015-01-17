@@ -64,6 +64,11 @@
 			<%= form_tag restaurants_path, method: "get" do %>
 				<%= label_tag :name, "업소명", class: "control-label" %>
 				<%= text_field_tag :name, nil, class: 'form-control' %>
+
+				<%= select_tag 
+
+
+
 				<%= label_tag :addr, "지역", class: "control-label" %>
 				<%= text_field_tag :addr, nil, class: "form-control" %>
 				<%= submit_tag "검색", class: "btn btn-primary mm-btn-orange" %>

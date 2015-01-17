@@ -1,6 +1,30 @@
 require 'csv'
 
 namespace :db do
+	task :categories => :environment do
+		CSV.foreach('public/seed_data/categories.csv') do |row|
+			record = Category.new(
+				:name => row[0]
+			)
+			record.save!
+		end
+	end
+end
+
+namespace :db do
+	task :sub_categories => :environment do
+		CSV.foreach('public/seed_data/sub_categories.csv') do |row|
+			record = SubCategory.new(
+				:category_id => row[0],
+				:name => row[1],
+				:cat_code => row[2]
+			)
+			record.save!
+		end
+	end
+end
+
+namespace :db do
 	task :rest_keys => :environment do
 		CSV.foreach('public/seed_data/rest_key.csv') do |row|
 			record = RestKey.new(

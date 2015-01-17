@@ -1,3 +1,3 @@
 class Restaurant < ActiveRecord::Base
-	has_one :rest_key
+	has_one :rest_key, dependent: :destroy
 end
