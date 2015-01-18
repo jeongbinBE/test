@@ -30,7 +30,7 @@ class RestaurantsController < ApplicationController
 																										 "%#{addr[3]}%",
 																										 "%#{addr[4]}%",
 																										 cat_code[0], 
-																										 cat_code[1]).paginate(page: params[:page])  
+																										 cat_code[1]).paginate(:page => params[:page])
   end
 
   def show

@@ -4,4 +4,6 @@
 	<p><%= restaurant.sub_cat  %></p>
 <% end %>
 
-<%= will_paginate %>
+
+
+<%= will_paginate @restaurants, :outer_window => -1 %>
