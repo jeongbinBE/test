@@ -11,32 +11,6 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans);
 
-/*=========          Test           =========*/
-
-.ts1 {
-	font-family: 'Noto Sans', sans-serif;
-}
-
-.ts2 {
-	background-color: yellow;
-}
-
-.ts3 {
-	background-color: grey;
-}
-
-.ts4 {
-	background-color: blue;
-}
-
-.ts5 {
-	background-color: green;
-}
-
-.ts6 {
-	background-color: purple;
-}
-
 
 /*==================================================
 =               Universal settings                 =
@@ -121,6 +95,7 @@ span.mm-logo-font-inv {
 /*==================================================
 =               Navigation, Footer                 =
 ==================================================*/
+
 
 /*==========          Wrap         ==========*/
 
@@ -782,8 +757,61 @@ h5#mm-index-h5 {
 ==================================================*/
 
 
-/*=========    Restaurants Index   ==========*/
+/*=========    Restaurants Post    ==========*/
+
+.mm-post {
+	padding: 0;
+}
+
+.mm-sd-pdd {
+	padding: 0;
+}
+
+.mm-bt-pdd {
+	padding-bottom: 1em;
+}
 
 li.disabled {
 	display: none;
 }
+
+.mm-posts {
+	padding: 0.5em;
+	border-radius: 0.5em;
+	h1 {
+		margin: 0;
+	}
+} 
+
+.mm-rest-info-row {
+	margin: 0;
+}
+
+.mm-rest-info {
+	background-color: white;
+	border-radius: 0.5em;
+	margin-bottom: 0.5em;
+	.mm-rest-info-title {
+		background-color: $mm-bg-title;
+		border-radius: 0.5em 0.5em 0 0;
+		padding: 0.5em 0.4em;
+		h1 {
+			font-size: 1.8em;
+		}
+	}
+	.mm-rest-info-cts {
+		border-bottom: solid 1px grey;
+		.mm-rest-info-img {
+			height: 20px;
+		}
+		.mm-rest-info-tb {
+			padding: 5px;
+		}
+	}
+	.mm-rest-info-ft {
+	}
+}
+
+
+
+

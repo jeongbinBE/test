@@ -1,0 +1,44 @@
+<div class="mm-rest-info">
+	<div class="mm-rest-info-title">
+		<h1><%= restaurant.name %></h1>
+	</div>
+	
+	<div class="mm-rest-info-cts">
+		<div class="row mm-rest-info-row">
+		
+			<div class="col-xs-3">
+				<div class="mm-rest-info-img">
+				</div>
+			</div>
+
+			<div class="col-xs-9">
+				<div class="mm-rest-info-tb">
+				
+					<table class=table">
+						<tr>
+							<th>분류: </th>
+							<td><%= restaurant.sub_cat %></td>
+						</tr>
+						<tr>
+							<th>전화번호: </th>
+							<td><%= restaurant.phnum %></td>
+						</tr>
+						<tr>
+							<th>주소: </th>
+							<td><%= restaurant.addr %></td>
+						</tr>
+						<tr class="hidden-xs">
+							<th>영업시간: </th>
+							<td></td>
+						</tr>
+					</table>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="mm-rest-info-ft">
+	</div>
+</div>

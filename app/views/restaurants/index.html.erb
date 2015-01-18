@@ -1,9 +1,19 @@
-<% @restaurants.each do |restaurant| %>
-	<p><%= restaurant.name %></p>
-	<p><%= restaurant.addr %></p>
-	<p><%= restaurant.sub_cat  %></p>
-<% end %>
+<!-- Restaurant Post page -->
+<div class="container mm-post">
+	<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 mm-sd-pdd">
+		<div class="mm-bt-pdd">
+			<div class="mm-posts">
+				<%= render @restaurants %>
+				<%= will_paginate @restaurants,	outer_window: -1 %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function(){
+			$("ul.pagination").addClass("pagination-sm");
+	});
+</script>
 
 
-
-<%= will_paginate @restaurants, :outer_window => -1 %>
