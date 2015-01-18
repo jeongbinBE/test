@@ -7,7 +7,9 @@ class RestKey < ActiveRecord::Base
 
 		# search algorithm for restaurant index page
 		def search(delivery, category, name, address)
-			@rest_key = RestKey.filter_delivery(delivery).filter_category(category) 
+			@rest_key = RestKey.all
+			@rest_key = @rest_key.filter_delivery(delivery) if delivery == "1"
+			@rest_key = @rest_key.filter_category(category) 
 			@rest_key = @rest_key.filter_name(name) 			unless name.blank?
 			@rest_key = @rest_key.filter_address(address) unless address.blank?
 			@rest_key
