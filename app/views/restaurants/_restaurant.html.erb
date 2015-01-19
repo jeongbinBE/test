@@ -6,29 +6,35 @@
 	<div class="mm-rest-info-cts">
 		<div class="row mm-rest-info-row">
 		
-			<div class="col-xs-3">
+			<div class="col-xs-4">
 				<div class="mm-rest-info-img">
 				</div>
 			</div>
 
-			<div class="col-xs-9">
+			<div class="col-xs-8">
 				<div class="mm-rest-info-tb">
 				
 					<table class=table">
 						<tr>
-							<th>분류: </th>
-							<td><%= restaurant.sub_cat %></td>
+							<th>분류 :</th>
+							<td>
+								<span class="hidden-xs">
+									<%= restaurant.cat %>
+									<span class="glyphicon glyphicon-chevron-right"></span>
+								</span>
+								<%= restaurant.sub_cat %>
+							</td>
 						</tr>
 						<tr>
-							<th>전화번호: </th>
+							<th>지역 :</th>
+							<td><%= short_addr(restaurant.addr) %></td>
+						</tr>
+						<tr>
+							<th>전화 :</th>
 							<td><%= restaurant.phnum %></td>
 						</tr>
-						<tr>
-							<th>주소: </th>
-							<td><%= restaurant.addr %></td>
-						</tr>
-						<tr class="hidden-xs">
-							<th>영업시간: </th>
+						<tr> 
+							<th>영업 :</th>
 							<td></td>
 						</tr>
 					</table>
@@ -40,5 +46,13 @@
 	</div>
 
 	<div class="mm-rest-info-ft">
+		<% if restaurant.delivery %>
+			<span class="label label-info mm-rest-info-label">
+				배달가능 업소
+			</span>
+		<% end %>
+		<span class="label mm-rest-info-label label-<%= css_on_menu(restaurant.menu_on) %>">
+			<%= words_on_menu(restaurant.menu_on) %>
+		</span>
 	</div>
 </div>

@@ -763,55 +763,144 @@ h5#mm-index-h5 {
 	padding: 0;
 }
 
-.mm-sd-pdd {
-	padding: 0;
-}
-
-.mm-bt-pdd {
-	padding-bottom: 1em;
-}
-
-li.disabled {
-	display: none;
-}
-
-.mm-posts {
-	padding: 0.5em;
+.mm-post-in {
+	padding: 0.5em 0.5em 0em;
 	border-radius: 0.5em;
 	h1 {
 		margin: 0;
 	}
 } 
 
+.mm-sd-pdd {
+	padding: 0;
+}
+
+li.disabled {
+	display: none;
+}
+
 .mm-rest-info-row {
 	margin: 0;
 }
 
 .mm-rest-info {
+	max-width: 600px;
 	background-color: white;
 	border-radius: 0.5em;
-	margin-bottom: 0.5em;
+	margin: 1em 0 0.5em;
+	box-shadow: 0.3em 0.5em 0.5em $mm-border-grey;
+	&:first-child {
+		margin-top: 0;
+	}
 	.mm-rest-info-title {
-		background-color: $mm-bg-title;
+		background-color: #f0f0f0;
 		border-radius: 0.5em 0.5em 0 0;
-		padding: 0.5em 0.4em;
+		padding: 0.8em 1.3em 0.5em;
+		color: #6f6d6d;
 		h1 {
-			font-size: 1.8em;
+			font-size: 1.5em;
+			font-weight: bold;
 		}
 	}
 	.mm-rest-info-cts {
-		border-bottom: solid 1px grey;
+		border-bottom: solid 1px $mm-border-grey;
 		.mm-rest-info-img {
 			height: 20px;
 		}
 		.mm-rest-info-tb {
 			padding: 5px;
+			color: #6f6d6d;
+			th {
+				min-width: 3em;
+			}
 		}
 	}
 	.mm-rest-info-ft {
+		text-align: right;
+		padding: 0.2em 0.5em 0.4em;
 	}
 }
 
+.mm-rest-info-label {
+	margin: 0.3em;
+}
 
+@media (min-width: 768px) {
+	.mm-post-in {
+		padding: 0 2em;
+	}
+}
 
+@media (min-width: 992px) {
+	.mm-post {
+		margin-top: -1.5em;
+	}
+	.mm-post-in {
+		padding: 0 4em;
+		.mm-rest-info {
+			margin: 2em 0;
+			.mm-rest-info-title {
+				padding: 1em 2em;
+				h1 {
+					font-size: 1.8em;
+				}
+			}
+			tr {
+				line-height: 2em;
+				td {
+					padding: 0 0.5em;
+					span {
+						.glyphicon {
+							padding: 0 0.5em;
+						}
+					}
+				}
+			}
+			.mm-rest-info-ft {
+				padding: 0.7em;
+				span.label {
+					margin: 0.5em;
+				}
+			}
+		}
+	}
+	.mm-post-in {
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+}
 
+/* pagination part */
+
+.mm-wpg {
+	text-align: center;
+	max-width: 600px;
+}
+
+.pagination {
+	margin: 0;
+	ul.pagination {
+		margin: 1em 0;
+		a {
+			color: $mm-mc-orange;
+			border: solid 1px #dddddd;
+			font-weight: bold;
+			&:hover, &:focus {
+				color: $mm-mc-org-d;
+				background-color: #eeeeee;
+				border-color: #dddddd;
+			}
+		}
+		li.active a {
+			background-color: #f5f5f5;
+			color: #aea79f;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.pagination ul.pagination {
+		margin: 0.5em 0 1.5em;
+	}
+}
