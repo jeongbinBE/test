@@ -12,6 +12,9 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+		@restaurant = Restaurant.find(params[:id])
+		@titles = @restaurant.menu_titles
+		@menus = @restaurant.menus
   end
 
 end

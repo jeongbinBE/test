@@ -1,0 +1,3 @@
+<% @menus.where(menu_title_id: title.id).each do |menu| %>
+	<p><%= menu.menu_name %></p>
+<% end %>

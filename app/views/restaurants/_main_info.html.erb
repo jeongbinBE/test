@@ -1,6 +1,6 @@
 <div class="mm-rest-info">
 	<div class="mm-rest-info-title">
-		<h1><%= link_to restaurant.name, restaurant %></h1>
+		<h1><%= @restaurant.name %></h1>
 	</div>
 	
 	<div class="mm-rest-info-cts">
@@ -19,19 +19,19 @@
 							<th>분류 :</th>
 							<td>
 								<span class="hidden-xs">
-									<%= restaurant.cat %>
+									<%= @restaurant.cat %>
 									<span class="glyphicon glyphicon-chevron-right"></span>
 								</span>
-								<%= restaurant.sub_cat %>
+								<%= @restaurant.sub_cat %>
 							</td>
 						</tr>
 						<tr>
 							<th>지역 :</th>
-							<td><%= short_addr(restaurant.addr) %></td>
+							<td><%= short_addr(@restaurant.addr) %></td>
 						</tr>
 						<tr>
 							<th>전화 :</th>
-							<td><%= restaurant.phnum %></td>
+							<td><%= @restaurant.phnum %></td>
 						</tr>
 						<tr> 
 							<th>영업 :</th>
@@ -46,13 +46,14 @@
 	</div>
 
 	<div class="mm-rest-info-ft">
-		<% if restaurant.delivery %>
+		<% if @restaurant.delivery %>
 			<span class="label label-info mm-rest-info-label">
 				배달가능 업소
 			</span>
 		<% end %>
-		<span class="label mm-rest-info-label label-<%= css_on_menu(restaurant.menu_on) %>">
-			<%= words_on_menu(restaurant.menu_on) %>
+		<span class="label mm-rest-info-label label-<%= css_on_menu(@restaurant.menu_on) %>">
+			<%= words_on_menu(@restaurant.menu_on) %>
 		</span>
 	</div>
 </div>
+

@@ -1,2 +1,16 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+<!-- Restaurant Show page -->
+<div class="container mm-post">
+	<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 mm-sd-pdd">
+		<div class="mm-post-in">
+
+			<!-- restaurant basic information -->
+			<%= render "restaurants/main_info" %>
+			<% if @restaurant.menu_titles.any? %>
+				<%= render "restaurants/menu_title" %>
+			<% else %>
+				<h1>메뉴를 제발 입력해주세요</h1>
+			<% end %>
+
+		</div>
+	</div>
+</div>

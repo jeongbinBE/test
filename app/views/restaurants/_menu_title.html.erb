@@ -1,0 +1,19 @@
+<div class="mm-rest-info">
+	<% @titles.each do |title| %>
+		<div class="mm-rest-info-title">
+			<h1><%= title.title_name %></h1>
+		</div>
+		
+		<div class="mm-rest-info-cts">
+			<div class="row mm-rest-info-row">
+				<h2><%= title.title_info %></h2>
+			</div>
+		</div>
+		
+		<div class="mm-rest-info-ft">
+			<% @menus.where(menu_title_id: title.id).each do |menu| %>
+				<p><%= menu.menu_name %></p>
+			<% end %>
+		</div>
+	<% end %>
+</div>
