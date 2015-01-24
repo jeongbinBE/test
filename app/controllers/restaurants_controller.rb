@@ -8,7 +8,7 @@ class RestaurantsController < ApplicationController
 		@search_cat  = params[:sub_category]
 		@search_deliver = params[:delivery]
 
-		@restaurants = Restaurant.joins(:rest_key).merge(RestKey.search(@search_deliver, @search_cat, @search_name, @search_addr)).paginate(:page => params[:page])
+		@restaurants = Restaurant.joins(:rest_key).merge(RestKey.search(@search_deliver, @search_cat, @search_name, @search_addr)).paginate(:page => params[:page]).order('menu_on DESC')
   end
 
   def show
