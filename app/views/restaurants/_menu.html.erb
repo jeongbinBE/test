@@ -1,3 +1,22 @@
-<% @menus.where(menu_title_id: title.id).each do |menu| %>
-	<p><%= menu.menu_name %></p>
-<% end %>
+<div class="mm-menu-info">
+	<% @menus.where(menu_title_id: title.id).each do |menu| %>
+		<p>
+			<span class="mm-menu-width">
+				<span class="mm-menu-name">
+					<%= menu.menu_name %>
+				</span>
+				<span class="mm-menu-side-info">
+					<%= menu.menu_side_info %>
+				</span>
+			</span>
+			<span class="mm-menu-price">
+				<%= number_with_delimiter(menu.menu_price, delimiter: ',') %> 원 
+			</span>
+		</p>
+		<% if menu.menu_info %>
+			<p class="mm-menu-info">
+				<%= menu.menu_info %>
+			</p>
+		<% end %>
+	<% end %>
+</div>

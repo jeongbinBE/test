@@ -1,6 +1,6 @@
 <div class="mm-rest-info">
 	<div class="mm-rest-info-title">
-		<h1><%= @restaurant.name %></h1>
+		<h1 class="mm-rest-name"><%= @restaurant.name %></h2>
 	</div>
 	
 	<div class="mm-rest-info-cts">
@@ -8,6 +8,10 @@
 		
 			<div class="col-xs-4">
 				<div class="mm-rest-info-img">
+					<p class="mm-rest-img-rpm">
+						<span class="mm-logo-font">MenuMap</span>
+						<span class="mm-rest-img-ing">사진 준비중...</span>
+					</p>
 				</div>
 			</div>
 
@@ -31,7 +35,13 @@
 						</tr>
 						<tr>
 							<th>전화 :</th>
-							<td><%= @restaurant.phnum %></td>
+							<td>
+								<% unless @restaurant.phnum.blank? %>
+									<%= @restaurant.phnum %>
+									<a href="tel://<%= @restaurant.phnum %>" class="visible-xs-inline">
+									<span class="glyphicon glyphicon-earphone"></span></a>
+								<% end %>
+							</td>
 						</tr>
 						<tr> 
 							<th>영업 :</th>

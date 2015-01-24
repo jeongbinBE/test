@@ -23,4 +23,20 @@ module RestaurantsHelper
 			"메뉴 미등록"
 		end
 	end
+
+	def delivery_css(arg)
+		if arg
+			"del"
+		elsif
+			"nodel"
+		end
+	end
+
+	def two_menus(arg)
+		if arg[1].blank?
+			arg[0].menu_name
+		elsif
+			arg[0].menu_name + ", " + arg[1].menu_name
+		end
+	end
 end

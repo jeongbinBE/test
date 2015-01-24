@@ -1,7 +1,7 @@
 <div class="mm-rest-info">
 	<a href="/restaurants/<%= restaurant.id %>">
 	<div class="mm-rest-info-title">
-		<h2 class="mm-rest-name"><%= restaurant.name %></h2>
+		<h1 class="mm-rest-name"><%= restaurant.name %></h2>
 	</div>
 	</a>
 	
@@ -11,7 +11,8 @@
 			<div class="col-xs-4">
 				<div class="mm-rest-info-img">
 					<p class="mm-rest-img-rpm">
-						<span class="mm-logo-font">MenuMap</span>
+						<span class="mm-logo-font">MenuMap</span><br />
+						<span class="mm-rest-img-ing">사진 준비중...</span>
 					</p>
 				</div>
 			</div>
@@ -58,17 +59,10 @@
 
 	<div class="mm-rest-info-ft">
 		<% unless restaurant.menus.blank? %>
-			<% if restaurant.delivery %>
-				<p class="mm-menu-best mm-menu-best-del">
-					대표메뉴: <%= restaurant.menus[0].menu_name %>, 
-										<%= restaurant.menus[1].menu_name %>
-				</p>
-			<% elsif %>
-				<p class="mm-menu-best mm-menu-best-nodel">
-					대표메뉴: <%= restaurant.menus[0].menu_name %>, 
-										<%= restaurant.menus[1].menu_name %>
-				</p>
-			<% end %>
+			<p class="mm-menu-best mm-menu-best-<%= delivery_css(restaurant.delivery) %>">
+				대표메뉴: <%= restaurant.menus[0].menu_name %>, 
+									<%= restaurant.menus[1].menu_name %>
+			</p>
 		<% end %>
 		<% if restaurant.delivery %>
 			<span class="label label-info mm-rest-info-label">
