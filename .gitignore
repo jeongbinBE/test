@@ -27,5 +27,8 @@
 # csv data for import
 /public/seed_data
 
-# favicon file
+# favicon, image files
 /public/*.ico
+/public/*.jpg
+/public/*.png
+/public/*.jpeg

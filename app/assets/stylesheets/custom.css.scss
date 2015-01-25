@@ -1060,15 +1060,36 @@ h2.mm-menu-h2 {
 .mm-gm {
 	width: 100%;
 	max-width: 600px;
-	height: 250px;
+	height: 230px;
 	margin: 0 auto;
+	border-radius: 0.5em;
+	box-shadow: 0.3em 0.5em 0.5em #e5e5e5;
+}
+
+#map-infowindow {
+	margin-top: 5px;
+	img {
+		width: 15px;
+		height: 15px;
+		margin-right: 3px;
+		margin-top: -2px;
+	}
 }
 
 #map-canvas {
 	height: 100%;
+	width: 100%;
+	border-radius: 0.5em;
 }
 
-
+@media (min-width: 992px) {
+	.mm-gm {
+		height: 300px;
+	}
+	#map-infowindow {
+		margin-top: 2px;
+	}
+}
 
 /* menu */
 

@@ -19,7 +19,10 @@ function googleMap() {
       });
 
       var infoWindow = new google.maps.InfoWindow({
-          content: '<div id="map_infowindow">' + restName + '</div>'
+          content: '<div id="map-infowindow">' + 
+									 '<img src="/logo.jpg" />' +
+									 restName + 
+									 '</div>'
           //map_info css에 ::before로 image 삽입.
       });
       infoWindow.open(map, marker);
