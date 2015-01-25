@@ -1001,11 +1001,24 @@ h2.mm-menu-h2 {
 	font-size: 1.5em;
 	font-weight: bold;
 	color: #6f6d6d;
+	display: inline-block;
+}
+
+p.mm-menu-p-warning {
+	font-size: 10px;
+	color: #6f6d6d;
+	line-height: 3.5em;
+	float: right;
+	margin-right: -1em;
 }
 
 @media (min-width: 992px) {
 	h2.mm-menu-h2 {
 		font-size: 1.8em;
+	}
+	p.mm-menu-p-warning {
+		font-size: 11px;
+		line-height: 4.5em;
 	}
 }
 	
