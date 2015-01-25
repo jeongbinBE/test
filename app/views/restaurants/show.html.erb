@@ -5,6 +5,15 @@
 
 			<!-- restaurant main information -->
 			<%= render "restaurants/main_info" %>
+
+			<!-- google maps -->
+			<div class="mm-gm">
+				<div id="map-canvas"></div>
+			</div>
+			<div class="hidden" id="restaurant_address"><%= @restaurant.addr %></div>
+			<div class="hidden" id="restaurant_name"><%= @restaurant.name %></div>
+
+			<!-- menu section -->
 			<% if @restaurant.menu_titles.any? %>
 				<%= render "restaurants/menu_title" %>
 			<% else %>

@@ -8,7 +8,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Ubuntu);
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans);
 
 
@@ -1055,6 +1054,21 @@ h2.mm-menu-h2 {
 		overflow: hidden;
 	}
 }
+
+/* Google maps */
+
+.mm-gm {
+	width: 100%;
+	max-width: 600px;
+	height: 250px;
+	margin: 0 auto;
+}
+
+#map-canvas {
+	height: 100%;
+}
+
+
 
 /* menu */
 

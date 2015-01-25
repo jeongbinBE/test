@@ -1,0 +1,43 @@
+function googleMap() {
+  var geocoder = new google.maps.Geocoder();
+  var restAddr = document.getElementById('restaurant_address').innerHTML;
+  var restName = document.getElementById('restaurant_name').innerHTML;
+  geocoder.geocode( { 'address': restAddr}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      var restLatLng = results[0].geometry.location
+
+      var mapOptions = {
+          zoom: 15,
+          center: restLatLng
+      };
+      var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+
+      var marker = new google.maps.Marker({
+          map: map,
+          //icon: "/assets/icon.jpg",
+          position: restLatLng
+      });
+
+      var infoWindow = new google.maps.InfoWindow({
+          content: '<div id="map_infowindow">' + restName + '</div>'
+          //map_info css에 ::before로 image 삽입.
+      });
+      infoWindow.open(map, marker);
+      google.maps.event.addListener(marker, 'click', function() {
+        infoWindow.open(map, marker);
+      });
+
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+
+function loadGoogleMaps() {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+	script.src = 'http://maps.googleapis.com/maps/api/js?key=AIzaSyB0s-wKE2YW_rreU6vcxkaR44MPzOa4JKg&sensor=false&callback=googleMap';
+  document.body.appendChild(script);
+}
+
+window.onload = loadGoogleMaps;
