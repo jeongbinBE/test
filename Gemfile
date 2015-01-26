@@ -14,6 +14,11 @@ gem 'sass-rails',   	'~> 4.0.0'
 gem 'will_paginate',  					'3.0.7'
 gem 'bootstrap-will_paginate',  '0.0.10'
 
+# Image uploads
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

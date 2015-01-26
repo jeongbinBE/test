@@ -17,4 +17,20 @@ class RestaurantsController < ApplicationController
 		@menus = @restaurant.menus
   end
 
+	def update
+		@restaurant = Restaurant.find(params[:id])
+		if @restaurant.update_attributes(restaurant_params)
+			flash[:success] = "업소 사진을 저장했습니다."
+			redirect_to @restaurant
+		else
+			flash[:error] = "사진 저장에 실패했습니다."
+			redirect_to @restaurant
+		end
+	end
+
+	private
+		
+		def restaurant_params
+			params.require(:restaurant).permit(:picture)
+		end
 end

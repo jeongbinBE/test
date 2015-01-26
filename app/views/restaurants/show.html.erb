@@ -6,6 +6,27 @@
 			<!-- restaurant main information -->
 			<%= render "restaurants/main_info" %>
 
+			<!-- image uploader -->
+			<% if logged_in? %>
+				<%= form_for(@restaurant, html: { mulipart: true }) do |f| %>
+					<%= f.file_field :picture, accept: 'image/jpeg, image/gif, image/png' %>
+					<label>
+						<%= f.check_box :remove_picture %>
+						사진 지우기
+					</label>
+					<%= f.submit "사진 올리기", class: "btn btn-primary" %>
+				<% end %>
+			<% end %>
+
+			<script type="text/javascript">
+				$('#restaurant_picture').bind('change', function() {
+					size_in_megabytes = this.files[0].size/1024/1024;
+					if (size_in_megabytes > 5) {
+						alert('최대 사진 크기는 5MB입니다.');
+					}
+				});
+			</script>
+
 			<!-- google maps -->
 			<div class="mm-gm">
 				<div id="map-canvas"></div>

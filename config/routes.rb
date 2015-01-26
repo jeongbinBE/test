@@ -30,7 +30,7 @@ MenuMap::Application.routes.draw do
 	resources :password_resets, only: [:new, :create, :edit, :update]
 
 	# Restaurants' index and page
-	resources :restaurants, only: [:index, :show]
+	resources :restaurants, only: [:index, :show, :update]
 
 	#	resources :users, except: [:show, :new]
 	# resoucees should be at the bottom because of the priority issue.

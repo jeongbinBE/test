@@ -59,15 +59,6 @@ class UsersController < ApplicationController
 
 		# Before filters
 
-		# check if a user is logged in?
-		def logged_in_user?
-			unless logged_in?
-				store_location
-				flash[:danger] = "로그인을 해주세요."
-				redirect_to login_url
-			end
-		end
-
 		def correct_user?
 			@user = User.find_by(username: params[:username])
 			redirect_to(root_url) unless current_user?(@user)

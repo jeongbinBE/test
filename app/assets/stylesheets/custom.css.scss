@@ -827,6 +827,23 @@ li.disabled {
 	}
 }
 
+.mm-rest-info-img > img {
+	height: 100%;
+	width: 100%;
+}
+
+.mm-post-in {
+	form.edit_restaurant {
+		#restaurant_picture {
+			display: inline;
+		}
+		input:last-child {
+			display: inline;
+			float: right;
+		}
+	}
+}
+	
 .mm-rest-info-row > .col-xs-8 {
 	padding: 5px 20px;
 }
