@@ -6,6 +6,9 @@ class Restaurant < ActiveRecord::Base
 	has_many :menu_titles, dependent: :destroy
 	has_many :menus, through: :menu_titles
 
+	# order for posts
+	default_scope -> { order(updated_at: :desc) }
+
 	# for restaurant index page's pagination.
 	self.per_page = 10
 end

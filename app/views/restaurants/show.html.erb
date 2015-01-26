@@ -17,7 +17,7 @@
 			<% if @restaurant.menu_titles.any? %>
 				<%= render "restaurants/menu_title" %>
 			<% else %>
-				<h1>메뉴를 제발 입력해주세요</h1>
+				<%= render "restaurants/no_menu_title" %>
 			<% end %>
 
 		</div>
