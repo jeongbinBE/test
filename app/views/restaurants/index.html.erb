@@ -3,17 +3,22 @@
 	<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 mm-sd-pdd">
 		<div class="mm-post-in">
 
-			<!-- Individual restaurants -->
-			<%= render @restaurants %>
+			<% if @restaurants.blank? %>
+				<%= render 'no_posts' %>
 
-			<!-- Pagination -->
-			<div class="mm-wpg visible-xs-block">
-				<%= will_paginate @restaurants,	inner_window: 3, outer_window: -1 %>
-			</div>
+			<% else %>
+				<!-- Individual restaurants -->
+				<%= render @restaurants %>
 
-			<div class="mm-wpg hidden-xs">
-				<%= will_paginate @restaurants, outer_window: -1 %>
-			</div>
+				<!-- Pagination -->
+				<div class="mm-wpg visible-xs-block">
+					<%= will_paginate @restaurants,	inner_window: 3, outer_window: -1 %>
+				</div>
+
+				<div class="mm-wpg hidden-xs">
+					<%= will_paginate @restaurants, outer_window: -1 %>
+				</div>
+			<% end %>
 
 		</div>
 	</div>
