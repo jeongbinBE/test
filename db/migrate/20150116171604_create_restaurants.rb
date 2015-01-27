@@ -6,8 +6,8 @@ class CreateRestaurants < ActiveRecord::Migration
       t.string :sub_cat
       t.string :addr
       t.string :phnum
-      t.boolean :delivery
-      t.integer :menu_on
+      t.boolean :delivery, default: false
+      t.integer :menu_on,  default: 0
 
       t.timestamps
     end

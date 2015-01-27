@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20150126125212) do
     t.integer  "cat_code"
     t.string   "name"
     t.text     "addr"
-    t.boolean  "delivery"
+    t.boolean  "delivery",      default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 20150126125212) do
     t.string   "sub_cat"
     t.string   "addr"
     t.string   "phnum"
-    t.boolean  "delivery"
-    t.integer  "menu_on"
+    t.boolean  "delivery",   default: false
+    t.integer  "menu_on",    default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "picture"

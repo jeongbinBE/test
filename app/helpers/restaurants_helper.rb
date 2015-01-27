@@ -27,7 +27,7 @@ module RestaurantsHelper
 	def delivery_css(arg)
 		if arg
 			"del"
-		elsif
+		else
 			"nodel"
 		end
 	end
@@ -35,7 +35,7 @@ module RestaurantsHelper
 	def two_menus(arg)
 		if arg[1].blank?
 			arg[0].menu_name
-		elsif
+		else
 			arg[0].menu_name + ", " + arg[1].menu_name
 		end
 	end
