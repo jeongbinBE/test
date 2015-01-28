@@ -32,9 +32,10 @@ end
 
 namespace :db do
 	task :categories => :environment do
-		CSV.foreach('public/seed_data/categories.csv') do |row|
+		CSV.foreach('public/seed_data/categories_20150128.csv') do |row|
 			record = Category.new(
-				:name => row[0]
+				:id => row[0],
+				:name => row[1]
 			)
 			record.save!
 		end
