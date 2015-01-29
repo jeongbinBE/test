@@ -33,6 +33,16 @@ class RestaurantsController < ApplicationController
 		@page_title += "(" + @restaurant.sub_cat
 		@page_title += " 배달가능" if @restaurant.delivery
 		@page_title += ") || MenuMap"
+
+		# for description
+		title_addr = @restaurant.rest_info.title_addr
+		title_menu = []
+		@menus.take(5).each do |menu|
+			title_menu << menu.menu_name.to_s + menu.menu_side_info.to_s
+		end
+		title_menu = title_menu.join(", ")
+		
+		@page_description = "#{title_addr}지역에 위치한 #{"배달가능" if @restaurant.delivery} 음식점 #{@restaurant.name}(#{@restaurant.cat}, #{@restaurant.sub_cat})은 #{title_menu} 메뉴를 제공하고 있습니다. 주소는 #{@restaurant.addr}#{", 전화번호는 " if @restaurant.phnum}#{@restaurant.phnum if @restaurant.phnum}입니다."
   end
 
 	def update
