@@ -7,7 +7,7 @@ class Restaurant < ActiveRecord::Base
 	has_many :menus, through: :menu_titles
 
 	# order for posts
-	default_scope -> { order(updated_at: :desc) }
+	default_scope -> { order(menu_on: :desc, updated_at: :desc) }
 
 	# image upload
 	mount_uploader :picture, PictureUploader
