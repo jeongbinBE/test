@@ -129,11 +129,95 @@
 		</div>
 
 		<div class="row">
-			<div>
+			<div class="mm-ins-02">
 				<h6 class="mm-index-h6 mm-index-h6-2nd"><span class="mm-logo-font">Step 2.</span> 포스트</h6>
+				<a href="#">
 				<div class="col-md-6 col-md-push-6">
-					<div class="intro-image2"></div>
+
+					<% @restaurants.each do |restaurant| %>
+					<div class="mm-rest-info">
+						<div class="mm-rest-info-title">
+							<h1 class="mm-rest-name mm-ins-02-h1"><%= restaurant.name %></h2>
+						</div>
+						
+						<div class="mm-rest-info-cts">
+							<div class="row mm-rest-info-row">
+							
+								<div class="col-xs-4">
+									<div class="mm-rest-info-img">
+										<% if restaurant.picture? %>
+											<%= image_tag restaurant.picture.url(:thumb), class: "img-rounded" %>
+										<% else %>
+											<p class="mm-rest-img-rpm">
+												<span class="mm-logo-font">MenuMap</span>
+												<span class="mm-rest-img-ing">사진 준비중...</span>
+											</p>
+										<% end %>
+									</div>
+								</div>
+
+								<div class="col-xs-8">
+									<div class="mm-rest-info-tb">
+									
+										<table class=table">
+											<tr>
+												<th>분류 :</th>
+												<td>
+													<span class="hidden-xs">
+														<%= restaurant.cat %>
+														<span class="glyphicon glyphicon-chevron-right"></span>
+													</span>
+													<%= restaurant.sub_cat %>
+												</td>
+											</tr>
+											<tr>
+												<th>지역 :</th>
+												<td><%= short_addr(restaurant.addr) %></td>
+											</tr>
+											<tr>
+												<th>전화 :</th>
+												<td>
+													<% unless restaurant.phnum.blank? %>
+														<%= restaurant.phnum %>
+														<a href="tel://<%= restaurant.phnum %>" class="visible-xs-inline">
+														<span class="glyphicon glyphicon-earphone"></span></a>
+													<% end %>
+												</td>
+											</tr>
+											<tr> 
+												<th>영업 :</th>
+												<td></td>
+											</tr>
+										</table>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="mm-rest-info-ft">
+							<% unless restaurant.menus.blank? %>
+								<p class="mm-menu-best mm-menu-best-<%= delivery_css(restaurant.delivery) %>">
+									대표메뉴: <%= restaurant.menus[0].menu_name %> 
+														<%= ", " + restaurant.menus[1].menu_name if restaurant.menus[1] %>
+								</p>
+							<% end %>
+							<% if restaurant.delivery %>
+								<span class="label label-info mm-rest-info-label">
+									배달가능 업소
+								</span>
+							<% end %>
+							<span class="label mm-rest-info-label label-<%= css_on_menu(restaurant.menu_on) %>">
+								<%= words_on_menu(restaurant.menu_on) %>
+							</span>
+						</div>
+					</div>
+					<% end %>
+
 				</div>
+				</a>
+
 				<div class="col-md-6 col-md-pull-6 mm-index-step-contents">
 					<p>객관적인 필터링으로</p>
 					<p>자신이 입력한 조건에 맞는</p>
