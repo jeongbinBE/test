@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title_addr: MyString
+  gm_addr: MyString
+
+two:
+  title_addr: MyString
+  gm_addr: MyString

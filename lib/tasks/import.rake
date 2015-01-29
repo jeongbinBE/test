@@ -108,6 +108,24 @@ end
 # Restaurant and RestKey
 
 namespace :db do
+	task :restaurants => :environment do
+		CSV.foreach('public/seed_data/restaurants_20150128.csv') do |row|
+			record = Restaurant.new(
+				:id => row[0],
+				:cat => row[1],
+				:sub_cat => row[2],
+				:name => row[3],
+				:addr => row[4],
+				:phnum => row[5],
+				:delivery => row[6],
+				:menu_on => row[7]
+			)
+			record.save!
+		end
+	end
+end
+
+namespace :db do
 	task :rest_keys => :environment do
 		CSV.foreach('public/seed_data/rest_keys_20150128.csv') do |row|
 			record = RestKey.new(
@@ -124,19 +142,13 @@ namespace :db do
 end
 
 namespace :db do
-	task :restaurants => :environment do
-		CSV.foreach('public/seed_data/restaurants_20150128.csv') do |row|
-			record = Restaurant.new(
-				:id => row[0],
-				:cat => row[1],
-				:sub_cat => row[2],
-				:name => row[3],
-				:addr => row[4],
-				:phnum => row[5],
-				:delivery => row[6],
-				:menu_on => row[7]
+	task :rest_infos => :environment do
+		CSV.foreach('public/seed_data/rest_infos_20150129.csv') do |row|
+			row[0].to_i == 0 ? n = 1000001 : n = row[0]
+			RestInfo.create(
+				restaurant_id: n,
+				title_addr: row[1]
 			)
-			record.save!
 		end
 	end
 end

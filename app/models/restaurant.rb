@@ -1,6 +1,8 @@
 class Restaurant < ActiveRecord::Base
 
+	# one-to-one with keywords and info.
 	has_one :rest_key, dependent: :destroy
+	has_one :rest_info, dependent: :destroy
 	
 	# restaurant-menu_title-menu associations.
 	has_many :menu_titles, dependent: :destroy
