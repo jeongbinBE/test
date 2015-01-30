@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129051309) do
+ActiveRecord::Schema.define(version: 20150130092644) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20150129051309) do
     t.datetime "updated_at"
   end
 
+  add_index "menu_titles", ["restaurant_id"], name: "index_menu_titles_on_restaurant_id", using: :btree
+
   create_table "menus", force: true do |t|
     t.integer  "menu_title_id"
     t.string   "menu_name"
@@ -43,6 +45,8 @@ ActiveRecord::Schema.define(version: 20150129051309) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "menus", ["menu_title_id"], name: "index_menus_on_menu_title_id", using: :btree
 
   create_table "rest_infos", force: true do |t|
     t.string   "title_addr"
