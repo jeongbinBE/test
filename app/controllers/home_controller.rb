@@ -9,7 +9,7 @@ class HomeController < ApplicationController
 
 		# instruction for posts
 		@restaurants = Restaurant.where("id = ? OR id = ? OR id = ?", 
-																		 1000001, 1000234, 1158881)
+																		 1000000, 1000234, 1158881)
 
 		# instruction for page
 

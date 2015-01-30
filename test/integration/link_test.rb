@@ -15,6 +15,6 @@ class NavigationLinkTest < ActionDispatch::IntegrationTest
 
 	test "Brandpage should have adequate path" do
 		get root_path
-		assert_select 'a[href=?]', search_path, count: 3
+		assert_select 'a[href=?]', search_path, count: 4
 	end
 end
