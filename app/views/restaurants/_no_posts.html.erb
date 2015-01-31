@@ -1,7 +1,8 @@
 <div class="mm-no-posts">	
 	<div class="mm-no-posts-query">
 		<h1 class="mm-no-posts-h1">
-			<span class="mm-logo-font">MenuMap</span> 검색 결과가 없습니다.
+			<span class="mm-logo-font">MenuMap</span>
+			<span>검색 결과가 없습니다.</span>
 		</h1>
 		<table class="table">
 			<tr>
@@ -23,9 +24,9 @@
 			<tr>
 				<th>배달 업소 여부</th>
 				<% if @search_delivery %>
-					<td>배달 가능 업소만 검색</td>
+					<td><span class="mm-logo-font-ko">배달 가능</span> 업소만 검색</td>
 				<% else %>
-					<td>배달 가능, 불가 업소 모두 검색</td>
+					<td><span class="mm-logo-font-ko">배달 가능, 불가</span> 업소 모두 검색</td>
 				<% end %>
 			</tr>
 		</table>
@@ -34,10 +35,23 @@
 	<div class="mm-no-posts-tips">
 		<h2 class="mm-no-posts-h2">검색이 안됐을 때</h2>
 		<h3 class="mm-no-posts-h3">1. 관련이 적은 단어는 띄워주세요!</h3>
-		<p>주소나 업소명은 띄어쓰기에 민감하기 때문에 관련이 적은 단어는 띄어서 써주셔야 검색이 가능합니다. 예) 서울강남 (x) 서울 강남 (o)</p>
+		<p>
+			주소나 업소명은 띄어쓰기에 민감하기 때문에 관련이 적은 단어는 띄어서 
+																								써주셔야 검색이 가능합니다.<br />
+			예) "서울강남" <span class="glyphicon glyphicon-arrow-right"></span>
+ 			"서울 강남"
+		</p>
 		<h3 class="mm-no-posts-h3">2. 아직 <span class="mm-logo-font">MenuMap</span>의 정보가 부정확합니다.</h3>
-		<p>현재 <span class="mm-logo-font">MenuMap</span>의 음식점 분류, 지역 분류, 업소명이 잘못된 경우가 있을 수 있습니다. 더 넓은 범위의 음식 분류 혹은 더 넓은 행정구역으로 찾아주세요. 맨 아래에서 불편하신 사항을 운영진에게 보내주세요</p>
+		<p>
+			현재 <span class="mm-logo-font">MenuMap</span>의 음식점 분류, 지역 분류, 업소명이 잘못된 경우가 있을 수 있습니다.<br />
+			더 넓은 범위의 음식 분류 혹은 더 넓은 지역명으로 찾아주세요.<br />
+			예) 순두부 전문점 <span class="glyphicon glyphicon-arrow-right"></span>
+			한식-전체
+		</p>
 		<h3 class="mm-no-posts-h3">3. 다시 찾으셔도 음식점이 검색되지 않는다면 음식점을 추가할 수 있게 도와주세요!</h3>
-		<p><span class="mm-logo-font">MenuMap</span>은 사용자와 사장님과 함께 만들어가는 지도입니다. <span class="mm-logo-font">MenuMap</span>을 완성할 수 있도록 등록되지 않은 음식점을 추천하셔서 더 나은 검색 환경을 만들어주세요.</p>
+		<p>
+			<span class="mm-logo-font">MenuMap</span>은 사용자와 사장님께서 함께 만들어가는 <br />
+			<span class="mm-logo-font-ko">"지도"</span>입니다. <span class="mm-logo-font">MenuMap</span>을 완성할 수 있도록 등록되지 않은 음식점을 추천하셔서 더 나은 검색 환경을 만들어주세요.
+		</p>
 	</div>
 </div>
