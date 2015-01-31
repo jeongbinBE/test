@@ -8,14 +8,9 @@
 		
 			<div class="col-xs-4">
 				<div class="mm-rest-info-img">
-					<% if @restaurant.picture? %>
-						<%= image_tag @restaurant.picture.url(:thumb), class: "img-rounded" %>
-					<% else %>
-						<p class="mm-rest-img-rpm">
-							<span class="mm-logo-font">MenuMap</span>
-							<span class="mm-rest-img-ing">사진 준비중...</span>
-						</p>
-					<% end %>
+					<p class="mm-rest-img-rpm">
+						<span class="mm-logo-font">MenuMap</span>
+					</p>
 				</div>
 			</div>
 

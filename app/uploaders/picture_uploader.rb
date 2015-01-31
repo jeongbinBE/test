@@ -30,6 +30,10 @@ class PictureUploader < CarrierWave::Uploader::Base
 		process :resize_to_limit => [160, 120]
 	end	
 
+	version :big_size do
+		process :resize_to_limit => [600, 337.5]
+	end	
+
   # Create different versions of your uploaded files:
   # version :thumb do
   #   process :resize_to_fit => [50, 50]

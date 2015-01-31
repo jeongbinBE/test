@@ -13,16 +13,3 @@ User.create(username: 'Jeongbin',
 						admin: 				true,
 						activated: 		true,
 						activated_at: Time.zone.now)
-
-
-29.times do |n|
-	username = Faker::Name.name
-	email = "testversion-#{n+1}@menumap.co.kr"
-	password = "password"
-	User.create!(username:		username,
-							 email: 			email,
-							 password:							password,
-							 password_confirmation: password,
-							 activated: 	 true,
-							 activated_at: Time.zone.now)
-end
