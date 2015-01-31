@@ -14,7 +14,8 @@
 					<div class="form-group" id="mm-search-addr">
 						<%= label_tag :addr, "지역", class: "control-label col-xs-12 col-md-2" %>
 						<div class="col-md-10 mm-search-input">
-							<%= text_field_tag :addr, nil, class: "form-control" %>
+							<%= text_field_tag :addr, nil, class: "form-control", 
+																 placeholder: "예) 서울대, 신촌, 홍대역" %>
 						</div>
 					</div>
 
@@ -43,7 +44,8 @@
 					<div class="form-group">
 						<%= label_tag :name, "업소명", class: "control-label col-xs-12 col-md-2" %>
 						<div class="col-md-10 mm-search-input">
-							<%= text_field_tag :name, nil, class: "form-control" %>
+							<%= text_field_tag :name, nil, class: "form-control", 
+																 placeholder: "업소명을 적어주세요." %>
 						</div>
 					</div>
 

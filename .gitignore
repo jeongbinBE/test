@@ -39,3 +39,6 @@
 
 # precompile assets files
 /public/assets/
+
+# CSV import
+/lib/tasks/import.rake

@@ -63,7 +63,8 @@
 						<div class="form-group" id="mm-search-addr">
 							<%= label_tag :addr, "지역", class: "control-label col-xs-12 col-md-2" %>
 							<div class="col-md-10 mm-search-input">
-								<%= text_field_tag :addr, nil, class: "form-control" %>
+								<%= text_field_tag :addr, nil, class: "form-control", 
+																	 placeholder: "예) 서울대, 신촌, 홍대역" %>
 							</div>
 						</div>
 
@@ -92,7 +93,8 @@
 						<div class="form-group">
 							<%= label_tag :name, "업소명", class: "control-label col-xs-12 col-md-2" %>
 							<div class="col-md-10 mm-search-input">
-								<%= text_field_tag :name, nil, class: "form-control" %>
+								<%= text_field_tag :name, nil, class: "form-control", 
+																	 placeholder: "업소명을 적어주세요." %>
 							</div>
 						</div>
 
@@ -131,13 +133,13 @@
 		<div class="row">
 			<div class="mm-ins-02">
 				<h6 class="mm-index-h6 mm-index-h6-2nd"><span class="mm-logo-font">Step 2.</span> 포스트</h6>
-				<a href="#">
+				<a href="http://menumap.co.kr/restaurants?utf8=%E2%9C%93&addr=&category=1&sub_category=%EC%A0%84%EC%B2%B4&name=&commit=%EA%B2%80%EC%83%89">
 				<div class="col-md-6 col-md-push-6">
 
 					<% @restaurants.each do |restaurant| %>
 					<div class="mm-rest-info">
 						<div class="mm-rest-info-title">
-							<h1 class="mm-rest-name mm-ins-02-h1"><%= restaurant.name %></h2>
+							<h1 class="mm-rest-name mm-ins-02-h1"><%= restaurant.name %></h1>
 						</div>
 						
 						<div class="mm-rest-info-cts">
@@ -185,7 +187,7 @@
 											</tr>
 											<tr> 
 												<th>영업 :</th>
-												<td></td>
+												<td><%= restaurant.open_at %></td>
 											</tr>
 										</table>
 
@@ -198,7 +200,7 @@
 						<div class="mm-rest-info-ft">
 							<% unless restaurant.menus.blank? %>
 								<p class="mm-menu-best mm-menu-best-<%= delivery_css(restaurant.delivery) %>">
-									대표메뉴: <%= restaurant.menus[0].menu_name %> 
+									대표메뉴: <%= restaurant.menus[0].menu_name %>
 														<%= ", " + restaurant.menus[1].menu_name if restaurant.menus[1] %>
 								</p>
 							<% end %>
@@ -227,11 +229,12 @@
 		</div>
 
 		<div class="row">
-			<div>
+			<div class="mm-ins-03">
 				<h6 class="mm-index-h6"><span class="mm-logo-font">Step 3.</span> 상세 페이지</h6>
 				<div class="col-md-6">
-					<div class="intro-image3"></div>
+					<%= render 'menu_titles' %>
 				</div>
+
 				<div class="col-md-6 mm-index-step-contents">
 					<p>상세 페이지를 통해</p>
 					<p>해당 음식점의 메뉴와</p>

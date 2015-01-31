@@ -32,11 +32,11 @@ module RestaurantsHelper
 		end
 	end
 
-	def two_menus(arg)
-		if arg[1].blank?
-			arg[0].menu_name
+	def two_menus(arg1, arg2, arg3, arg4)
+		if arg3.blank?
+			arg1 + arg2
 		else
-			arg[0].menu_name + ", " + arg[1].menu_name
+			arg1 + arg2 + ", " + arg3 + arg4
 		end
 	end
 end

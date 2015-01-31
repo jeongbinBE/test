@@ -1,7 +1,7 @@
 <div class="mm-rest-info">
 	<a href="/restaurants/<%= restaurant.id %>" data-no-turbolink>
 	<div class="mm-rest-info-title">
-		<h1 class="mm-rest-name"><%= restaurant.name %></h2>
+		<h1 class="mm-rest-name"><%= restaurant.name %></h1>
 	</div>
 	</a>
 	
@@ -51,7 +51,7 @@
 						</tr>
 						<tr> 
 							<th>영업 :</th>
-							<td></td>
+							<td><%= restaurant.open_at %></td>
 						</tr>
 					</table>
 
@@ -64,7 +64,7 @@
 	<div class="mm-rest-info-ft">
 		<% unless restaurant.menus.blank? %>
 			<p class="mm-menu-best mm-menu-best-<%= delivery_css(restaurant.delivery) %>">
-				대표메뉴: <%= restaurant.menus[0].menu_name %> 
+				대표메뉴: <%= restaurant.menus[0].menu_name %>
 									<%= ", " + restaurant.menus[1].menu_name if restaurant.menus[1] %>
 			</p>
 		<% end %>

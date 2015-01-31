@@ -29,10 +29,10 @@ class RestaurantsController < ApplicationController
 		@menus = @restaurant.menus
 
 		# for title
-		@page_title = @restaurant.rest_info.title_addr + " " + @restaurant.name
-		@page_title += "(" + @restaurant.sub_cat
+		@page_title = @restaurant.name + "(" + @restaurant.sub_cat + ") - "
+		@page_title += @restaurant.rest_info.title_addr
 		@page_title += " 배달가능" if @restaurant.delivery
-		@page_title += ") || MenuMap"
+		@page_title += " || MenuMap 온라인 메뉴제공 서비스"
 
 		# for description
 		title_addr = @restaurant.rest_info.title_addr

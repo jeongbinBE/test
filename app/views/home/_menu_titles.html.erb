@@ -1,6 +1,6 @@
 <div class="mm-rest-info">
 	<div class="mm-rest-info-title">
-		<h1 class="mm-rest-name"><%= @restaurant.name %></h1>
+		<h1 class="mm-rest-name mm-ins-03-h1"><%= @restaurant.name %></h1>
 	</div>
 	
 	<div class="mm-rest-info-cts">
@@ -70,3 +70,60 @@
 		</span>
 	</div>
 </div>
+
+<!-- google maps -->
+<div class="mm-gm">
+	<div id="map-canvas"></div>
+</div>
+<div class="hidden" id="restaurant_address"><%= @restaurant.addr %></div>
+<div class="hidden" id="restaurant_name"><%= @restaurant.name %></div>
+
+<!-- menu section -->
+<div class="mm-rest-info mm-menu">
+	<div class="mm-rest-info-title">
+		<h2 class="mm-menu-h2">메뉴</h2>
+		<p class="mm-menu-p-warning">실제 매장의 메뉴 및 가격은 다를 수 있습니다.</p>
+	</div>
+	<% @titles.each do |title| %>
+		<div class="mm-menu-title">
+			<div class="mm-menu-title-name" data-toggle="collapse" 
+																 href="#menu-<%= title.id %>">
+				<h3><%= title.title_name %></h3>
+			</div>
+			
+			<div id="menu-<%= title.id %>" class="panel-collapse collapse" >
+				<div class= "mm-menu-toggle">
+					<% if title.title_info %>
+						<div class="mm-menu-title-info">
+							<p><%= title.title_info %></p>
+						</div>
+					<% end %>
+					<div class="mm-menu-info">
+						<% @menus.where(menu_title_id: title.id).each do |menu| %>
+							<p>
+								<span class="mm-menu-width">
+									<span class="mm-menu-name">
+										<%= menu.menu_name %>
+									</span>
+									<span class="mm-menu-side-info">
+										<%= menu.menu_side_info %>
+									</span>
+								</span>
+								<span class="mm-menu-price">
+									<%= number_with_delimiter(menu.menu_price, delimiter: ',') %> 원 
+								</span>
+							</p>
+							<% if menu.menu_info %>
+								<p class="mm-menu-info">
+									<%= menu.menu_info %>
+								</p>
+							<% end %>
+						<% end %>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	<% end %>
+</div>
+
