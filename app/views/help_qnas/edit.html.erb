@@ -1,2 +1,22 @@
-<h1>HelpQnas#edit</h1>
-<p>Find me in app/views/help_qnas/edit.html.erb</p>
+<div class="container mm-field">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-10 col-md-offset-1">
+				
+				<h1 id="mm-field-h1">이 세상 모든 메뉴판이 검색되는 그날까지
+					<span class="mm-logo-font">MenuMap</span>
+				</h1>
+				<legend id="mm-field-legend">help page 업데이트</legend>
+
+				<%= form_for(:help_qna, url: help_qna_path, method: :patch) do |f| %>
+					<%= f.label :help_title, "제목", class: "control-label" %>
+					<%= f.text_field :help_title, class: "form-control" %>
+
+					<%= f.label :help_contents, "내용", class: "control-label" %>
+					<%= f.text_field :help_contents, class: "form-control" %>
+
+					<%= f.submit "변경사항 저장", class: "btn btn-primary mm-btn-orange" %>
+				<% end %>
+				
+		</div>
+	</div>
+</div>

@@ -1,8 +1,5 @@
 MenuMap::Application.routes.draw do
 
-  get "help_qnas/index"
-  get "help_qnas/new"
-  get "help_qnas/edit"
 	# Root page is index and it's also brandpage.
 	root 'home#index'
 
