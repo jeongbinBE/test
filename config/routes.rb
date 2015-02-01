@@ -1,21 +1,29 @@
 MenuMap::Application.routes.draw do
 
+  get "help_qnas/index"
+  get "help_qnas/new"
+  get "help_qnas/edit"
 	# Root page is index and it's also brandpage.
 	root 'home#index'
 
-	# Static pages.
+	# Static pages =============================
   get "manual", 	to:		 "home#manual"
   get "help", 		to: 	 "home#help"
+  get "search", 	to:		 "home#search"
+	
+	# update sub_categories on select box.
+	get "home/update_sub_categories", as: "update_sub_categories"
+
+	# help pages
+	get 	 'help/test', to: 'help_qnas#index'
+	resources :help_qnas, except: [:show, :index]
 
 	get "test",     to:		 "home#test"
 
-	# update sub_categories on select box.
-  get "search", 	to:		 "home#search"
-	get "home/update_sub_categories", as: "update_sub_categories"
 
-	# User pages
-	get  'signup',			to:  'users#signup'
-	post 'signup',      to:  'users#create'
+	# User pages ===============================
+	get		 'signup',	 to:  'users#signup'
+	post	 'signup',   to:  'users#create'
 	resources :users, param: :username, except: [:new, :create]
 
 	# Log in/out.
@@ -29,17 +37,12 @@ MenuMap::Application.routes.draw do
 	# User's password resets.
 	resources :password_resets, only: [:new, :create, :edit, :update]
 
-	# Restaurants' index and page
+
+	# Restaurant pages =========================
 	resources :restaurants, only: [:index, :show, :update]
 
 	#	resources :users, except: [:show, :new]
 	# resoucees should be at the bottom because of the priority issue.
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

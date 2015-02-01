@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150130092644) do
+ActiveRecord::Schema.define(version: 20150201020538) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20150130092644) do
   create_table "franchises", force: true do |t|
     t.integer  "fn"
     t.integer  "restaurant"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "help_qnas", force: true do |t|
+    t.string   "help_title"
+    t.text     "help_contents"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
