@@ -35,12 +35,18 @@
 			<div class="hidden" id="restaurant_name"><%= @restaurant.name %></div>
 
 			<!-- menu section -->
-			<% if @restaurant.menu_titles.any? %>
+			<% if @restaurant.menus.any? %>
 				<%= render "restaurants/menu_title" %>
 			<% else %>
 				<%= render "restaurants/no_menu_title" %>
 			<% end %>
 
+			<script>
+				$(document).ready( function() {
+					$('.mm-menu-title:nth-of-type(2) .collapse').addClass('in');
+				});
+			</script>
+			
 		</div>
 	</div>
 </div>
