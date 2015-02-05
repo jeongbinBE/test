@@ -64,7 +64,7 @@
 							<%= label_tag :addr, "지역", class: "control-label col-xs-12 col-md-2" %>
 							<div class="col-md-10 mm-search-input">
 								<%= text_field_tag :addr, nil, class: "form-control", 
-																	 placeholder: "예) 서울대, 신촌, 홍대역" %>
+																	 placeholder: "예) 신림, 봉천, 관악구" %>
 							</div>
 						</div>
 
@@ -243,6 +243,12 @@
 				</div>
 			</div>
 		</div>
+
+		<script>
+			$(document).ready( function() {
+				$('.mm-menu-title:nth-of-type(2) .collapse').addClass('in');
+			});
+		</script>
 
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">

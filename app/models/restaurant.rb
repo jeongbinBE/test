@@ -22,7 +22,7 @@ class Restaurant < ActiveRecord::Base
 
 		# set maximum image size.
 		def picture_size
-			if picture.size > 5.megabytes
+			if picture.size > 10.megabytes
 				errors.add(:picture, "5MB를 넘는 사진입니다.")
 			end
 		end
