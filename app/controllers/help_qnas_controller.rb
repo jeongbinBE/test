@@ -11,10 +11,10 @@ class HelpQnasController < ApplicationController
 		@qna = HelpQna.new(help_params)
 		if @qna.save
 			flash[:info] = "성공"
-			redirect_to '/help/test'
+			redirect_to help_url
 		else
-			flash[:error] = "실패"
-			redirect_to '/help/test'
+			flash[:danger] = "실패"
+			redirect_to new_help_qna_url
 		end
 	end
 
@@ -26,11 +26,17 @@ class HelpQnasController < ApplicationController
 		@qna = HelpQna.find_by(id: params[:id])
 		if @qna.update_attributes(help_params)
 			flash[:success] = "변경 됐음."
-			redirect_to '/help/test'
+			redirect_to help_url
 		else
-			flash[:error] = "변경 실패"
-			render 'edit'
+			flash[:danger] = "변경 실패"
+			render edit_help_qna_url
 		end
+	end
+
+	def destroy
+		HelpQna.find_by(id: params[:id]).destroy
+		flash[:success] = "지웠음"
+		redirect_to help_url
 	end
 
 	private 

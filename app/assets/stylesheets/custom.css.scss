@@ -490,6 +490,9 @@ h5#mm-index-h5 {
 	.mm-ins-02, .mm-ins-03 {
 		margin-top: 3em;
 	}
+	.mm-ins-02 .col-md-6 {
+		padding: 0 0.5em;
+	}
 }
 
 @media (min-width: 992px) {
@@ -698,6 +701,12 @@ h5#mm-index-h5 {
 		padding: 0.2em 0.3em 0.8em;
 	}
 
+}
+
+/* edit page */
+
+#help_qna_help_contents {
+	min-height: 100px;
 }
 
 /*=========      Search page       ==========*/

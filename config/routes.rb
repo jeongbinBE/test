@@ -5,14 +5,13 @@ MenuMap::Application.routes.draw do
 
 	# Static pages =============================
   get "manual", 	to:		 "home#manual"
-  get "help", 		to: 	 "home#help"
   get "search", 	to:		 "home#search"
 	
 	# update sub_categories on select box.
 	get "home/update_sub_categories", as: "update_sub_categories"
 
 	# help pages
-	get 	 'help/test', to: 'help_qnas#index'
+	get 	 'help', 	to: 'help_qnas#index' 
 	resources :help_qnas, except: [:show, :index]
 
 	get "test",     to:		 "home#test"

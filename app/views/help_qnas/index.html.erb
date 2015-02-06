@@ -21,16 +21,18 @@
 						<div id="mm-help-col-<%= qna.id %>" class="panel-collapse collapse">
 							<p class="mm-help-cts">
 								<span class="mm-logo-font">A.</span>
-								<%= qna.help_contents %>
-								<% if logged_in? %>
+								<%= qna.help_contents.html_safe %>
+								<% if logged_in? && current_user.admin? %>
 									<%= link_to "변경", edit_help_qna_path(qna) %>
+									<%= link_to "삭제", qna, method: :delete,
+																			data: { confirm: "지울 건가?" } %>
 								<% end %>
 							</p>
 						</div>
 					</div>
 				<% end %>
 				
-				<% if logged_in? %>
+				<% if logged_in? && current_user.admin? %>
 					<div>
 						<%= link_to "자주묻는 질문 등록", new_help_qna_path %>
 					</div>
