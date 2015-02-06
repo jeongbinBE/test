@@ -10,7 +10,7 @@ class RestaurantsController < ApplicationController
 		@search_delivery = params[:delivery]
 
 		# search algorithm
-		@restaurants = Restaurant.joins(:rest_key).merge(RestKey.search(@search_delivery, @search_sub_cat, @search_name, @search_addr)).paginate(:page => params[:page]).order('menu_on DESC')
+		@restaurants = Restaurant.joins(:rest_key).merge(RestKey.search(@search_delivery, @search_sub_cat, @search_name, @search_addr)).paginate(:page => params[:page])
 
 		# for title
 		@page_title = "#{ @search_addr + "주변 " unless @search_addr.empty?}"
