@@ -13,6 +13,7 @@ MenuMap::Application.routes.draw do
 	# help pages
 	get 	 'help', 	to: 'help_qnas#index' 
 	resources :help_qnas, except: [:show, :index]
+	resources :ask_qnas,  only:		[:create, :destroy]
 
 	get "test",     to:		 "home#test"
 

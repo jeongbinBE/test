@@ -34,5 +34,6 @@ class HomeController < ApplicationController
 	end
 
 	def test
+		@ask_qnas = AskQna.all
 	end
 end

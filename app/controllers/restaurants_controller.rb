@@ -51,7 +51,7 @@ class RestaurantsController < ApplicationController
 			flash[:success] = "업소 사진을 저장했습니다."
 			redirect_to @restaurant
 		else
-			flash[:error] = "사진 저장에 실패했습니다."
+			flash[:danger] = "사진 저장에 실패했습니다."
 			redirect_to @restaurant
 		end
 	end

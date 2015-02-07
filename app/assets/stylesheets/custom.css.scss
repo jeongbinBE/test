@@ -645,6 +645,12 @@ h5#mm-index-h5 {
 
 /*=========        Help page       ==========*/
 
+@media (min-width: 992px) {
+	.mm-help-padding {
+		padding: 0 4em;
+	}
+}
+
 #mm-help {
 	margin: 0 -0.5em 1em;
 	padding: 0 0 0.5em;
@@ -732,6 +738,29 @@ h5#mm-index-h5 {
 
 #help_qna_help_contents {
 	min-height: 100px;
+}
+
+/* ask_qna modal */
+
+#ask-qna-modal-h4 {
+	font-weight: bold;
+	span {
+		font-size: 1.5em;
+	}
+}
+
+#AskQnaModal {
+	.modal-body {
+		label {
+			margin-bottom: 1em;
+		}
+		#ask_qna_qna_user {
+			margin-bottom: 1em;
+		}
+	}
+	.modal-footer > div {
+		display: inline;
+	}
 }
 
 /*=========      Search page       ==========*/
