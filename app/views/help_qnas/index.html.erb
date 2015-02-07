@@ -32,17 +32,19 @@
 					</div>
 				<% end %>
 
-				<div class="mm-help-ask-btn">
-					<%= button_to help_path, method: :get, class: "btn btn-block mm-btn-orange" do %>
-						질문하기
-					<% end %>
-				</div>
-				
 				<% if logged_in? && current_user.admin? %>
 					<div>
 						<%= link_to "자주묻는 질문 등록", new_help_qna_path %>
 					</div>
 				<% end %>
+
+				<div class="mm-help-ask-btn">
+					<button type="button" class="btn btn-block mm-btn-orange" data-toggle="modal" data-target="#myModal">
+						질문하기
+					</button>
+				</div>
+				
+				<%= render @ask_qna %>
 
 			</div>
 		</div>

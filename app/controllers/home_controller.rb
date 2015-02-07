@@ -33,9 +33,6 @@ class HomeController < ApplicationController
 		end
 	end
 
-  def help
-  end
-
 	def test
 	end
 end

@@ -16,6 +16,8 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 		assert flash.empty?
 	end
 
+# login 상태에서만 되는 것들 제거.
+=begin
 	test "user's login w/ valid info and subsequent logout" do
 		get login_path
 		post login_path, session: { email: @user.email, password: 'password' }
@@ -36,6 +38,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 		assert_select "a[href=?]", logout_path, count: 0
 		assert_select "a[href=?]", user_path(@user.username), count: 0
 	end
+=end
 
 	test "login with remembering" do
 		log_in_as(@user, remember_me: '1')

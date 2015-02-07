@@ -1,6 +1,7 @@
 class HelpQnasController < ApplicationController
   def index
 		@qnas = HelpQna.all
+		@ask_qna = AskQna.new
   end
 
   def new

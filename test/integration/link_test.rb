@@ -2,6 +2,8 @@ require 'test_helper'
 
 class NavigationLinkTest < ActionDispatch::IntegrationTest
 
+# login 시에만 가능한 것들로 customize
+=begin
 	test "Header navigation has the right link path" do
 		get root_path
 		assert_template 'home/index'
@@ -12,6 +14,7 @@ class NavigationLinkTest < ActionDispatch::IntegrationTest
 		assert_select 'a[href=?]', signup_path
 		assert_select 'a[href=?]', login_path 
 	end
+=end
 
 	test "Brandpage should have adequate path" do
 		get root_path

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  qna_user: MyString
+  qna_contents: MyText
+
+two:
+  qna_user: MyString
+  qna_contents: MyText

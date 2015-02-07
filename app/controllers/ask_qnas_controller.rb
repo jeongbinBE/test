@@ -1,0 +1,2 @@
+class AskQnasController < ApplicationController
+end
