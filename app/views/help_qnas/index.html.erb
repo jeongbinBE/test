@@ -31,6 +31,12 @@
 						</div>
 					</div>
 				<% end %>
+
+				<div class="mm-help-ask-btn">
+					<%= button_to help_path, method: :get, class: "btn btn-block mm-btn-orange" do %>
+						질문하기
+					<% end %>
+				</div>
 				
 				<% if logged_in? && current_user.admin? %>
 					<div>
