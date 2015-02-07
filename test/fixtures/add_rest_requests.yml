@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  real_addr: MyString
+  taggable_addr: MyString
+  phnum: MyString
+  delivery: false
+  cat: MyString
+  sub_cat: MyString
+  open_at: MyString
+  etc: MyText
+
+two:
+  name: MyString
+  real_addr: MyString
+  taggable_addr: MyString
+  phnum: MyString
+  delivery: false
+  cat: MyString
+  sub_cat: MyString
+  open_at: MyString
+  etc: MyText

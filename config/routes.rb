@@ -1,5 +1,6 @@
 MenuMap::Application.routes.draw do
 
+  get "add_rest_requests/new"
 	# Root page is index and it's also brandpage.
 	root 'home#index'
 
@@ -15,8 +16,10 @@ MenuMap::Application.routes.draw do
 	resources :help_qnas, except: [:show, :index]
 	resources :ask_qnas,  only:		[:create, :destroy]
 
-	get "test",     to:		 "home#test"
+	# add restaurant request
+	resources :add_rest_requests, except: [:index, :edit, :update]
 
+	get "test",     to:		 "home#test"
 
 	# User pages ===============================
 	get		 'signup',	 to:  'users#signup'

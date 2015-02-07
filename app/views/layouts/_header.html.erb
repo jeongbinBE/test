@@ -17,11 +17,11 @@
 			<div class="collapse navbar-collapse" id="mm-ph-nav-toggle">
 				<ul class="nav navbar-nav navbar-right">
 					<li><%= link_to "MenuMap 소개",			root_path %></li>
+					<li><%= link_to "음식점 추가신청",  new_add_rest_request_path	%></li>
 					<li><%= link_to "자주묻는 질문",		help_path %></li>
 					<li><%= link_to "음식점 검색",			search_path, 
 																					id: "mm-ph-nav-div" %></li>
 					<% if logged_in? %>
-					<li><%= link_to "이용방법",					manual_path %></li>
 					<li id="mm-dt-nav-div" class="hidden-xs">|</li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -31,6 +31,7 @@
 								<li>
 									<%= link_to "내 페이지", user_path(current_user.username) %>
 								</li>
+								<li><%= link_to "이용방법",	 manual_path %></li>
 								<li><%= link_to "유저 관리", users_path %></li>
 								<li>
 									<%= link_to "계정 설정 변경", 
