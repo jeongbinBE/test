@@ -35,5 +35,6 @@ class HomeController < ApplicationController
 
 	def test
 		@ask_qnas = AskQna.all
+		@new_rest = AddRestRequest.all
 	end
 end
