@@ -1,1 +1,115 @@
-<h1><span class="mm-logo-font">MenuMap</span> 음식점 추가신청</h1>
+<% provide(:page, "add-rest") %>
+<div class="container mm-add-con">
+	<div class="col-md-8 col-md-offset-2 mm-add">
+		<div>
+
+			<h2 id="mm-add-h2">
+				이 세상 모든 메뉴판이 검색되는 그날까지
+			</h2>
+			<h1 id="mm-add-h1">
+				<span class="mm-logo-font">MenuMap</span> 음식점 추가신청
+			</h1>
+
+			<%= form_for @new_rest, url: 	 add_rest_requests_path, 
+															class: "form-horizontal" do |f| %>
+				<fieldset>
+
+					<div class="form-group row">
+						<%= f.label :name, "업소명", 
+												class: "control-label col-md-2" %>
+						<div class="col-md-10">
+							<%= f.text_field :name, class: "form-control", 
+															 placeholder: "예) 메뉴맵 순대국밥(서울대점)" %>
+						</div>
+					</div>
+					<div class="col-md-10 col-md-offset-2">
+						<p>프랜차이즈 음식점의 경우 지점명도 써주세요!</p>
+					</div>
+
+					<div class="form-group row">
+						<%= f.label :real_addr, "주소", 
+												class: "control-label col-md-2" %>
+						<div class="col-md-10">
+							<%= f.text_field :real_addr, class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<%= f.label :taggable_addr, "주변 주요 상권", 
+												class: "control-label col-md-2" %>
+						<div class="col-md-10">
+							<%= f.text_field :taggable_addr, class: "form-control",
+															 placeholder: "예) 신촌, 녹두거리, 홍대, 강남역" %>
+						</div>
+					</div>
+
+					<div class="form-group row"> 
+						<%= label_tag :category, "음식분류", 
+																		class: "control-label col-xs-12 col-md-2" %>
+						<div class="col-xs-6 col-md-5 left-category">
+							<%= select_tag(:category, 
+							options_for_select(@cat.collect { |cat| [cat.name, cat.id] }, 1), 
+														{ id: 'category_select', class: "form-control" }) %>
+						</div>
+						<div class="col-xs-6 col-md-5 right-category">
+							<%= select_tag(:sub_category, 
+							options_for_select(@sub.collect { |sub| [sub.name, sub.name] }, 1), 
+												{ id: 'sub_category_select', class: "form-control" }) %>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<%= f.label :phnum, "전화번호",
+												class: "control-label col-md-2" %>
+						<div class="col-md-10">
+							<%= f.text_field :phnum, class: "form-control",
+																			 placeholder: "예) 02-1234-5678" %>
+						</div>
+					</div>
+					<div id="mm-add-delivery" class="form-group row"> 
+						<%= f.label :delivery, "배달음식점인 경우 체크" %>
+						<%= check_box_tag (:delivery) %>
+					</div>
+
+					<div class="form-group row">
+						<%= f.label :open_at, "영업시간", 
+												class: "control-label col-md-2" %>
+						<div class="col-md-10">
+							<%= f.text_field :open_at, class: "form-control", 
+										placeholder: "대략적인 영업시간 예) 오전 10:00 ~ 오후 9:00" %>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<%= f.label :etc, "그 외 기타정보", 
+												class: "control-label col-md-2" %>
+						<div class="col-md-10">
+							<%= f.text_area :etc, class: "form-control", size: "30x10" %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<button type="button" class="btn btn-default mm-btn-dark-grey">취소</button>
+						<%= f.submit "신청", class: "btn btn-primary mm-btn-orange" %>
+					</div>
+
+				</fieldset>
+			<% end %>
+
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function() {
+		$('#category_select').change(function() {
+			$.ajax({
+				url: "<%= update_sub_categories_path %>",
+				data: {
+					category_id : $('#category_select').val()
+				},
+				dataType: "script"
+			});
+		});
+	});
+</script>

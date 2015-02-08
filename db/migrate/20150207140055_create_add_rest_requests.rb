@@ -5,7 +5,7 @@ class CreateAddRestRequests < ActiveRecord::Migration
       t.string :real_addr
       t.string :taggable_addr
       t.string :phnum
-      t.boolean :delivery, 			default: true
+      t.boolean :delivery, 			default: false 
       t.string :cat
       t.string :sub_cat
       t.string :open_at

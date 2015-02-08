@@ -166,6 +166,17 @@ ul#mm-dt-nav-ul {
 	}
 }
 
+/*=========         Flash          ==========*/
+
+@media (max-width: 767px) {
+	.mm-flash-con {
+		padding: 0 0.5em;
+		.close {
+			margin: 0 5px;
+		}
+	}
+}
+
 /*=========         Footer         ==========*/
 
 footer {
@@ -435,6 +446,13 @@ h5#mm-index-h5 {
 	}
 }
 
+.left-category {
+	padding-right: 7px;
+}
+.right-category {
+	padding-left: 7px;
+}
+
 #home04 {
 	.mm-ins-01 {
 		border: solid 2px #D7D7D7;
@@ -445,15 +463,6 @@ h5#mm-index-h5 {
 			text-align: right;
 			padding-right: 0;
 			margin-bottom: 0;
-		}
-	}
-
-	.mm-ins-01-cat {
-		.left-category {
-			padding-right: 7px;
-		}
-		.right-category {
-			padding-left: 7px;
 		}
 	}
 
@@ -763,6 +772,118 @@ h5#mm-index-h5 {
 	}
 }
 
+/*=========   Add Restaurant page  ==========*/
+
+@media (min-width: 992px) {
+	.mm-flash-con-add-rest {
+		padding: 0 14.3em;
+	}
+}
+
+.mm-add-con {
+	padding: 0 0.5em;
+}
+
+@media (max-width: 767px) {
+	.mm-add-con {
+		margin: 0.5em 0 1em;
+	}
+}
+
+@media (min-width: 992px) {
+	.mm-add-con {
+		margin-bottom: 2em;
+	}
+}
+
+.mm-add {
+	margin-top: -0.5em;
+	padding: 0;
+	> div {
+		padding: 1.3em 1em 1em;
+		border-radius: 0.5em;
+		background-color: $mm-bg-grey;
+	}
+	fieldset .form-group:last-of-type {
+		margin: 0;
+		float: right;
+	}
+	fieldset > div > p {
+		margin: -0.8em -1em 0em;	
+		font-size: 0.9em;
+		text-align: right;
+		color: #888888;
+	}
+}
+	
+#mm-add-delivery {
+	label, input {
+		float: right;
+	}
+}
+
+@media (max-width: 767px) {
+	#mm-add-delivery {
+		margin: 0;
+		input {
+			margin: 3px;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.mm-add .form-group {
+		margin-bottom: 1.5em;
+	}
+	.mm-add fieldset > div > p {
+		margin: -1em 0 1em;
+	}
+	#mm-add-delivery {
+		margin: -1em 0em 0.5em;
+		input {
+			margin: 0.7em 0.3em;
+		}
+	}
+}
+
+h1#mm-add-h1 {
+	margin: 0 0 0.5em;
+	padding-bottom: 0.5em;
+	border-bottom: solid 1px $mm-border-grey;
+	font-size: 1.4em;
+	.mm-logo-font {
+		font-size: 1.5em;
+	}
+}
+
+h2#mm-add-h2 {
+	margin: 0 0 0.3em;
+	font-size: 0.9em;
+}
+
+@media (min-width: 992px) {
+	.mm-add {
+		padding: 0 3em;
+		> div {
+			padding: 2em 2em 1.5em;
+		}
+	}
+	h2#mm-add-h2 {
+		font-size: 1.1em;
+	}
+	h1#mm-add-h1 {
+		font-size: 1.9em;
+	}
+}
+
+@media (min-width: 992px) {
+	.mm-add fieldset label {
+		text-align: right;
+		padding-top: 0.5em;
+		padding-right: 0;
+	}
+}
+
 /*=========      Search page       ==========*/
 
 .home-search {
@@ -772,19 +893,12 @@ h5#mm-index-h5 {
 	}
 }
 
-input#addr {
-	&::-webkit-input-placeholder {
-		color: #c7c7c7;
-	}
-	&::-moz-placeholder {
-		color: #c7c7c7;
-	}
-	&::-ms-input-placeholder {
-		color: #c7c7c7;
-	}
-}
-
-input#name {
+input#addr, input#name,
+input#add_rest_request_name,
+input#add_rest_request_real_addr,
+input#add_rest_request_taggable_addr, 
+input#add_rest_request_phnum,
+input#add_rest_request_open_at {
 	&::-webkit-input-placeholder {
 		color: #c7c7c7;
 	}
