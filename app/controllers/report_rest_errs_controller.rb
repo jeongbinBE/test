@@ -1,0 +1,2 @@
+class ReportRestErrsController < ApplicationController
+end

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  presence_err: false
+  menu_err: false
+  phnum_err: false
+  cat_err: false
+  etc: MyText
+
+two:
+  presence_err: false
+  menu_err: false
+  phnum_err: false
+  cat_err: false
+  etc: MyText

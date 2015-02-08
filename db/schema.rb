@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207140055) do
+ActiveRecord::Schema.define(version: 20150208144740) do
 
   create_table "add_rest_requests", force: true do |t|
     t.string   "name"
@@ -75,6 +75,19 @@ ActiveRecord::Schema.define(version: 20150207140055) do
   end
 
   add_index "menus", ["menu_title_id"], name: "index_menus_on_menu_title_id", using: :btree
+
+  create_table "report_rest_errs", force: true do |t|
+    t.integer  "restaurant_id"
+    t.boolean  "presence_err",  default: false
+    t.boolean  "menu_err",      default: false
+    t.boolean  "phnum_err",     default: false
+    t.boolean  "cat_err",       default: false
+    t.text     "etc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "report_rest_errs", ["restaurant_id"], name: "index_report_rest_errs_on_restaurant_id", using: :btree
 
   create_table "rest_infos", force: true do |t|
     t.string   "title_addr"
