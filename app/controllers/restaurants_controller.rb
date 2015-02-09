@@ -28,6 +28,9 @@ class RestaurantsController < ApplicationController
 		@titles = @restaurant.menu_titles
 		@menus = @restaurant.menus
 
+		# restaurant information error
+		@report_rest_err = ReportRestErr.new
+
 		# for title
 		@page_title = @restaurant.name + "(" + @restaurant.sub_cat + ") - "
 		@page_title += @restaurant.rest_info.title_addr

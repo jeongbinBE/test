@@ -1,0 +1,49 @@
+<!-- Modal -->
+<div class="modal fade" id="rest-err-modal" tabindex="-1" role="dialog"> 
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="ask-qna-modal-h4">
+					<span class="mm-logo-font">MenuMap</span> 오류 신고
+				</h4>
+      </div>
+
+			<%= form_for @report_rest_err, url: report_rest_errs_path do |f| %>
+
+				<div class="modal-body">
+					<div>
+						<%= f.label :presence_err, "존재하지 않는 음식점입니다." %>
+						<%= f.check_box :presence_err %>
+					</div>
+					<div>
+						<%= f.label :menu_err, "메뉴 정보가 틀렸습니다." %>
+						<%= f.check_box :menu_err %>
+					</div>
+					<div>
+						<%= f.label :phnum_err, "전화번호가 일치하지 않습니다." %>
+						<%= f.check_box :phnum_err %>
+					</div>
+					<div>
+						<%= f.label :cat_err, "분류가 이상합니다." %>
+						<%= f.check_box :cat_err %>
+					</div>
+					<div>
+						<%= f.label :etc, "기타 오류 및 정확한 정보", 
+																							class: "control-label" %>
+						<%= f.text_area :etc, class: "form-control", size: "30x10",
+														placeholder: "음식점의 정확한 정보를 제공해주시면 MenuMap 완성에 큰 도움이 됩니다." %>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default mm-btn-dark-grey" data-dismiss="modal">취소</button>
+					<%= f.submit "오류 신고", class: "btn btn-primary mm-btn-orange" %>
+				</div>
+
+			<% end %>
+
+    </div>
+  </div>
+</div>

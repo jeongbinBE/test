@@ -41,11 +41,10 @@ MenuMap::Application.routes.draw do
 	# Restaurant pages =========================
 	resources :restaurants, only: [:index, :show, :update]
 
-	#	resources :users, except: [:show, :new]
-	# resoucees should be at the bottom because of the priority issue.
+	# restaurant information error
+	resources :report_rest_errs, only: [:create, :destroy, :show]
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+	# resoucees should be at the bottom because of the priority issue.
 
   # Example resource route with options:
   #   resources :products do

@@ -41,6 +41,12 @@
 				<%= render "restaurants/no_menu_title" %>
 			<% end %>
 
+			<!-- restaurant error report part -->
+			<button type="button" class="btn btn-block mm-btn-orange" data-toggle="modal" data-target="#rest-err-modal">
+				음식점 정보가 틀렸나요?
+			</button>
+			<%= render @report_rest_err %>
+
 			<script>
 				$(document).ready( function() {
 					$('.mm-menu-title:nth-of-type(2) .collapse').addClass('in');
