@@ -12,10 +12,11 @@
 			</h1>
 
 			<%= form_for @new_rest, url: 	 add_rest_requests_path, 
-															class: "form-horizontal" do |f| %>
+															class: "form-horizontal",
+															html: { multipart: true } do |f| %>
 				<fieldset>
 
-					<div class="form-group row">
+					<div class="form-group row mm-form-must">
 						<%= f.label :name, "업소명", 
 												class: "control-label col-md-2" %>
 						<div class="col-md-10">
@@ -27,11 +28,12 @@
 						<p>프랜차이즈 음식점의 경우 지점명도 써주세요!</p>
 					</div>
 
-					<div class="form-group row">
+					<div class="form-group row mm-form-must">
 						<%= f.label :real_addr, "주소", 
 												class: "control-label col-md-2" %>
 						<div class="col-md-10">
-							<%= f.text_field :real_addr, class: "form-control" %>
+							<%= f.text_field :real_addr, class: "form-control" ,
+									placeholder: "간단한 주소 정보가 필요합니다. 예) 강남, 마포"%>
 						</div>
 					</div>
 
@@ -82,6 +84,25 @@
 					</div>
 
 					<div class="form-group row">
+						<%= f.label :add_rest_img, "음식점 사진", 
+												class: "control-label col-md-2" %>
+						<%= f.file_field :add_rest_img, 
+																:accept => 'image/jpeg, image/gif, image/png' %>
+
+						<div id="mm-add-rest-img-col" class="col-md-10 input-group">
+							<input type="text" id="mm-add-rest-img" class="form-control" 
+										placeholder="메뉴판 혹은 음식점 사진을 넣어주세요" disabled>
+							<span class="input-group-btn">
+								<button id="mm-add-rest-img-btn" class="btn btn-default" 
+																								 									type="button">
+									사진 선택
+								</button>
+							</span>
+						</div>
+
+					</div>
+
+					<div class="form-group row">
 						<%= f.label :etc, "그 외 기타정보", 
 												class: "control-label col-md-2" %>
 						<div class="col-md-10">
@@ -102,6 +123,14 @@
 </div>
 
 <script>
+	$('#mm-add-rest-img-btn').click(function() {
+		$('input[id=add_rest_request_add_rest_img]').click();
+	});
+
+	$('input[id=add_rest_request_add_rest_img]').change(function() { 
+		$('#mm-add-rest-img').val($(this).val());
+	});
+
 	$(document).ready(function() {
 		$('#category_select').change(function() {
 			$.ajax({

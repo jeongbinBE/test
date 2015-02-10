@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208144740) do
+ActiveRecord::Schema.define(version: 20150209084458) do
 
   create_table "add_rest_requests", force: true do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150208144740) do
     t.text     "etc"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "add_rest_img"
   end
 
   create_table "ask_qnas", force: true do |t|

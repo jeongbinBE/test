@@ -8,8 +8,6 @@ class PictureUploader < CarrierWave::Uploader::Base
 	# for Korean image file names
 	CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
 
-  # Choose what kind of storage to use for this uploader:
-  # storage :file
   storage :fog
 
   # Override the directory where uploaded files will be stored.

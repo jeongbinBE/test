@@ -26,6 +26,6 @@ class AddRestRequestsController < ApplicationController
 		def addrest_params
 			params.require(:add_rest_request).permit(:name, :real_addr, :taggable_addr,
 																							 :cat, :sub_cat, :phnum, :delivery,
-																							 :open_at, :etc)
+																							 :open_at, :etc, :add_rest_img)
 		end
 end
