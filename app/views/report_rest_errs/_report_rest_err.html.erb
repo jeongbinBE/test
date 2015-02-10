@@ -5,30 +5,47 @@
 
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="ask-qna-modal-h4">
+        <h4 class="modal-title" id="rest-err-modal-h4">
 					<span class="mm-logo-font">MenuMap</span> 오류 신고
 				</h4>
       </div>
 
-			<%= form_for @report_rest_err, url: report_rest_errs_path do |f| %>
+			<%= form_for @report_rest_err, :url  => report_rest_errs_path, 
+																		 :html => { multipart: true } do |f| %>
 				<%= f.hidden_field :restaurant_id, value: @restaurant.id %>
 
 				<div class="modal-body">
 					<div>
-						<%= f.label :presence_err, "존재하지 않는 음식점입니다." %>
 						<%= f.check_box :presence_err %>
+						<%= f.label :presence_err, "존재하지 않는 음식점입니다." %>
 					</div>
 					<div>
-						<%= f.label :menu_err, "메뉴 정보가 틀렸습니다." %>
 						<%= f.check_box :menu_err %>
+						<%= f.label :menu_err, "메뉴 정보가 틀렸습니다." %>
 					</div>
 					<div>
-						<%= f.label :phnum_err, "전화번호가 일치하지 않습니다." %>
 						<%= f.check_box :phnum_err %>
+						<%= f.label :phnum_err, "전화번호가 일치하지 않습니다." %>
 					</div>
 					<div>
-						<%= f.label :cat_err, "분류가 이상합니다." %>
 						<%= f.check_box :cat_err %>
+						<%= f.label :cat_err, "분류가 이상합니다." %>
+					</div>
+					<div> 
+						<%= f.label :rest_err_img, "메뉴판 혹은 음식점 사진을 넣어주세요." %>
+						<%= f.file_field :rest_err_img, 
+																:accept => 'image/jpeg, image/gif, image/png' %>
+
+						<div id="mm-rest-err-img-col" class="input-group">
+							<input type="text" id="mm-rest-err-img" class="form-control" 
+										placeholder="선택된 사진이 없습니다." disabled>
+							<span class="input-group-btn">
+								<button id="mm-rest-err-img-btn" class="btn btn-default" 
+																								 									type="button">
+									사진 선택
+								</button>
+							</span>
+						</div>
 					</div>
 					<div>
 						<%= f.label :etc, "기타 오류 및 정확한 정보", 
@@ -48,3 +65,13 @@
     </div>
   </div>
 </div>
+
+<script>
+	$('#mm-rest-err-img-btn').click(function() {
+		$('input[id=report_rest_err_rest_err_img]').click();
+	});
+
+	$('input[id=report_rest_err_rest_err_img]').change(function() { 
+		$('#mm-rest-err-img').val($(this).val());
+	});
+</script>

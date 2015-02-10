@@ -177,6 +177,23 @@ ul#mm-dt-nav-ul {
 	}
 }
 
+.mm-flash-con-rest-show {
+	max-width: 600px;
+	padding: 0 0.5em;
+	> div {
+		margin-bottom: 0.3em;
+	}
+}
+
+@media (min-width: 992px) {
+	.mm-flash-con-rest-show {
+		padding: 0;
+		> div {
+			margin-bottom: 1em;
+		}
+	}
+}
+
 /*=========         Footer         ==========*/
 
 footer {
@@ -1170,7 +1187,7 @@ li.disabled {
 	max-width: 600px;
 	background-color: white;
 	border-radius: 0.5em;
-	margin: 1em 0 0.5em;
+	margin: 1.3em 0 0.5em;
 	box-shadow: 0.3em 0.5em 0.5em $mm-border-grey;
 	&:hover, &:active {
 		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 
@@ -1561,12 +1578,12 @@ p.mm-menu-p-warning {
 /* menu */
 
 .mm-post-in .mm-menu {
-	margin-bottom: 2em;
+	margin-bottom: 1.5em;
 }
 
 @media (min-width: 992px) {
 	.mm-post-in .mm-menu {
-		margin-bottom: 3em;
+		margin-bottom: 2em;
 	}
 }	
 
@@ -1646,4 +1663,50 @@ p.mm-menu-info {
 		font-size: 0.9em;
 		margin: -0.3em 0.5em 0;
 	}
+}
+
+/* report restaurant error modal */
+
+.mm-rest-err {
+	max-width: 600px;
+	margin: 0 auto 1.5em;
+}
+
+#rest-err-modal-h4 {
+	font-size: 1.6em;
+	span {
+		font-size: 1.3em;
+	}
+}
+
+@media (min-width: 992px) {
+	.mm-rest-err {
+		margin-bottom: 2em;
+	}
+	#rest-err-modal-h4 {
+		font-size: 2em;
+		font-weight: bold;
+	}
+	form#new_report_rest_err .modal-body > div {
+		font-size: 1.2em;
+		margin-top: 0.4em;
+		#mm-rest-err-img-col {
+			margin-top: 0.5em;
+		}
+		textarea#report_rest_err_etc {
+			margin-top: 0.5em;
+		}
+	}
+}
+
+#report_rest_err_rest_err_img {
+	display: none;
+}
+
+label[for=report_rest_err_rest_err_img] {
+	margin-top: 0.5em;
+}
+
+label[for=report_rest_err_etc] {
+	margin-top: 1em;
 }

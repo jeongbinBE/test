@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150209084458) do
+ActiveRecord::Schema.define(version: 20150210020200) do
 
   create_table "add_rest_requests", force: true do |t|
     t.string   "name"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20150209084458) do
     t.text     "etc"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "rest_err_img"
   end
 
   add_index "report_rest_errs", ["restaurant_id"], name: "index_report_rest_errs_on_restaurant_id", using: :btree
