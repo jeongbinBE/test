@@ -28,12 +28,7 @@
 				});
 			</script>
 
-			<!-- google maps -->
-			<div class="mm-gm">
-				<div id="map-canvas"></div>
-			</div>
-			<div class="hidden" id="restaurant_address"><%= @restaurant.addr %></div>
-			<div class="hidden" id="restaurant_name"><%= @restaurant.name %></div>
+			<%= render "restaurants/main_btn_group" %>
 
 			<!-- menu section -->
 			<% if @restaurant.menus.any? %>

@@ -1432,6 +1432,110 @@ h3.mm-no-posts-h3 {
 
 /*=========    Restaurants Show    ==========*/
 
+/* main_btn_group */
+
+#mm-main-btn-group {
+	max-width: 600px;
+	margin: 0 auto;
+	> .btn-group {
+		border: none;
+		margin-top: 1em;
+		box-shadow: 0em 0.1em 0.5em #e5e5e5;
+		.btn-group:active {
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 
+												0 0 8px rgba(19, 130, 255, 0.6);	
+		}
+		.btn-group:first-of-type button {
+			border-right: 1.5px solid white;
+		}
+		.btn-group:last-of-type button {
+			border-left: 1.5px solid white;
+		}
+	}
+	.btn-group-justified .btn-group .btn {
+		background-color: $mm-bg-title;
+		font-weight: bold;
+		color: #6f6d6d;
+		border: none;
+	}
+	button {
+		font-size: 1.1em;
+		span.glyphicon {
+			margin: 3px;
+		}
+	}
+}
+
+#mm-main-btn-group {
+	#mm-show-info {
+		margin: 1em 0;
+		border-radius: 0.5em;
+		box-shadow: 0.3em 0.5em 0.5em #e5e5e5;
+		.panel {
+			border: none;
+			border-radius: 0.5em;
+		}
+	}
+	#mm-show-btn1 {
+		padding: 0.9em 0.5em 0em;
+		border-radius: 0.5em;
+		border: 1px solid #e7e7e7;
+		.row {
+			margin: 0;
+			color: #6f6d6d;
+			border-bottom: 1px solid #e7e7e7;
+			margin-bottom: 0.5em;
+			padding-bottom: 0.3em;
+			&:last-of-type {
+				border: none;
+			}
+		}
+		.col-xs-3 {
+			padding: 0;
+			font-weight: bold;
+		}
+		.col-xs-9 {
+			padding: 0 0 0 5px;
+		}
+	}
+}
+
+/* Google maps */
+
+#mm-gm {
+	width: 100%;
+	max-width: 600px;
+	height: 230px;
+	margin: 0 auto;
+	border-radius: 0.5em;
+	box-shadow: 0.3em 0.5em 0.5em #e5e5e5;
+}
+
+#map-infowindow {
+	margin-top: 5px;
+	img {
+		width: 15px;
+		height: 15px;
+		margin-right: 3px;
+		margin-top: -2px;
+	}
+}
+
+#map-canvas {
+	height: 100%;
+	width: 100%;
+	border-radius: 0.5em;
+}
+
+@media (min-width: 992px) {
+	#mm-gm {
+		height: 300px;
+	}
+	#map-infowindow {
+		margin-top: 2px;
+	}
+}
+
 /* menu_title */
 
 h2.mm-menu-h2 {
@@ -1539,42 +1643,6 @@ p.mm-menu-p-warning {
 	}
 }
 
-/* Google maps */
-
-.mm-gm {
-	width: 100%;
-	max-width: 600px;
-	height: 230px;
-	margin: 0 auto;
-	border-radius: 0.5em;
-	box-shadow: 0.3em 0.5em 0.5em #e5e5e5;
-}
-
-#map-infowindow {
-	margin-top: 5px;
-	img {
-		width: 15px;
-		height: 15px;
-		margin-right: 3px;
-		margin-top: -2px;
-	}
-}
-
-#map-canvas {
-	height: 100%;
-	width: 100%;
-	border-radius: 0.5em;
-}
-
-@media (min-width: 992px) {
-	.mm-gm {
-		height: 300px;
-	}
-	#map-infowindow {
-		margin-top: 2px;
-	}
-}
-
 /* menu */
 
 .mm-post-in .mm-menu {
@@ -1616,7 +1684,7 @@ p.mm-menu-p-warning {
 }
 
 .mm-menu-name {
-	font-size: 1.15em;
+	font-size: 1em;
 }
 
 @media (min-width: 992px) {
@@ -1638,15 +1706,13 @@ p.mm-menu-p-warning {
 }
 
 .mm-menu-price {
-	font-size: 1.1em;
+	font-size: 1em;
 	float: right;
-	padding-top: 0.2em;
 }
 
 @media (min-width: 992px) {
 	.mm-menu-price {
 		font-size: 1em;
-		padding: 0;
 	}
 }
 
