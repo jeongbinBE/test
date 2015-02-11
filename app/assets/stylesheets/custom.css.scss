@@ -1500,6 +1500,45 @@ h3.mm-no-posts-h3 {
 	}
 }
 
+#mm-show-btn2 { 
+	background-color: #f0f0f0;
+	border-radius: 0.5em;
+	> p {
+		padding: 1em 0 0;
+		text-align: center;
+		color: #6f6d6d;
+		font-weight: bold;
+	}
+	.row {	
+		margin: 0;
+		button {
+			padding: 4px 12px;
+			font-size: 1em;
+			font-weight: bold;
+			margin-bottom: 0.5em;
+		}
+	}
+}
+
+#mm-carousal {
+	width: 100%;
+	max-width: 600px;
+	height: 195px;
+	margin-bottom: 0.5em;
+	img {
+		height: 100%;
+		width: 100%;
+		border-top-left-radius: 0.5em;
+		border-top-right-radius: 0.5em;
+	}
+}
+
+@media (min-width: 992px) {
+	#mm-carousal {
+		height: 337.5px;
+	}
+}
+
 /* Google maps */
 
 #mm-gm {
