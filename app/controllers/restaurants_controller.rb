@@ -28,6 +28,9 @@ class RestaurantsController < ApplicationController
 		@titles = @restaurant.menu_titles
 		@menus = @restaurant.menus
 
+		# restaurant images
+		@rest_img = RestImg.new
+
 		# restaurant information error
 		@report_rest_err = ReportRestErr.new
 

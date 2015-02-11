@@ -4,6 +4,9 @@ class Restaurant < ActiveRecord::Base
 	has_one :rest_key, dependent: :destroy
 	has_one :rest_info, dependent: :destroy
 	
+	# restaurant images
+	has_many :rest_imgs, dependent: :destroy
+	
 	# restaurant-menu_title-menu associations.
 	has_many :menu_titles, dependent: :destroy
 	has_many :menus, through: :menu_titles

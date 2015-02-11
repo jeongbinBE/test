@@ -1528,8 +1528,8 @@ h3.mm-no-posts-h3 {
 	img {
 		height: 100%;
 		width: 100%;
-		border-top-left-radius: 0.5em;
-		border-top-right-radius: 0.5em;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
 	}
 }
 
@@ -1768,6 +1768,12 @@ p.mm-menu-info {
 		font-size: 0.9em;
 		margin: -0.3em 0.5em 0;
 	}
+}
+
+/* restaurant images upload */
+
+input#rest_img_img {
+	display: none;
 }
 
 /* report restaurant error modal */

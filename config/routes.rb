@@ -41,6 +41,9 @@ MenuMap::Application.routes.draw do
 	# Restaurant pages =========================
 	resources :restaurants, only: [:index, :show, :update]
 
+	# restaurant images 
+	resources :rest_imgs, only: [:create, :destroy]
+
 	# restaurant information error
 	resources :report_rest_errs, only: [:create, :destroy, :show]
 

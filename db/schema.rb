@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150211085514) do
+ActiveRecord::Schema.define(version: 20150211134132) do
 
   create_table "add_rest_requests", force: true do |t|
     t.string   "name"
@@ -90,6 +90,15 @@ ActiveRecord::Schema.define(version: 20150211085514) do
   end
 
   add_index "report_rest_errs", ["restaurant_id"], name: "index_report_rest_errs_on_restaurant_id", using: :btree
+
+  create_table "rest_imgs", force: true do |t|
+    t.integer  "restaurant_id"
+    t.string   "img"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rest_imgs", ["restaurant_id"], name: "index_rest_imgs_on_restaurant_id", using: :btree
 
   create_table "rest_infos", force: true do |t|
     t.string   "title_addr"
