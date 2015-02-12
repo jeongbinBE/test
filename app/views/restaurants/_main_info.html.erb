@@ -68,5 +68,27 @@
 		<span class="label mm-rest-info-label label-<%= css_on_menu(@restaurant.menu_on) %>">
 			<%= words_on_menu(@restaurant.menu_on) %>
 		</span>
+		<a id="kakao-link-btn" href="javascript:;">
+		<button class="btn btn-primary">
+			<span class="glyphicon glyphicon-share"></span> 공유하기</span>
+		</button>
+		</a>
 	</div>
 </div>
+
+<script>
+Kakao.init('b70f6a7f613990d891d44aed583752a4');
+
+Kakao.Link.createTalkLinkButton({
+	container: '#kakao-link-btn',
+	label: '[<%= @restaurant.name %>]\n' +
+				 '음식분류: <%= @restaurant.sub_cat %>\n' +
+				 '<%= "전화번호: " if !@restaurant.phnum.blank? %>' +  
+				 '<%= @restaurant.phnum + '\n' if !@restaurant.phnum.blank? %>' +
+				 '주소: <%= @restaurant.addr %>', 
+	webButton: {
+		text: 'MenuMap 위치보기',
+		url: 'http://www.menumap.co.kr/restaurants/<%= @restaurant.id %>' 
+	}
+});
+</script>
