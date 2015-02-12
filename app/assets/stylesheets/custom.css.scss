@@ -98,6 +98,15 @@ span.mm-logo-font-inv {
 	}
 }
 
+@media (max-width: 767px) {
+	.label {
+		padding-top: 0.4em;
+	}
+}
+
+.modal .modal-header button[data-dismiss="modal"] {
+	font-size: 2em;
+}
 
 /*==================================================
 =               Navigation, Footer                 =
@@ -1433,6 +1442,38 @@ h3.mm-no-posts-h3 {
 }
 
 /*=========    Restaurants Show    ==========*/
+
+/* main info footer for share */
+
+@media (max-width: 767px) {
+	.mm-rest-info-ft.mm-rest-show {
+		text-align: left;
+		min-height: 39px;
+		> div:first-child {
+			display: inline;
+			line-height: 2.1;
+		}
+	}
+
+	.mm-rest-info-ft button#mm-share-modal-btn {
+		font-size: 0.9em;
+		font-weight: bold;
+		padding: 0.3em 0.6em;
+		margin-top: 0.2em;
+		float: right;
+	}
+
+	#mm-share-modal {
+		.modal-body {
+			text-align: center;
+			img {
+				max-width: 40px;
+				max-height: 40px;
+			}
+		}
+	}
+}
+
 
 /* main_btn_group */
 
