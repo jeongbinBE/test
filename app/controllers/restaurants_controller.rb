@@ -29,7 +29,8 @@ class RestaurantsController < ApplicationController
 		@menus = @restaurant.menus
 
 		# restaurant images
-		@rest_img = RestImg.new
+		@rest_imgs = @restaurant.rest_imgs # for carousel
+		@rest_img = RestImg.new						 # for image uploads
 
 		# restaurant information error
 		@report_rest_err = ReportRestErr.new
@@ -53,7 +54,8 @@ class RestaurantsController < ApplicationController
 
 	def update
 		@restaurant = Restaurant.find(params[:id])
-		if @restaurant.update_attributes(restaurant_params)
+		@restaurant.rest_imgs.create(img: params[:restaurant][:picture])
+		if @restaurant.update_attributes(restaurant_picture_params)
 			flash[:success] = "업소 사진을 저장했습니다."
 			redirect_to @restaurant
 		else
@@ -64,7 +66,7 @@ class RestaurantsController < ApplicationController
 
 	private
 		
-		def restaurant_params
+		def restaurant_picture_params
 			params.require(:restaurant).permit(:picture)
 		end
 end

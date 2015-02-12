@@ -55,9 +55,29 @@
 			<!--- restaurant's images -->
 			<div id="mm-show-btn2" class="collapse">
 				<% if @restaurant.picture.present? %>
-					<div id="mm-carousal">
-						<%= image_tag @restaurant.picture.url(:big_size), 
-																				class: "img-rounded" %>
+					<div id="mm-carousel" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner" role="listbox">
+							<% @rest_imgs.each do |img| %>
+								<div class="item">
+									<%= image_tag img.img.url(:big_size), class: "img-rounded" %>
+								</div>
+							<% end %>
+						</div>
+
+						<script>
+							$(document).ready(function() {
+								$("#mm-carousel .item:first-of-type").addClass("active");
+							});
+						</script>
+
+						<a class="left carousel-control"  href="#mm-carousel"
+																						  role="button" data-slide="prev">
+							<span class="glyphicon glyphicon-chevron-left"></span>
+						</a>
+						<a class="right carousel-control" href="#mm-carousel" 
+																							role="button" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</a>
 					</div>
 				<% else %>
 					<p> 등록된 사진이 없습니다.<br />사진을 등록해주세요.</p>
@@ -67,7 +87,8 @@
 					<div class="col-xs-10 col-xs-offset-1">
 						<button type="button" class="btn btn-block btn-primary"
 																data-toggle="modal" data-target="#rest-img-modal">
-							메뉴판, 음식점 사진 등록하기<span class="glyphicon glyphicon-upload"></span>
+							메뉴판, 음식점 사진 등록하기
+							<span class="glyphicon glyphicon-upload"></span>
 						</button>
 					</div>
 				</div>

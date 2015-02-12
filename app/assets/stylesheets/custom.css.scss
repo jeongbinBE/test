@@ -1500,6 +1500,12 @@ h3.mm-no-posts-h3 {
 	}
 }
 
+@media (min-width: 992px) {
+	#mm-main-btn-group #mm-show-info {
+		margin: 1.5em 0;
+	}
+}
+
 #mm-show-btn2 { 
 	background-color: #f0f0f0;
 	border-radius: 0.5em;
@@ -1520,21 +1526,41 @@ h3.mm-no-posts-h3 {
 	}
 }
 
-#mm-carousal {
+@media (min-width: 992px) {
+	#mm-show-btn2 > p {
+		font-size: 1.2em;
+	}
+
+	#mm-show-btn2 .row button {
+		margin-top: 0.7em;
+		margin-bottom: 1.2em;
+	}
+}
+
+#mm-carousel {
 	width: 100%;
 	max-width: 600px;
 	height: 195px;
 	margin-bottom: 0.5em;
+	.carousel-inner {
+		height: 100%;
+	}
 	img {
 		height: 100%;
 		width: 100%;
-		border-bottom-left-radius: 0;
-		border-bottom-right-radius: 0;
+		border-top-left-radius: 0.5em;
+		border-top-right-radius: 0.5em;
+	}
+	.left.carousel-control {
+		border-top-left-radius: 0.5em;
+	}
+	.right.carousel-control {
+		border-top-right-radius: 0.5em;
 	}
 }
 
 @media (min-width: 992px) {
-	#mm-carousal {
+	#mm-carousel {
 		height: 337.5px;
 	}
 }
@@ -1673,7 +1699,7 @@ p.mm-menu-p-warning {
 @media (min-width: 992px) {
 	.mm-no-menu {
 		h3.mm-menu-h3 {
-			font-size: 1.4em;
+			font-size: 1.3em;
 			line-height: 1.8em;
 		}
 		.mm-no-menu-title {
@@ -1772,8 +1798,23 @@ p.mm-menu-info {
 
 /* restaurant images upload */
 
+#rest-img-modal {
+	.modal-body label {
+		margin-bottom: 0.5em;
+	}
+}
+
 input#rest_img_img {
 	display: none;
+}
+
+@media (min-width: 992px) {
+	#rest-img-modal
+	label[for="rest_img_img"] {
+		font-size: 1.2em;
+		margin-bottom: 1em;
+		margin-top: 0.5em;
+	}
 }
 
 /* report restaurant error modal */
