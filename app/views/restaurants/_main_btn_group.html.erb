@@ -54,7 +54,7 @@
 
 			<!--- restaurant's images -->
 			<div id="mm-show-btn2" class="collapse">
-				<% if @restaurant.picture.present? %>
+				<% if !@restaurant.rest_imgs.empty? %>
 					<div id="mm-carousel" class="carousel slide" data-ride="carousel">
 						<div class="carousel-inner" role="listbox">
 							<% @rest_imgs.each do |img| %>
