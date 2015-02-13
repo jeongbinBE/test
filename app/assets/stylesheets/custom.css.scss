@@ -1244,7 +1244,7 @@ li.disabled {
 
 @media (max-width: 320px) {
 	.mm-rest-info .mm-rest-info-title	{
-		padding: 0.5em 0.7em;
+		padding: 0.7em 1em;
 		font-size: 0.9em;
 	}
 	.mm-rest-info-row {
@@ -1561,6 +1561,12 @@ h3.mm-no-posts-h3 {
 	}
 }
 
+@media (max-width: 320px) {
+	#mm-main-btn-group {
+		font-size: 0.9em;
+	}
+}
+
 @media (min-width: 992px) {
 	#mm-main-btn-group #mm-show-info {
 		margin: 1.5em 0;
@@ -1696,6 +1702,18 @@ p.mm-menu-p-warning {
 		border-bottom-left-radius: 0.5em;
 		border-bottom-right-radius: 0.5em;
 		border-bottom: none;
+	}
+}
+
+@media (min-width: 320px) {
+	.mm-menu-title {
+		font-size: 0.9em;
+	}
+}
+
+@media (min-width: 992px) {
+	.mm-menu-title {
+		font-size: 0.9em;
 	}
 }
 
