@@ -39,15 +39,10 @@ MenuMap::Application.routes.draw do
 
 
 	# Restaurant pages =========================
-	resources :restaurants, only: [:index, :show, :update]
-
-	# restaurant images 
-	resources :rest_imgs, only: [:create, :destroy]
-
-	# restaurant information error
-	resources :report_rest_errs, only: [:create, :destroy, :show]
-
-	# resoucees should be at the bottom because of the priority issue.
+	resources :restaurants, 				only: [:index, :show, :update]
+	resources :mymap_relationships, only: [:create, :destroy]
+	resources :rest_imgs, 					only: [:create, :destroy]
+	resources :report_rest_errs, 		only: [:create, :destroy, :show]
 
   # Example resource route with options:
   #   resources :products do

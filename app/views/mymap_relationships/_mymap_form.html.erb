@@ -1,0 +1,7 @@
+<div class="mm-mymap-btn">
+	<% if current_user && current_user.on_mymaps?(@restaurant) %>
+		<%= render "mymap_relationships/mymap_off" %>
+	<% else %>
+		<%= render "mymap_relationships/mymap_on" %>
+	<% end %>
+</div>

@@ -1,0 +1,6 @@
+<%= form_for(current_user.mymap_relationships.
+													find_by(mymap_rest_id: @restaurant.id), 
+													html: { method: :delete },
+													remote: true) do |f| %>
+	<%= f.submit "mymap 제거", class: "btn" %>
+<% end %>

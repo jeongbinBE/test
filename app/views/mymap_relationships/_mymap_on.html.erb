@@ -1,0 +1,15 @@
+<% if current_user %>
+	<%= form_for(current_user.mymap_relationships.build,
+																				remote: true) do |f| %>
+		<div><%= hidden_field_tag :mymap_rest_id, @restaurant.id %></div>
+		<%= f.submit "mymap 추가", class: "btn" %>
+	<% end %>
+<% else %>
+	<span id="mymap-wo-login">+ MyMap</span>
+<% end %>
+
+<script>
+	$('#mymap-wo-login').click(function() {
+		alert("로그인 후 MyMap 기능을 사용하실 수 있습니다.");
+	});
+</script>
