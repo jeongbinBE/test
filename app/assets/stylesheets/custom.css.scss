@@ -1221,6 +1221,7 @@ li.disabled {
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			overflow: hidden;
+			display: inline;
 		}
 	}
 	.mm-rest-info-cts {
@@ -1242,6 +1243,18 @@ li.disabled {
 	}
 }
 
+.mm-mymap-btn {
+	float: right;
+	padding: 0.1em 0.2em 0.2em;
+	margin: -0.3em -0.8em;
+	border: solid 2px white;
+	border-radius: 0.5em;
+	color: white;
+	font-family: 'Ubuntu';
+	font-size: 1em;
+	font-weight: bold;
+}
+	
 @media (max-width: 320px) {
 	.mm-rest-info .mm-rest-info-title	{
 		padding: 0.7em 1em;
@@ -1705,7 +1718,7 @@ p.mm-menu-p-warning {
 	}
 }
 
-@media (min-width: 320px) {
+@media (max-width: 320px) {
 	.mm-menu-title {
 		font-size: 0.9em;
 	}
