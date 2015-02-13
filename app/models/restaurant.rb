@@ -11,6 +11,11 @@ class Restaurant < ActiveRecord::Base
 	has_many :menu_titles, dependent: :destroy
 	has_many :menus, through: :menu_titles
 
+	# mymap
+	has_many :mymap_relationships, class_name: "MymapRelationship",
+																foreign_key: "mymap_rest_id",
+																dependent: 	 :destroy
+
 	# info error
 	has_many :report_rest_errs, dependent: :destroy
 

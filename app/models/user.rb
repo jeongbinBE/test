@@ -32,6 +32,26 @@ class User < ActiveRecord::Base
 														 :too_long  => "비밀번호는 25자 이하로 설정해주세요."},
 						:allow_blank => true
 
+	# associations
+	has_many :mymap_relationships, class_name: "MymapRelationship",
+																foreign_key: "mymap_user_id",
+																dependent: 	 :destroy
+	has_many :on_mymaps, through: :mymap_relationships, source: :mymap_rest
+
+
+	# for mymap
+	def mymap_on(restaurant)
+		mymap_relationships.create(mymap_rest_id: restaurant.id)
+	end
+
+	def mymap_off(restaurant)
+		mymap_relationships.find_by(mymap_rest_id: restaurant.id).destroy
+	end
+
+	def on_mymaps?(restaurant)
+		on_mymaps.include?(restaurant)
+	end
+		
 	class << self
 		# Hash digest
 		def digest(string)

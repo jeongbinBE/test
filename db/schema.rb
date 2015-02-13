@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150211134132) do
+ActiveRecord::Schema.define(version: 20150213133816) do
 
   create_table "add_rest_requests", force: true do |t|
     t.string   "name"
@@ -76,6 +76,17 @@ ActiveRecord::Schema.define(version: 20150211134132) do
   end
 
   add_index "menus", ["menu_title_id"], name: "index_menus_on_menu_title_id", using: :btree
+
+  create_table "mymap_relationships", force: true do |t|
+    t.integer  "mymap_user_id"
+    t.integer  "mymap_rest_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mymap_relationships", ["mymap_rest_id"], name: "index_mymap_relationships_on_mymap_rest_id", using: :btree
+  add_index "mymap_relationships", ["mymap_user_id", "mymap_rest_id"], name: "index_mymap_relationships_on_mymap_user_id_and_mymap_rest_id", unique: true, using: :btree
+  add_index "mymap_relationships", ["mymap_user_id"], name: "index_mymap_relationships_on_mymap_user_id", using: :btree
 
   create_table "report_rest_errs", force: true do |t|
     t.integer  "restaurant_id"

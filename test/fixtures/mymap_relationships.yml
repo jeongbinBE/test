@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mymap_user_id: 1
+  mymap_rest_id: 1
+
+two:
+  mymap_user_id: 1
+  mymap_rest_id: 1
