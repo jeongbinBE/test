@@ -12,7 +12,7 @@ class AddRestRequest < ActiveRecord::Base
 
 		# set maximum image size.
 		def picture_size
-			if picture.size > 10.megabytes
+			if add_rest_img.size > 10.megabytes
 				errors.add(:add_rest_img, "10MB를 넘는 사진입니다.")
 			end
 		end
