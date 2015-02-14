@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
 																foreign_key: "mymap_user_id",
 																dependent: 	 :destroy
 	has_many :on_mymaps, through: :mymap_relationships, source: :mymap_rest
-
+	has_many :comments, dependent: :destroy
 
 	# for mymap
 	def mymap_on(restaurant)

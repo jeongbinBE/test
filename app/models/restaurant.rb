@@ -1,23 +1,17 @@
 class Restaurant < ActiveRecord::Base
 
-	# one-to-one with keywords and info.
 	has_one :rest_key, dependent: :destroy
 	has_one :rest_info, dependent: :destroy
-	
-	# restaurant images
 	has_many :rest_imgs, dependent: :destroy
-	
-	# restaurant-menu_title-menu associations.
 	has_many :menu_titles, dependent: :destroy
 	has_many :menus, through: :menu_titles
+	has_many :comments, dependent: :destroy
+	has_many :report_rest_errs, dependent: :destroy
 
 	# mymap
 	has_many :mymap_relationships, class_name: "MymapRelationship",
 																foreign_key: "mymap_rest_id",
 																dependent: 	 :destroy
-
-	# info error
-	has_many :report_rest_errs, dependent: :destroy
 
 	# order for posts
 	default_scope -> { order(menu_on: :desc, updated_at: :desc) }
@@ -25,7 +19,6 @@ class Restaurant < ActiveRecord::Base
 	# image upload
 	mount_uploader :picture, PictureUploader
 	validate :picture_size
-
 
 	# for restaurant index page's pagination.
 	self.per_page = 10

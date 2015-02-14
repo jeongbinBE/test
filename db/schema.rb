@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213133816) do
+ActiveRecord::Schema.define(version: 20150214143807) do
 
   create_table "add_rest_requests", force: true do |t|
     t.string   "name"
@@ -40,6 +40,17 @@ ActiveRecord::Schema.define(version: 20150213133816) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "comments", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "restaurant_id"
+    t.text     "contents"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["restaurant_id"], name: "index_comments_on_restaurant_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "franchises", force: true do |t|
     t.integer  "fn"
