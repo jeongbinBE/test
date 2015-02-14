@@ -1,6 +1,17 @@
-<%= form_for(current_user.mymap_relationships.
-													find_by(mymap_rest_id: @restaurant.id), 
-													html: { method: :delete },
-													remote: true) do |f| %>
-	<%= f.submit "mymap 제거", class: "btn" %>
-<% end %>
+<div class="mm-mymap-btn-off">
+	<%= form_for(current_user.mymap_relationships.
+														find_by(mymap_rest_id: @restaurant.id), 
+														html: { method: :delete },
+														remote: true) do |f| %>
+		<%= f.submit "제거", class: "btn" %>
+	<% end %>
+	<span id="mymap-w-login">
+		MyMap
+	</span>
+</div>
+
+<script>
+	$('#mymap-w-login').click(function() {
+		$('.mm-mymap-btn-off form input[type="submit"]').click();
+	});
+</script>

@@ -1,15 +1,26 @@
-<% if current_user %>
-	<%= form_for(current_user.mymap_relationships.build,
-																				remote: true) do |f| %>
-		<div><%= hidden_field_tag :mymap_rest_id, @restaurant.id %></div>
-		<%= f.submit "mymap 추가", class: "btn" %>
+<div class="mm-mymap-btn-on">
+	<% if current_user %>
+		<%= form_for(current_user.mymap_relationships.build,
+																					remote: true) do |f| %>
+			<%= hidden_field_tag :mymap_rest_id, @restaurant.id %>
+			<%= f.submit "추가" %>
+		<% end %>
+		<span id="mymap-w-login">
+			<span class="glyphicon glyphicon-plus"></span> MyMap
+		</span>
+	<% else %>
+		<span id="mymap-wo-login">
+			<span class="glyphicon glyphicon-plus"></span> MyMap
+		</span>
 	<% end %>
-<% else %>
-	<span id="mymap-wo-login">+ MyMap</span>
-<% end %>
+</div>
 
 <script>
 	$('#mymap-wo-login').click(function() {
 		alert("로그인 후 MyMap 기능을 사용하실 수 있습니다.");
+	});
+
+	$('#mymap-w-login').click(function() {
+		$('.mm-mymap-btn-on form input[type="submit"]').click();
 	});
 </script>
