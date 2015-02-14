@@ -1097,6 +1097,27 @@ input#add_rest_request_open_at {
 */
 
 
+/*=========       MyMap page       ==========*/
+
+h1#mm-mymap-h1 {
+	max-width: 600px;
+	border-bottom: 4px solid #E5E6E0;
+	padding-bottom: 0.3em;
+	margin: 0 auto;
+	font-size: 2em;	
+	.mm-logo-font {
+		font-size: 1.2em;
+	}
+}
+
+
+@media (min-width: 992px) {
+	h1#mm-mymap-h1 {
+		margin: 0.5em auto;
+		font-size: 2.5em;	
+	}
+}
+
 /*==================================================
 =                   Restaurants                    =
 ==================================================*/
@@ -1225,7 +1246,7 @@ li.disabled {
 			max-width: 320px;
 		}
 		h1.mm-rest-show-name {
-			max-width: 260px;
+			max-width: 250px;
 		}
 	}
 	.mm-rest-info-cts {

@@ -29,6 +29,8 @@ class UsersController < ApplicationController
 		@user = User.find_by(username: params[:username])
 		# only activated user can access their page
 		redirect_to root_url and return unless @user.activated == true
+
+		@restaurants = @user.on_mymaps
 	end
 
 	def edit
