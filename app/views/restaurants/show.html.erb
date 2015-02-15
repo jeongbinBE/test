@@ -44,7 +44,9 @@
 					<span class="badge mm-cmt-bdg"><%= @comments.count %></span>
 				</div>
 				<div class="mm-cmt-sec">
-					<%= render @comments if !@comments.blank? %>
+					<div class="mm-cmt-sec-cmts">
+						<%= render @comments if !@comments.blank? %>
+					</div>
 					<%= render "comments/form" %>
 				</div>
 			</div>

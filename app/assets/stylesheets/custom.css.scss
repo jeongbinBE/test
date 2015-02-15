@@ -2048,13 +2048,9 @@ h3.mm-cmt-h3 {
 
 .mm-cmt-sec {
 	padding: 0.3em 0.5em;	
-	> div {
+	.mm-cmt-sec-cmts div {
 		border-bottom: 1px solid $mm-border-grey;
 		padding: 0.2em;
-		&:nth-last-child(2) {
-			border-bottom: none;
-			padding: 0.5em 0;
-		}
 	}
 	a {
 		float: right;	
@@ -2063,8 +2059,11 @@ h3.mm-cmt-h3 {
 		color: #6f6d6d;
 		font-weight: bold;
 	}
-	form input[type="submit"] {
-		display: none;
+	form {
+		padding: 1em 0;
+		input[type="submit"] {
+			display: none;
+		}
 	}
 	input#comment_contents {
 		&::-webkit-input-placeholder {
@@ -2080,7 +2079,7 @@ h3.mm-cmt-h3 {
 }
 
 @media (min-width: 992px) {
-	.mm-cmt-sec > div {
+	.mm-cmt-sec .mm-cmt-sec-cmts div {
 		padding: 0.4em 0.8em;
 	}
 }

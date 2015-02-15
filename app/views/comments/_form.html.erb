@@ -1,5 +1,5 @@
 <div>
-	<%= form_for @comment do |f| %>
+	<%= form_for(@comment, remote: true) do |f| %>
 		<%= f.hidden_field :user_id, value: current_user.id if current_user %>
 		<%= f.hidden_field :restaurant_id, value: @restaurant.id %>
 		<div class="input-group">

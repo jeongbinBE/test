@@ -1,25 +1,30 @@
 class CommentsController < ApplicationController
 	
 	def create
-		@new = Comment.new(comment_params)
-		if @new.save
-			flash[:success] = "댓글이 등록되었습니다."
-			redirect_to :back
-		else
-			flash[:danger] = "댓글 내용을 작성해주세요." # 없으면 아예 submit 안되도록
-			redirect_to :back
+		@comment = Comment.new(comment_params)
+		@comments = @comment.restaurant.comments
+		respond_to do |format|
+			if @comment.save
+				format.html { redirect_to @comments }
+				format.js {}
+			else
+				flash[:alert] = "댓글 저장 오류"
+			end
 		end
-		# create.js.erb로 respond_to |format|
 	end
 
 	def update
 	end
 
 	def destroy
-		@target = Comment.find(params[:id]).destroy
-		flash[:success] = "댓글이 삭제되었습니다."
-		redirect_to :back
-		# Ajax로 되도록
+		@target = Comment.find(params[:id])
+		@restaurant = @target.restaurant
+		@target.destroy
+		@comments = @restaurant.comments
+		respond_to do |format|
+			format.html { redirect_to @comments }
+			format.js
+		end
 	end
 
 	private
