@@ -1,0 +1,7 @@
+<div>
+	<span class="mm-cmt-name"><%= comment.user.username %></span>
+	<span class="mm-cmt-cts"><%= comment.contents %></span>
+	<% if current_user?(comment.user) || (current_user && current_user.admin?) %>
+		<%= link_to "삭제", comment_path(comment), method: :delete %>
+	<% end %>
+</div>

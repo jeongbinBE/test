@@ -27,6 +27,8 @@ class RestaurantsController < ApplicationController
 		@restaurant = Restaurant.find(params[:id])
 		@titles = @restaurant.menu_titles
 		@menus = @restaurant.menus
+		@comments = @restaurant.comments
+		@comment = Comment.new
 
 		# restaurant images
 		@rest_imgs = @restaurant.rest_imgs # for carousel

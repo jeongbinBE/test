@@ -42,6 +42,7 @@ MenuMap::Application.routes.draw do
 	resources :restaurants, 				only: [:index, :show, :update]
 	resources :mymap_relationships, only: [:create, :destroy]
 	resources :rest_imgs, 					only: [:create, :destroy]
+	resources :comments, 						only: [:create, :update, :destroy]
 	resources :report_rest_errs, 		only: [:create, :destroy, :show]
 
   # Example resource route with options:

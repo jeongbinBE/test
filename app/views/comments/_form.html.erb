@@ -1,0 +1,30 @@
+<div>
+	<%= form_for @comment do |f| %>
+		<%= f.hidden_field :user_id, value: current_user.id if current_user %>
+		<%= f.hidden_field :restaurant_id, value: @restaurant.id %>
+		<div class="input-group">
+			<%= f.text_field :contents, class: "form-control",
+							 :placeholder => "욕설, 비방, 광고성 댓글은 삭제될 수 있습니다." %>
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button">작성</button>
+			</span>
+		</div>
+		<%= f.submit "작성", class: "btn mm-btn-orange" %>
+	<% end %>
+</div>
+
+<script>
+	$(".input-group button").click(function() {
+		if( <%= current_user.blank? %> ) {
+			alert("로그인 후 댓글 작성이 가능합니다.");
+			return false;
+		} else {
+			if( !$("input#comment_contents").val() ) {
+				alert("댓글 내용을 작성해주셔야 합니다.");
+				return false;
+			} else {
+				$("#new_comment input[type='submit']").click();
+			};
+		};
+	});
+</script>

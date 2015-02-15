@@ -37,6 +37,18 @@
 				<%= render "restaurants/no_menu_title" %>
 			<% end %>
 
+			<!-- comments section -->
+			<div class="mm-rest-info mm-menu">
+				<div class="mm-rest-info-title">
+					<h3 class="mm-cmt-h3">댓글</h3>
+					<span class="badge mm-cmt-bdg"><%= @comments.count %></span>
+				</div>
+				<div class="mm-cmt-sec">
+					<%= render @comments if !@comments.blank? %>
+					<%= render "comments/form" %>
+				</div>
+			</div>
+
 			<!-- restaurant error report part -->
 			<div class="mm-rest-err">
 				<button type="button" class="btn btn-block mm-btn-orange" 
