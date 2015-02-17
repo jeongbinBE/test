@@ -1,0 +1,41 @@
+<div class="mm-rest-info mm-menu">
+	<div class="mm-rest-info-title">
+		<h2 class="mm-menu-h2">메뉴</h2>
+		<p class="mm-menu-p-warning">실제 매장의 메뉴 및 가격은 다를 수 있습니다.</p>
+	</div>
+
+	<% if @restaurant.menus.any? %>
+		<% @titles.each do |title| %>
+			<div class="mm-menu-title">
+				<div class="mm-menu-title-name" data-toggle="collapse" 
+																	 href="#menu-<%= title.id %>">
+					<h3><%= title.title_name %></h3>
+				</div>
+
+				<div id="menu-<%= title.id %>" class="panel-collapse collapse">
+					<div class= "mm-menu-toggle">
+						<% if title.title_info %>
+							<div class="mm-menu-title-info">
+								<p><%= title.title_info %></p>
+							</div>
+						<% end %>
+						
+						<%= render partial: "menus/menu", locals: { title: title }, 
+																							object: @menus %> 
+					</div>
+				</div>
+			</div>
+		<% end %>
+
+	<% else %>
+		<%= render "menus/no_menu_title" %>
+	<% end %>
+
+	<div class="mm-rest-info-title mm-menu-form-title">
+		<h2 class="mm-menu-h2">
+			<span class="glyphicon glyphicon-plus"></span> 직접 메뉴 추가
+		</h2>
+	</div>
+	<%= render "menus/form" %>
+
+</div>

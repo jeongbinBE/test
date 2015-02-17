@@ -31,11 +31,7 @@
 			<%= render "restaurants/main_btn_group" %>
 
 			<!-- menu section -->
-			<% if @restaurant.menus.any? %>
-				<%= render "restaurants/menu_title" %>
-			<% else %>
-				<%= render "restaurants/no_menu_title" %>
-			<% end %>
+			<%= render "menus/menu_title" %>
 
 			<!-- comments section -->
 			<div class="mm-rest-info mm-menu">

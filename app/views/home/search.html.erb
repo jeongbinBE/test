@@ -29,15 +29,13 @@
 																					class: "control-label col-xs-12 col-md-2" %>
 						<div class="col-xs-6 col-md-5 left-category">
 							<%= select_tag(:category, 
-								options_for_select(@cat.collect { |cat| [cat.name, cat.id] }, 1), 
-																					{ id: 'category_select',
-																						class: "form-control" }) %>
+							 options_for_select(@cat.collect { |cat| [cat.name, cat.id] },	1),
+							 { id: 'category_select', class: "form-control" }) %>
 						</div>
 						<div class="col-xs-6 col-md-5 right-category">
 							<%= select_tag(:sub_category, 
-								options_for_select(@sub.collect { |sub| [sub.name, sub.name] }, 1), 
-																					{ id: 'sub_category_select',
-																						class: "form-control" }) %>
+							 options_for_select(@sub.collect { |sub| [sub.name, sub.name] }, 1),
+							 { id: 'sub_category_select', class: "form-control" }) %>
 						</div>
 					</div>
 					
