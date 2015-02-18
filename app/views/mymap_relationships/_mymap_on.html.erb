@@ -5,22 +5,18 @@
 			<%= hidden_field_tag :mymap_rest_id, @restaurant.id %>
 			<%= f.submit "추가" %>
 		<% end %>
-		<span id="mymap-w-login">
-			<span class="glyphicon glyphicon-plus"></span> MyMap
-		</span>
-	<% else %>
-		<span id="mymap-wo-login">
-			<span class="glyphicon glyphicon-plus"></span> MyMap
-		</span>
 	<% end %>
+	<span id="mymap-w-login">
+		<span class="glyphicon glyphicon-plus"></span> MyMap
+	</span>
 </div>
 
 <script>
-	$('#mymap-wo-login').click(function() {
-		alert("로그인 후 MyMap 기능을 사용하실 수 있습니다.");
-	});
-
 	$('#mymap-w-login').click(function() {
-		$('.mm-mymap-btn-on form input[type="submit"]').click();
+		if ( <%= !current_user %> ) {
+			alert("로그인 후 MyMap 기능을 사용하실 수 있습니다.");
+		} else {
+			$('.mm-mymap-btn-on form input[type="submit"]').click();
+		};
 	});
 </script>
