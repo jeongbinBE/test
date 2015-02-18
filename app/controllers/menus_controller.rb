@@ -4,6 +4,10 @@ class MenusController < ApplicationController
 		if params[:title_name].blank?
 			@new_menu = Menu.new(menu_params)
 			if @new_menu.save
+				restaurant = @new_menu.menu_title.restaurant
+				if restaurant.menu_on == 0
+					restaurant.update(menu_on: 1)
+				end
 				flash[:success] = "메뉴를 성공적으로 저장했습니다."
 				redirection
 			else
@@ -15,6 +19,10 @@ class MenusController < ApplicationController
 			if @new_title.save
 				@new_menu = @new_title.menus.new(menu_wo_title_params)
 				if @new_menu.save
+					restaurant = @new_menu.menu_title.restaurant
+					if restaurant.menu_on == 0
+						restaurant.update(menu_on: 1)
+					end
 					flash[:success] = "새로운 메뉴목록과 메뉴를 등록했습니다."
 					redirect_to :back
 				else

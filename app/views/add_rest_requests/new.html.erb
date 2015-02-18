@@ -19,7 +19,7 @@
 					<div class="form-group row mm-form-must">
 						<%= f.label :name, "업소명", 
 												class: "control-label col-md-2" %>
-						<div class="col-md-10">
+						<div class="col-md-10 has-error">
 							<%= f.text_field :name, class: "form-control", 
 															 placeholder: "예) 메뉴맵 순대국밥(서울대점)" %>
 						</div>
@@ -31,7 +31,7 @@
 					<div class="form-group row mm-form-must">
 						<%= f.label :real_addr, "주소", 
 												class: "control-label col-md-2" %>
-						<div class="col-md-10">
+						<div class="col-md-10 has-error">
 							<%= f.text_field :real_addr, class: "form-control" ,
 									placeholder: "간단한 주소 정보가 필요합니다. 예) 강남, 마포"%>
 						</div>
@@ -147,5 +147,13 @@
 				dataType: "script"
 			});
 		});
+	});
+
+	$("input[type=submit]").click(function() {
+		if ( !$("input#add_rest_request_name").val() || 
+				 !$("input#add_rest_request_real_addr").val() ) {
+			alert ("업소명, 주소는 필수 입력 항목입니다.");
+			return false;
+		};
 	});
 </script>
