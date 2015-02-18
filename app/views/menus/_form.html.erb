@@ -1,6 +1,7 @@
-<div class="mm-menu-form">
+<div class="mm-menu-form panel-collapse collapse">
 	<%= form_for @menu do |f| %>
 		<%= hidden_field_tag :restaurant_id, @restaurant.id %>
+		<%= f.hidden_field 	 :user_id, value: current_user.id if current_user %>
 		<div class="form-group row">
 			<div class="col-xs-4">
 				<%= f.label :menu_title_id, "메뉴 목록" %>
@@ -105,7 +106,7 @@
 		};
 
 		if ( !$("#menu_menu_price").val() ) {
-			alert ("메뉴 가격을 적어주세요.");
+			alert ("메뉴 가격(필수 항목)을 숫자로만 적어주세요.");
 			return false;
 		};
 	});

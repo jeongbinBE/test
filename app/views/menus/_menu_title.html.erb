@@ -31,7 +31,8 @@
 		<%= render "menus/no_menu_title" %>
 	<% end %>
 
-	<div class="mm-rest-info-title mm-menu-form-title">
+	<div class="mm-rest-info-title mm-menu-form-title" data-toggle="collapse"
+																										 href=".mm-menu-form">
 		<h2 class="mm-menu-h2">
 			<span class="glyphicon glyphicon-plus"></span> 직접 메뉴 추가
 		</h2>
@@ -39,3 +40,12 @@
 	<%= render "menus/form" %>
 
 </div>
+
+<script>
+	$(".mm-menu-form-title").click(function() {
+		if(<%= !current_user %>) {
+			alert("로그인 후 메뉴 추가가 가능합니다.");
+			return false;
+		};
+	});
+</script>

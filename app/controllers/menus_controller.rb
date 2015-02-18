@@ -37,7 +37,7 @@ class MenusController < ApplicationController
 	private
 		def menu_params
 			params.require(:menu).permit(:menu_title_id, :menu_name, :menu_price, 
-																	 :menu_side_info, :menu_info)
+																	 :menu_side_info, :menu_info, :user_id)
 		end
 
 		def menu_title_params
@@ -46,7 +46,7 @@ class MenusController < ApplicationController
 
 		def menu_wo_title_params
 			params.require(:menu).permit(:menu_name, :menu_price,
-																	 :menu_side_info, :menu_info)
+																	 :menu_side_info, :menu_info, :user_id)
 		end
 
 		def redirection

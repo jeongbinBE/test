@@ -6,5 +6,6 @@ class Menu < ActiveRecord::Base
 						:presence  		=> true,
 						:numericality => { only_integer: true }
 
+	belongs_to :user
 	belongs_to :menu_title, touch: true
 end

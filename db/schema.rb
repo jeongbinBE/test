@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150214143807) do
+ActiveRecord::Schema.define(version: 20150217160027) do
 
   create_table "add_rest_requests", force: true do |t|
     t.string   "name"
@@ -84,9 +84,11 @@ ActiveRecord::Schema.define(version: 20150214143807) do
     t.string   "menu_info"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "menus", ["menu_title_id"], name: "index_menus_on_menu_title_id", using: :btree
+  add_index "menus", ["user_id"], name: "index_menus_on_user_id", using: :btree
 
   create_table "mymap_relationships", force: true do |t|
     t.integer  "mymap_user_id"

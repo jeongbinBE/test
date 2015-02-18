@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
 																dependent: 	 :destroy
 	has_many :on_mymaps, through: :mymap_relationships, source: :mymap_rest
 	has_many :comments, dependent: :destroy
+	has_many :menus, dependent: :destroy
 
 	# for mymap
 	def mymap_on(restaurant)
