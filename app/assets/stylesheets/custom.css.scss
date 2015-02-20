@@ -429,16 +429,24 @@ button#mm-index-btn {
 }
 
 #home05 {
-	font-size: 1em;
+	font-size: 1.3em;
 	padding: 2em 0em;
 	background-color: #e5e6e0;
 	text-align: center;	
+	#mm-index-btn3 {	
+		margin-top: 2em;
+		font-size: 0.9em;
+	}
 }
 
 @media (min-width: 992px) {
 	#home05 {
 		font-size: 2em;
 		padding: 2em;
+		#mm-index-btn3 {
+			margin-top: 4em;
+			font-size: 0.7em;
+		}
 	}
 }
 
