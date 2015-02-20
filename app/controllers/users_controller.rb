@@ -21,10 +21,6 @@ class UsersController < ApplicationController
     end
   end
 
-	def index
-		@users = User.paginate(page: params[:page], :per_page => 5)
-	end
-
 	def show
 		@user = User.find_by(username: params[:username])
 		# only activated user can access their page
