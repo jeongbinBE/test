@@ -1969,6 +1969,13 @@ p.mm-menu-p-warning {
 
 .mm-menu-width {
 	max-width: 240px;
+	a[data-method=delete] {
+		color: #f53434;
+		font-weight: bold;
+		.glyphicon {
+			top: 2px;
+		}
+	}
 }
 
 .mm-menu-name {
@@ -1976,6 +1983,10 @@ p.mm-menu-p-warning {
 }
 
 @media (min-width: 992px) {
+	.mm-menu-width a[data-method=delete] .glyphicon {
+		font-size: 1.1em;
+		top: 2.5px;
+	}
 	.mm-menu-name {
 		font-size: 0.9em;
 		font-weight: bold;

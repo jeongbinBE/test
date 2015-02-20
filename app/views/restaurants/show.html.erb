@@ -32,6 +32,15 @@
 
 			<!-- menu section -->
 			<%= render "menus/menu_title" %>
+			
+			<script>
+				$(".mm-menu-delete").click(function() {
+					if(confirm("메뉴를 삭제하시겠습니까?")){
+					} else {
+						return false;
+					};
+				});
+			</script>
 
 			<!-- comments section -->
 			<div class="mm-rest-info mm-menu">

@@ -1,0 +1,4 @@
+$(".mm-rest-info.mm-menu").first().html("<%= escape_javascript(render("menus/menu_title")) %>")
+$(document).ready(function() {
+	$(".mm-menu-title:nth-of-type(2) .collapse").addClass("in");
+});
