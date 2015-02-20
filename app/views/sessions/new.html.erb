@@ -1,6 +1,6 @@
 <div class="container mm-field">
 	<div class="col-md-8 col-md-offset-2">
-		<div class="col-md-10 col-md-offset-1">
+		<div id="mm-login" class="col-md-10 col-md-offset-1">
 			
 			<h1 id="mm-field-h1">이 세상 모든 메뉴판이 검색되는 그날까지
 				<span class="mm-logo-font">MenuMap</span>
@@ -15,15 +15,17 @@
 				<%= f.label :password, "비밀번호", class: "control-label" %>
 				<%= f.password_field :password, class: "form-control" %>
 				
-				<%= f.label :remember_me, class: "checkbox inline" do %>
+				<div class="mm-login-mt-btn">
 					<%= f.check_box :remember_me %>
-					<span>로그인 상태 유지</span>
-				<% end %>
+					<%= f.label :remember_me, class: "checkbox inline" do %>
+						<span>로그인 상태 유지</span>
+					<% end %>
+				</div>
 
 				<%= f.submit "로그인", class: "btn btn-primary mm-btn-orange" %>
 			<% end %>
 
-			<%= link_to "회원가입", signup_path %>	
+			<%= link_to "회원가입", signup_path, class: "mm-login-sign-btn" %>	
 			<%= link_to "비밀번호를 잊으셨나요?", new_password_reset_path %>
 		</div>
 	</div>

@@ -1,6 +1,6 @@
 <div class="container mm-field">
 	<div class="col-md-8 col-md-offset-2">
-		<div class="col-md-10 col-md-offset-1">
+		<div id="mm-signup" class="col-md-10 col-md-offset-1">
 				
 				<h1 id="mm-field-h1">이 세상 모든 메뉴판이 검색되는 그날까지
 					<span class="mm-logo-font">MenuMap</span>
@@ -14,3 +14,10 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	$("input[type=submit]").click(function(){
+		alert("현재 회원가입이 불가능합니다. 3월부터 정식 서비스가 시작됩니다.");
+		return false;
+	});
+</script>

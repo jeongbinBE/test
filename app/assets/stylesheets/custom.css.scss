@@ -1065,6 +1065,7 @@ input#add_rest_request_open_at {
 
 .mm-field {
 	padding: 0 10px;
+	margin-bottom: 2em;
 	> .col-md-8 {
 		padding: 0;
 		> .col-md-10 {
@@ -1086,36 +1087,29 @@ input#add_rest_request_open_at {
 	}
 }
 
-
-/*=========       Login page       ==========*/
-/*
-.checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
-  span {
-    margin-left: 20px;
-    font-weight: normal;
-  }
-}
-
-#session_remember_me {
-  width: auto;
-  margin-left: 0;
-}
-*/
-/*=========  Index page for users  ==========*/
-/*
-.users {
-	list-style: none;
-	margin: 0;
-	li {
-		overflow: auto;
-		padding: 10px 0;
-		border-bottom: 1px solid grey;
+@media (min-width: 992px) {
+	.mm-field > .col-md-8 > .col-md-10 {
+		padding: 0.5em 3em 2em;
 	}
 }
-*/
 
+/*=========       Login page       ==========*/
+
+.mm-login-mt-btn {
+	text-align: right;
+	#session_remember_me {
+		display: inline;
+		width: initial;
+	}
+}
+
+label[for=session_remember_me] {
+	display: inline;
+}
+
+.mm-login-sign-btn {
+	float: right;
+}
 
 /*=========       MyMap page       ==========*/
 
