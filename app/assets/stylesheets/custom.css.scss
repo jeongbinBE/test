@@ -367,14 +367,14 @@ h2#mm-index-h2 {
 
 @media (min-width: 992px) {
 	#home01 > .container-fluid {
-		min-height: 480px;
+		min-height: 700px;
 	}
 	h1#mm-index-h1 {
 		font-size: 9em;
 	}
 	h2#mm-index-h2 {
 		font-size: 1.6em;
-		margin-top: 5em;
+		margin-top: 4em;
 	}
 }
 
@@ -428,9 +428,24 @@ button#mm-index-btn {
 	}
 }
 
+#home05 {
+	font-size: 1em;
+	padding: 2em 0em;
+	background-color: #e5e6e0;
+	text-align: center;	
+}
+
+@media (min-width: 992px) {
+	#home05 {
+		font-size: 2em;
+		padding: 2em;
+	}
+}
+
 /* Index section 03 */
 
 #home03 {
+	margin-top: -2.5em;
 	background-color: $mm-bg-title;
 }
 
@@ -743,13 +758,6 @@ h5#mm-index-h5 {
 }
 	
 @media (min-width: 992px) {
-	.mm-help-cts {
-		padding: 1em;
-		line-height: 1.5em;
-	}
-}
-
-@media (min-width: 992px) {
 	#mm-help-h1 {
 		padding: 0 0.4em 0.5em;
 	}
@@ -760,7 +768,15 @@ h5#mm-index-h5 {
 		font-size: 1.3em;
 		padding: 0.2em 0.3em 0.8em;
 	}
+	.mm-help-cts {
+		padding: 1em;
+		line-height: 1.5em;
+	}
+}
 
+.mm-help-qna .mm-help-cts a button {
+	font-size: 0.9em;
+	padding: 4px 8px;
 }
 
 .mm-help-ask-btn {
@@ -1589,6 +1605,11 @@ h3.mm-no-posts-h3 {
 		padding: 1em;
 		line-height: 1.6em;
 	}
+}
+
+.mm-no-posts-tips p a button {
+	font-size: 0.9em;
+	padding: 4px 8px;
 }
 
 /*=========    Restaurants Show    ==========*/

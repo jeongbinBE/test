@@ -1,76 +1,224 @@
-<!-- Main body of Manual -->
-<% provide(:title, "이용방법") %>
-<!-- Divide manuals into user and owner parts -->
-<div class="manual">
+<!-- Index section 03 -->
+<div id="home03">
 	<div class="container">
-		<legend>MenuMap 사용법을 알려드립니다!</legend>
-		<div class="col-md-4 col-md-offset-1">
-			<div class="thumnail">
-				<a href="#user-manual">
-					<img src="/images/users_icon.png" alt="사용자 매뉴얼" class="link-image right" />
-				</a>
-				<div class="caption">
-					<h3>사용자 매뉴얼</h3>
+		<div id="mm-index-step-title" class="row">
+			<h4 id="mm-index-h4">이 세상 모든 메뉴판이 검색되는 그날까지 <span class="mm-logo-font">MenuMap</span></h4>
+			<h5 id="mm-index-h5">간편 매뉴얼</h5>
+		</div>
+	</div>
+</div>
+
+<!-- Index section 04 -->
+<div id="home04">
+	<div class="container">
+		<div class="row">
+			<div>
+				<h6 class="mm-index-h6"><span class="mm-logo-font">Step 1.</span> 검색</h6>
+				<div class="col-md-6 mm-ins-01">
+				
+				<!-- Search instruction -->
+				<%= form_tag restaurants_path, method: "get", class: "form-horizontal" do %>
+					<fieldset>
+					
+						<div class="form-group" id="mm-search-addr">
+							<%= label_tag :addr, "지역", class: "control-label col-xs-12 col-md-2" %>
+							<div class="col-md-10 mm-search-input">
+								<%= text_field_tag :addr, nil, class: "form-control", 
+																	 placeholder: "예) 서울대입구역, 신촌, 홍대" %>
+							</div>
+						</div>
+
+						<div class="form-group col-xs-12" id="mm-search-rdbtn">
+							<%= check_box_tag (:delivery) %>
+							<%= label_tag :delivery, "배달음식점만 보여주기" %>
+						</div>
+
+						<div class="form-group mm-ins-01-cat">
+							<%= label_tag :category, "음식분류", 
+																						class: "control-label col-xs-12 col-md-2" %>
+							<div class="col-xs-6 col-md-5 left-category">
+								<%= select_tag(:category, 
+									options_for_select(@cat.collect { |cat| [cat.name, cat.id] }, 1), 
+																						{ id: 'category_select',
+																							class: "form-control" }) %>
+							</div>
+							<div class="col-xs-6 col-md-5 right-category">
+								<%= select_tag(:sub_category, 
+									options_for_select(@sub.collect { |sub| [sub.name, sub.name] }, 1), 
+																						{ id: 'sub_category_select',
+																							class: "form-control" }) %>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<%= label_tag :name, "업소명", class: "control-label col-xs-12 col-md-2" %>
+							<div class="col-md-10 mm-search-input">
+								<%= text_field_tag :name, nil, class: "form-control", 
+																	 placeholder: "업소명을 적어주세요." %>
+							</div>
+						</div>
+
+						<div class="form-group mm-search-btns">
+							<%= link_to "취소", search_path, 
+																	class: "btn btn-default mm-btn-dark-grey" %>
+							<%= submit_tag "검색", class: "btn btn-primary mm-btn-orange" %>
+						</div>
+
+					</fieldset>
+				<% end %>
+
+				<script>
+					$(document).ready(function() {
+						$('#category_select').change(function() {
+							$.ajax({
+								url: "<%= update_sub_categories_path %>",
+								data: {
+									category_id : $('#category_select').val()
+								},
+								dataType: "script"
+							});
+						});
+					});
+				</script>
+
+				</div>
+				<div class="col-md-6 mm-index-step-contents">
+					<p>찾고자 하는 지역, 음식분류</p>
+					<p>또는 음식점 상호를 입력하고</p>
+					<p>검색을 눌러주세요!</p>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-4 col-md-offset-2">
-			<div class="thumnail">
-				<a href="#owner-manual">
-					<img src="/images/owner_icon.png" alt="사장님 매뉴얼" class="link-image left" />
-				</a>
-				<div class="cation">
-					<h3>사장님 매뉴얼</h3>
+
+		<div class="row">
+			<div class="mm-ins-02">
+				<h6 class="mm-index-h6 mm-index-h6-2nd"><span class="mm-logo-font">Step 2.</span> 포스트</h6>
+				<a href="http://menumap.co.kr/restaurants?utf8=%E2%9C%93&addr=&category=1&sub_category=%EC%A0%84%EC%B2%B4&name=&commit=%EA%B2%80%EC%83%89">
+				<div class="col-md-6 col-md-push-6">
+
+					<% @restaurants.each do |restaurant| %>
+					<div class="mm-rest-info">
+						<div class="mm-rest-info-title">
+							<h1 class="mm-rest-name mm-ins-02-h1"><%= restaurant.name %></h1>
+						</div>
+						
+						<div class="mm-rest-info-cts">
+							<div class="row mm-rest-info-row">
+							
+								<div class="col-xs-4">
+									<div class="mm-rest-info-img">
+										<% if restaurant.picture? %>
+											<%= image_tag restaurant.picture.url(:thumb), class: "img-rounded" %>
+										<% else %>
+											<p class="mm-rest-img-rpm">
+												<span class="mm-logo-font">MenuMap</span>
+											</p>
+										<% end %>
+									</div>
+								</div>
+
+								<div class="col-xs-8">
+									<div class="mm-rest-info-tb">
+									
+										<table class=table">
+											<tr>
+												<th>분류 :</th>
+												<td>
+													<span class="hidden-xs">
+														<%= restaurant.cat %>
+														<span class="glyphicon glyphicon-chevron-right"></span>
+													</span>
+													<%= restaurant.sub_cat %>
+												</td>
+											</tr>
+											<tr>
+												<th>지역 :</th>
+												<td><%= short_addr(restaurant.addr) %></td>
+											</tr>
+											<tr>
+												<th>전화 :</th>
+												<td>
+													<% unless restaurant.phnum.blank? %>
+														<%= restaurant.phnum %>
+														<a href="tel://<%= restaurant.phnum %>" class="visible-xs-inline">
+														<span class="glyphicon glyphicon-earphone"></span></a>
+													<% end %>
+												</td>
+											</tr>
+											<tr> 
+												<th>영업 :</th>
+												<td><%= restaurant.open_at %></td>
+											</tr>
+										</table>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="mm-rest-info-ft">
+							<% unless restaurant.menus.blank? %>
+								<p class="mm-menu-best mm-menu-best-<%= delivery_css(restaurant.delivery) %>">
+									대표메뉴: <%= restaurant.menus[0].menu_name %>
+														<%= ", " + restaurant.menus[1].menu_name if restaurant.menus[1] %>
+								</p>
+							<% end %>
+							<% if restaurant.delivery %>
+								<span class="label label-info mm-rest-info-label">
+									배달가능 업소
+								</span>
+							<% end %>
+							<span class="label mm-rest-info-label label-<%= css_on_menu(restaurant.menu_on) %>">
+								<%= words_on_menu(restaurant.menu_on) %>
+							</span>
+						</div>
+					</div>
+					<% end %>
+
 				</div>
+				</a>
+
+				<div class="col-md-6 col-md-pull-6 mm-index-step-contents">
+					<p>객관적인 필터링으로</p>
+					<p>자신이 입력한 조건에 맞는</p>
+					<p>음식점들이 나오면, 관심있는</p>
+					<p>음식점 페이지를 클릭해주세요!</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="mm-ins-03">
+				<h6 class="mm-index-h6"><span class="mm-logo-font">Step 3.</span> 상세 페이지</h6>
+				<div class="col-md-6">
+					<%= render 'menu_titles' %>
+				</div>
+
+				<div class="col-md-6 mm-index-step-contents">
+					<p>상세 페이지를 통해</p>
+					<p>해당 음식점의 메뉴와</p>
+					<p>기본 정보들을</p>
+					<p>한 눈에 볼 수 있습니다.</p>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			$(document).ready( function() {
+				$('.mm-menu-title:nth-of-type(2) .collapse').addClass('in');
+			});
+		</script>
+
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<a href="/search">
+					<button id="mm-index-btn2" class="btn btn-block btn-primary">
+						<span class="mm-logo-font-inv">MenuMap</span> 검색하기
+					</button>
+				</a>
 			</div>
 		</div>
 	</div>
 </div>
 
-<!-- User part -->
-<div id="user-manual">
-	<div class="manual">
-		<div class="container">
-			<legend>사용자 매뉴얼</legend>
-			<div class="each-manual">
-				<div class="title"><h3>1. 대학교, 대학가 주변의 고유명칭으로 음식점을 검색할 수 있습니다.</h3></div>
-				<div class="contents">
-					<p>예시) 녹두, 신촌, 대학로 홍대 등등</p>
-				</div>
-			</div>
-			<div class="each-manual">
-				<div class="title"><h3>2. 회원이 되면 사용자가 직접 음식점 메뉴판을 등록할 수 있습니다.</h3></div>
-				<div class="contents">
-					<p>들어가서 적으면 됨</p>
-				</div>
-			</div>
-			<div class="each-manual">
-				<div class="title"><h3>3. 필터를 이용해 필요한 정보를 빠르고 정확하게 검색할 수 있습니다.</h3></div>
-				<div class="contents">
-					<p>search 엔진이 다른 사이트보다 좋으니까</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- Owner part -->
-<div id="owner-manual">
-	<div class="manual">
-		<div class="container">
-			<legend>사장님 매뉴얼</legend>
-			<div class="each-manual">
-				<div class="title"><h3>1. 무료로 자신의 업소를 등록하고 홍보할 수 있습니다. 등록 절차는 아래와 같습니다.</h3></div>
-				<div class="contents">
-					<p>MenuMap에 연락 -> 사업 등록 증빙 -> MenuMap 사장님 account 받기</p>
-				</div>
-			</div>
-			<div class="each-manual">
-				<div class="title"><h3>2. 고유의 라벨을 설정하여 검색의 정확도를 높일 수 있습니다.<h3></div>
-				<div class="contents">
-					<p>어떤 라벨을 해드립니까</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
