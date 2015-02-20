@@ -5,7 +5,7 @@ class MenusController < ApplicationController
 			@new_menu = Menu.new(menu_params)
 			if @new_menu.save
 				restaurant = @new_menu.menu_title.restaurant
-				if restaurant.menu_on == 0
+				if restaurant.menu_on == 0 || restaurant.menu_on.nil?
 					restaurant.update(menu_on: 1)
 				end
 				flash[:success] = "메뉴를 성공적으로 저장했습니다."
@@ -20,7 +20,7 @@ class MenusController < ApplicationController
 				@new_menu = @new_title.menus.new(menu_wo_title_params)
 				if @new_menu.save
 					restaurant = @new_menu.menu_title.restaurant
-					if restaurant.menu_on == 0
+					if restaurant.menu_on == 0 || restaurant.menu_on.nil?
 						restaurant.update(menu_on: 1)
 					end
 					flash[:success] = "새로운 메뉴목록과 메뉴를 등록했습니다."

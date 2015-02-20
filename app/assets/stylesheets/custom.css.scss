@@ -1748,7 +1748,7 @@ h3.mm-no-posts-h3 {
 	}
 	img {
 		height: 100%;
-		width: 100%;
+		margin: auto;
 		border-top-left-radius: 0.5em;
 		border-top-right-radius: 0.5em;
 	}
@@ -1764,6 +1764,10 @@ h3.mm-no-posts-h3 {
 	#mm-carousel {
 		height: 337.5px;
 	}
+}
+
+.carousel-inner > .item {
+	height: 100%;
 }
 
 /* Google maps */
