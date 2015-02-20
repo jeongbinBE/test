@@ -22,6 +22,18 @@ module SessionsHelper
 		end
 	end
 
+	def menu_writer?(user_id)
+		if !user_id.nil?
+			if user = User.find_by(id: user_id)
+				current_user == user
+			else	
+				return false
+			end
+		else
+			return false
+		end
+	end
+
 	# check if the given user is the current user.
 	def current_user?(user)
 		user == current_user

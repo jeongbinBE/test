@@ -5,7 +5,7 @@
 				<span class="mm-menu-name">
 					<%= menu.menu_name %>
 				</span>
-				<% if current_user?(current_user) || current_user.admin? %>
+				<% if menu_writer?(menu.user_id) || (current_user && current_user.admin?) %>
 					<%= link_to menu_path(menu), method: :delete, remote: true,
 																			 class: "mm-menu-delete" do %>
 						<span class="glyphicon glyphicon-remove"></span>

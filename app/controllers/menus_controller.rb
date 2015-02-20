@@ -79,7 +79,7 @@ class MenusController < ApplicationController
 		end
 
 		def correct_user?
-			@user = Comment.find(params[:id]).user
+			@user = Menu.find(params[:id]).user
 			redirect_to :back unless current_user?(@user)
 		end
 
