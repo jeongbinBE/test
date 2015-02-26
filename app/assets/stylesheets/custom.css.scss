@@ -761,9 +761,15 @@ h5#mm-index-h5 {
 	font-size: 1em;
 }
 
+.mm-help-qna a {
+	text-decoration: none;
+}
+
 .mm-help-h3 {
 	margin: 0.7em 0.5em 0.5em;
 	font-size: 1.2em;
+	text-decoration: none;
+	color: #333;
 	padding: 0.2em 0.2em 0.8em;
 	border-bottom: 1px solid;
 	border-color: white;
@@ -1970,6 +1976,10 @@ p.mm-menu-p-warning {
 	}
 }
 
+.mm-menu-title a {
+	text-decoration: none;
+}
+
 .mm-menu-title-name {
 	padding: 0.8em 1em;
 	background-color: #f0f0f0;
@@ -1979,6 +1989,7 @@ p.mm-menu-p-warning {
 	h3 {
 		margin: 0;
 		font-size: 1.2em;
+		color: #333;
 	}
 }
 
