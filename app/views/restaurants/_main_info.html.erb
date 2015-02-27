@@ -41,10 +41,13 @@
 						<tr>
 							<th>전화 :</th>
 							<td>
-								<% unless @restaurant.phnum.blank? %>
+								<% if !@restaurant.phnum.blank? %>
+									<a href="tel://<%= @restaurant.phnum %>" 
+																								class="visible-xs-inline">
 									<%= @restaurant.phnum %>
-									<a href="tel://<%= @restaurant.phnum %>" class="visible-xs-inline">
-									<span class="glyphicon glyphicon-earphone"></span></a>
+									<span class="label label-info">
+										<span class="glyphicon glyphicon-earphone"></span>
+									</span>
 								<% end %>
 							</td>
 						</tr>

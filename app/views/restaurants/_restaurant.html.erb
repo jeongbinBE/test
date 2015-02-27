@@ -1,24 +1,27 @@
 <div class="mm-rest-info">
-	<a href="/restaurants/<%= restaurant.id %>" data-no-turbolink>
-	<div class="mm-rest-info-title">
-		<h1 class="mm-rest-name"><%= restaurant.name %></h1>
-	</div>
+	<a href="/restaurants/<%= restaurant.id %>">
+		<div class="mm-rest-info-title">
+			<h1 class="mm-rest-name"><%= restaurant.name %></h1>
+		</div>
 	</a>
 	
 	<div class="mm-rest-info-cts">
 		<div class="row mm-rest-info-row">
 		
 			<div class="col-xs-4">
-				<div class="mm-rest-info-img">
-					<% if restaurant.picture? %>
-						<%= image_tag restaurant.picture.url(:thumb), class: "img-rounded" %>
-					<% else %>
-						<p class="mm-rest-img-rpm">
-							<span class="mm-logo-font">MenuMap</span>
-							<span class="mm-rest-img-ing">사진 준비중...</span>
-						</p>
-					<% end %>
-				</div>
+				<%= link_to(restaurant_path(restaurant)) do %>
+					<div class="mm-rest-info-img">
+						<% if restaurant.picture? %>
+							<%= image_tag restaurant.picture.url(:thumb), 
+																										class: "img-rounded" %>
+						<% else %>
+							<p class="mm-rest-img-rpm">
+								<span class="mm-logo-font">MenuMap</span>
+								<span class="mm-rest-img-ing">사진 준비중...</span>
+							</p>
+						<% end %>
+					</div>
+				<% end %>
 			</div>
 
 			<div class="col-xs-8">
@@ -42,10 +45,14 @@
 						<tr>
 							<th>전화 :</th>
 							<td>
-								<% unless restaurant.phnum.blank? %>
-									<%= restaurant.phnum %>
-									<a href="tel://<%= restaurant.phnum %>" class="visible-xs-inline">
-									<span class="glyphicon glyphicon-earphone"></span></a>
+								<% if !restaurant.phnum.blank? %>
+									<a href="tel://<%= restaurant.phnum %>" 
+																							class="visible-xs-inline">
+										<%= restaurant.phnum %>
+										<span class="label label-info">
+											<span class="glyphicon glyphicon-earphone"></span>
+										</span>
+									</a>
 								<% end %>
 							</td>
 						</tr>

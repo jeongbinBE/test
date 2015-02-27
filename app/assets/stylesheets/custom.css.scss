@@ -136,8 +136,14 @@ span.mm-logo-font-inv {
 	}
 }
 
-#mm-ph-nav-toggle .glyphicon-cog {
-	top: 2px;
+#mm-ph-nav-toggle {
+	.glyphicon-cog {
+		top: 2px;
+	}
+	.glyphicon-user {
+		font-size: 1.1em;
+		margin-right: 0.2em;
+	}
 }
 
 #mm-nav-font {
@@ -437,6 +443,9 @@ button#mm-index-btn {
 	text-align: center;	
 	> .row {
 		margin: 0;
+		a:hover {
+			text-decoration: none;
+		}
 	}
 	#mm-index-btn3 {	
 		margin-top: 2em;
@@ -1071,6 +1080,12 @@ input#add_rest_request_open_at {
 	}
 }
 
+@media (min-width: 321px) and (max-width: 767px) {
+	.home-search {
+		margin-bottom: 1em;
+	}
+}
+
 @media (min-width: 992px) {
 	.home-search > .col-md-8 > .col-md-10 {
 		padding: 3em 3em 1em;
@@ -1081,6 +1096,9 @@ input#add_rest_request_open_at {
 			font-size: 2.6em;
 			margin-bottom: 0.5em;
 			padding-bottom: 0.3em;
+			span.mm-logo-font {
+				font-size: 1.1em;
+			}
 		}
 		#mm-search-rdbtn {
 			margin-bottom: 0.5em;
@@ -1369,8 +1387,21 @@ li.disabled {
 			th {
 				min-width: 3em;
 			}
-			td a .glyphicon {
-				color: #6f6d6d;
+			td { 
+				a {
+					color: #6f6d6d;
+					span.label-info {
+						display: inline-block;
+						padding: 0.2em 0.25em 0.1em;
+						margin: -0.1em 0 0 0.2em;
+						vertical-align: middle;
+						background-color: $mm-mc-orange;
+					}
+					.glyphicon-earphone {
+						font-size: 0.8em;
+						color: white;
+					}
+				}
 			}
 		}
 	}
