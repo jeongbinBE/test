@@ -35,9 +35,7 @@ class HomeController < ApplicationController
 	end
 
 	def test
-		@ask_qnas = AskQna.all
-		@new_rest = AddRestRequest.all
-		@new_err  = ReportRestErr.all
-		@imgs = RestImg.where(restaurant_id: 1016368)
+		@cat = Category.all
+		@sub = SubCategory.all
 	end
 end

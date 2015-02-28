@@ -42,6 +42,7 @@
 							<th>전화 :</th>
 							<td>
 								<% if !@restaurant.phnum.blank? %>
+									<span class="hidden-xs"><%= @restaurant.phnum %></span>
 									<a href="tel://<%= @restaurant.phnum %>" 
 																								class="visible-xs-inline">
 									<%= @restaurant.phnum %>
