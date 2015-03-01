@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217160027) do
+ActiveRecord::Schema.define(version: 20150301034446) do
 
   create_table "add_rest_requests", force: true do |t|
     t.string   "name"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 20150217160027) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "autocompletes", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "autocompletes", ["name"], name: "index_autocompletes_on_name", using: :btree
 
   create_table "categories", force: true do |t|
     t.string   "name"
