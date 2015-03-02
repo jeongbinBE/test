@@ -10,7 +10,10 @@
 				<h1 id="mm-posts-h1">
 					<span class="mm-logo-font">MenuMap</span> 검색결과
 					<span class="mm-posts-count">
-						<%= number_with_delimiter(@restaurants.count, delimiter: ',') %>개
+						<span class="mm-logo-font">
+							<%= number_with_delimiter(@restaurants.count, delimiter: ',') %>
+						</span>
+						개
 					</span>
 				</h1>
 				<!-- Individual restaurants -->

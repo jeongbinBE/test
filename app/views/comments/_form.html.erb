@@ -14,7 +14,7 @@
 </div>
 
 <script>
-	$(".input-group button").click(function() {
+	$("form.new_comment .input-group button").click(function() {
 		if( <%= current_user.blank? %> ) {
 			alert("로그인 후 댓글 작성이 가능합니다.");
 			return false;
