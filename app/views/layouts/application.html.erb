@@ -16,6 +16,10 @@
 																							'data-turbolinks-track' => true %>
 		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 		<%= csrf_meta_tags %>
+
+		<%= javascript_include_tag 'jquery.min', 'jquery-ui-1.10.4.custom.min.js' %>
+		<%= stylesheet_link_tag 'redmond/jquery-ui-1.10.4.custom' %>
+
 		<%= render "layouts/shim" %>
 
 		<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>

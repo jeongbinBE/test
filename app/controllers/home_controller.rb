@@ -15,8 +15,9 @@ class HomeController < ApplicationController
 		@sub = SubCategory.all
 
 		# instruction for posts
-		@restaurants = Restaurant.where("id = ? OR id = ? OR id = ?", 
-																		 1000000, 1099572, 1120855)
+		@restaurants = Restaurant
+									 	 .where("id = ? OR id = ? OR id = ?", 
+															 1000000, 1099572, 1120855)
 		@restaurant = Restaurant.find(1000000)
 		@titles = @restaurant.menu_titles
 		@menus  = @restaurant.menus
@@ -37,5 +38,16 @@ class HomeController < ApplicationController
 	def test
 		@cat = Category.all
 		@sub = SubCategory.all
+		
+		if params[:term]
+			@autocomplete = Autocomplete
+												.where("name LIKE ?", "%#{params[:term]}%")
+												.limit(10)
+		end
+
+		respond_to do |format|
+			format.html
+			format.json { render :json => @autocomplete.to_json }
+		end
 	end
 end
