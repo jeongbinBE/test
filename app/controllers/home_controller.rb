@@ -26,6 +26,17 @@ class HomeController < ApplicationController
   def search
 		@cat = Category.all
 		@sub = SubCategory.all
+
+		if params[:term]
+			@autocomplete = Autocomplete
+												.where("name LIKE ?", "%#{params[:term]}%")
+												.limit(10)
+		end
+
+		respond_to do |format|
+			format.html
+			format.json { render :json => @autocomplete.to_json }
+		end
   end
 
 	def update_sub_categories
@@ -38,16 +49,5 @@ class HomeController < ApplicationController
 	def test
 		@cat = Category.all
 		@sub = SubCategory.all
-		
-		if params[:term]
-			@autocomplete = Autocomplete
-												.where("name LIKE ?", "%#{params[:term]}%")
-												.limit(10)
-		end
-
-		respond_to do |format|
-			format.html
-			format.json { render :json => @autocomplete.to_json }
-		end
 	end
 end

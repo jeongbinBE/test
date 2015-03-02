@@ -60,6 +60,26 @@
 </div>
 
 <script>
+	$("#addr").keydown(function() {
+		$('#addr').autocomplete({
+			source: '<%= search_path(:json) %>',
+			focus: 	function(event, ui) {
+							  $('#addr').val(ui.item.name);
+							  return false;
+						 	},
+			select: function(event, ui) {
+							 	$('#addr').val(ui.item.name);
+							 	return false;
+						 	}
+		})
+		.data( "uiAutocomplete" )._renderItem = function( ul, item ) {
+			return $( "<li></li>" )
+				.data( "item.autocomplete", item )
+				.append( "<a>" + item.name + "</a>" )
+				.appendTo( ul );
+		};
+	});
+	
 	$(document).ready(function() {
 		$('#category_select').change(function() {
 			$.ajax({
