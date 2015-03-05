@@ -243,6 +243,7 @@ DEPENDENCIES
   mini_magick
   minitest-reporters
   mysql2
+  nokogiri
   passenger
   rails (= 4.0.1)
   sass-rails (~> 4.0.0)
