@@ -1,6 +1,11 @@
 class RestaurantsController < ApplicationController
-	
 	include RestaurantsHelper
+
+	# blog parsing
+	require 'nokogiri'
+	require 'uri'
+	require 'open-uri'
+
 
   def index
 		@search_name = params[:name]
@@ -34,6 +39,27 @@ class RestaurantsController < ApplicationController
 		# restaurant images
 		@rest_imgs = @restaurant.rest_imgs # for carousel
 		@rest_img = RestImg.new						 # for image uploads
+
+		# Naver, Daum blog results
+		query = @restaurant.rest_info.title_addr + " " + @restaurant.name
+		query = URI.encode("#{query}")
+		naver_key 		= "search?key=813b2e5e653326da6ff7d7114acf8748" 
+		naver_options = "&query=#{query}&display=5&start=1&target=blog&sort=sim" 
+		naver_url 		= "http://openapi.naver.com/#{naver_key}#{naver_options}"
+																				 
+		items = Nokogiri::XML(open(naver_url)).xpath("//item")
+		
+		n = 0
+		@blogs = []
+		items.each do |item|
+			temp = Hash.new
+			temp[:title] = item.xpath("title").text 
+			temp[:link]  = item.xpath("link").text
+			temp[:description]  = item.xpath("description").text
+			temp[:blogger_name] = item.xpath("bloggername").text
+			temp[:blogger_link] = item.xpath("bloggerlink").text
+			@blogs << temp
+		end
 
 		# restaurant information error
 		@report_rest_err = ReportRestErr.new

@@ -1,0 +1,18 @@
+<% blogs.each do |blog| %>
+	<p>
+		<%= link_to "#{blog[:link]}" do %>
+			<%= blog[:title].html_safe %>
+		<% end %>
+	</p>
+	<p>
+		<%= blog[:description].html_safe %>
+	</p>
+	<p>
+		<%= blog[:blogger_name] %>
+		<%= link_to blog[:blogger_link]  do %>
+			<span style="float: right;">
+				<%= blog[:blogger_link] %>
+			</span>
+		<% end %>
+	</p>
+<% end %>

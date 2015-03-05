@@ -1,0 +1,7 @@
+<% if current_user %>
+	<% if !@blogs.blank? %>
+		<%= render partial: "/blogs/blog", locals: { blogs: @blogs } %>
+	<% else %>
+		<p>nothings found</p>
+	<% end %>
+<% end %>
