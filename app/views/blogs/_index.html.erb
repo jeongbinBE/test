@@ -1,6 +1,17 @@
 <% if current_user %>
-	<% if !@blogs.blank? %>
-		<%= render partial: "/blogs/blog", locals: { blogs: @blogs } %>
+	<% if !@naver_blogs.blank? %>
+		<%= render partial: "/blogs/blog", locals: { blogs: @naver_blogs } %>
+	<% else %>
+		<p>nothings found</p>
+	<% end %>
+<% end %>
+
+<br />
+<p>------------------------------------------------------------</p>
+
+<% if current_user %>
+	<% if !@daum_blogs.blank? %>
+		<%= render partial: "/blogs/blog", locals: { blogs: @daum_blogs } %>
 	<% else %>
 		<p>nothings found</p>
 	<% end %>

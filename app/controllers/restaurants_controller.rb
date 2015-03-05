@@ -40,17 +40,17 @@ class RestaurantsController < ApplicationController
 		@rest_imgs = @restaurant.rest_imgs # for carousel
 		@rest_img = RestImg.new						 # for image uploads
 
-		# Naver, Daum blog results
+		# blog results
 		query = @restaurant.rest_info.title_addr + " " + @restaurant.name
 		query = URI.encode("#{query}")
-		naver_key 		= "search?key=813b2e5e653326da6ff7d7114acf8748" 
-		naver_options = "&query=#{query}&display=5&start=1&target=blog&sort=sim" 
-		naver_url 		= "http://openapi.naver.com/#{naver_key}#{naver_options}"
+
+		naver_key = "key=813b2e5e653326da6ff7d7114acf8748"
+		naver_options = "&query=#{query}&display=5&target=blog&sort=sim" 
+		naver_url = "http://openapi.naver.com/search?#{naver_key}#{naver_options}"
 																				 
 		items = Nokogiri::XML(open(naver_url)).xpath("//item")
 		
-		n = 0
-		@blogs = []
+		@naver_blogs = []
 		items.each do |item|
 			temp = Hash.new
 			temp[:title] = item.xpath("title").text 
@@ -58,7 +58,24 @@ class RestaurantsController < ApplicationController
 			temp[:description]  = item.xpath("description").text
 			temp[:blogger_name] = item.xpath("bloggername").text
 			temp[:blogger_link] = item.xpath("bloggerlink").text
-			@blogs << temp
+			@naver_blogs << temp
+		end
+
+		daum_key = "?apikey=61a98e1ad6ddb530bcb93294019b80b8" 
+		daum_options = "&q=#{query}&output=xml&result=5&sort=accu&advance=n" 
+		daum_url = "http://apis.daum.net/search/blog#{daum_key}#{daum_options}"
+																				 
+		items = Nokogiri::XML(open(daum_url)).xpath("//item")
+		
+		@daum_blogs = []
+		items.each do |item|
+			temp = Hash.new
+			temp[:title] = item.xpath("title").text 
+			temp[:link]  = item.xpath("link").text
+			temp[:description]  = item.xpath("description").text
+			temp[:blogger_name] = item.xpath("author").text
+			temp[:blogger_link] = item.xpath("comment").text
+			@daum_blogs << temp
 		end
 
 		# restaurant information error

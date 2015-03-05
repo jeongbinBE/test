@@ -1,6 +1,6 @@
 <% blogs.each do |blog| %>
 	<p>
-		<%= link_to "#{blog[:link]}" do %>
+		<%= link_to "#{blog[:link]}", target: "_blank" do %>
 			<%= blog[:title].html_safe %>
 		<% end %>
 	</p>
@@ -9,7 +9,7 @@
 	</p>
 	<p>
 		<%= blog[:blogger_name] %>
-		<%= link_to blog[:blogger_link]  do %>
+		<%= link_to blog[:blogger_link], target: "_blank" do %>
 			<span style="float: right;">
 				<%= blog[:blogger_link] %>
 			</span>
