@@ -1,6 +1,11 @@
 class HomeController < ApplicationController
 	include ActionView::Helpers::NumberHelper
 
+	# blog parsing
+	require 'nokogiri'
+	require 'uri'
+	require 'open-uri'
+
   def index
 		@restaurants_count = Restaurant.all.count
 		@restaurants_registered = Restaurant.where("menu_on > 0 ").count
@@ -50,5 +55,10 @@ class HomeController < ApplicationController
 		rest_pic = Restaurant.where.not(picture: nil)
 		rest_mod = rest_pic.joins(:rest_imgs)
 		@restaurants = rest_pic - rest_mod
+
+		query = URI.encode("강남 곱창")
+		url = "http://openapi.naver.com/search?key=813b2e5e653326da6ff7d7114acf8748&query=#{query}&display=10&start=1&target=blog&sort=sim"
+		doc = Nokogiri::XML(open(url))
+		@title = doc.xpath("//item").children[0].text
 	end
 end
