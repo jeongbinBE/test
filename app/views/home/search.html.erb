@@ -60,7 +60,7 @@
 </div>
 
 <script>
-	$("#addr").keydown(function() {
+	$(function() {
 		$('#addr').autocomplete({
 			source: '<%= search_path(:json) %>',
 			focus: 	function(event, ui) {
