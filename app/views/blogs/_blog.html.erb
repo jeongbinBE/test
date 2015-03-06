@@ -1,18 +1,15 @@
 <% blogs.each do |blog| %>
-	<p>
+	<div class="mm-blog-item row">
 		<%= link_to "#{blog[:link]}", target: "_blank" do %>
-			<%= blog[:title].html_safe %>
+			<div class="mm-blog-title">
+				<%= blog[:title].html_safe %>
+			</div>
+			<div class="mm-blog-desc">
+				<%= blog[:description].html_safe %>
+			</div>
+			<div class="mm-blog-name">
+				<span class="mm-logo-font">@</span><%= blog[:blogger_name] %>
+			</div>
 		<% end %>
-	</p>
-	<p>
-		<%= blog[:description].html_safe %>
-	</p>
-	<p>
-		<%= blog[:blogger_name] %>
-		<%= link_to blog[:blogger_link], target: "_blank" do %>
-			<span style="float: right;">
-				<%= blog[:blogger_link] %>
-			</span>
-		<% end %>
-	</p>
+	</div>
 <% end %>

@@ -452,7 +452,7 @@ button#mm-index-btn {
 #home05 {
 	font-size: 1.3em;
 	padding: 1em 0em 2em;
-	background-color: #e5e6e0;
+	background-color: $mm-bg-title;
 	text-align: center;	
 	> .row {
 		margin: 0;
@@ -1236,7 +1236,7 @@ label[for=session_remember_me] {
 
 h1#mm-mymap-h1 {
 	max-width: 600px;
-	border-bottom: 4px solid #E5E6E0;
+	border-bottom: 4px solid $mm-bg-title;
 	padding-bottom: 0.3em;
 	padding-left: 0.3em;
 	margin: 0 auto;
@@ -2351,6 +2351,65 @@ input#rest_img_img {
 
 /* blogs */
 
+.mm-blog-n-title {
+	width: 100px;
+	a[role="tab"] {
+		padding: 10px 5px;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
+
+.mm-blog-d-title {
+	width: 82px;
+	a[role="tab"] {
+		padding: 6px 5px;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
+
+#mm-blog .tab-content {
+	.tab-pane {
+		padding: 0.5em 0;
+	}
+}
+
+#mm-blog ul.nav-tabs {
+	border-bottom: 2px solid $mm-bg-title;
+	li {
+		margin-bottom: -2px;
+	}
+	li.active {
+		a, a:hover, a:focus {
+			border: 2px solid $mm-bg-title;
+			border-bottom-color: transparent;
+		}
+	}
+}
+
+.mm-blog-item {
+	margin: 0 0 0.5em;
+	padding: 0.5em;
+	box-shadow: 0 0 2px 2px #efefef;
+	border-radius: 0.5em;
+}
+
+.mm-blog-desc, .mm-blog-name {
+	color: #6f6d6d;
+	text-decoration: none;
+	&:active, &:hover, &:focus, &:visited {
+		color: #6f6d6d;
+	}
+}
+
+.mm-blog-name {
+	float: right;
+}
 
 /* comments */
 
