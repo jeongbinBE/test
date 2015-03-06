@@ -1,18 +1,38 @@
-<% if current_user %>
-	<% if !@naver_blogs.blank? %>
-		<%= render partial: "/blogs/blog", locals: { blogs: @naver_blogs } %>
-	<% else %>
-		<p>nothings found</p>
-	<% end %>
-<% end %>
+<div class="mm-blog">
+	<div role="tabpanel">
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active">
+				<a href="#naver_blogs" role="tab" data-toggle="tab">
+					Naver
+				</a>
+			</li>
+			<li role="presentation">
+				<a href="#daum_blogs" role="tab" data-toggle="tab">
+					Daum
+				</a>
+			</li>
+		</ul>
 
-<br />
-<p>------------------------------------------------------------</p>
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="naver_blogs">
+				<% if current_user %>
+					<% if !@naver_blogs.blank? %>
+						<%= render partial: "/blogs/blog", locals: { blogs: @naver_blogs } %>
+					<% else %>
+						<p>nothings found</p>
+					<% end %>
+				<% end %>
+			</div>
 
-<% if current_user %>
-	<% if !@daum_blogs.blank? %>
-		<%= render partial: "/blogs/blog", locals: { blogs: @daum_blogs } %>
-	<% else %>
-		<p>nothings found</p>
-	<% end %>
-<% end %>
+			<div role="tabpanel" class="tab-pane" id="daum_blogs">
+				<% if current_user %>
+					<% if !@daum_blogs.blank? %>
+						<%= render partial: "/blogs/blog", locals: { blogs: @daum_blogs } %>
+					<% else %>
+						<p>nothings found</p>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
