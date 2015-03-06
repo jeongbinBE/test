@@ -47,8 +47,5 @@ class HomeController < ApplicationController
 	end
 
 	def test
-		rest_pic = Restaurant.where.not(picture: nil)
-		rest_mod = rest_pic.joins(:rest_imgs)
-		@restaurants = rest_pic - rest_mod
 	end
 end
