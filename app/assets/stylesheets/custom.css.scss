@@ -329,8 +329,8 @@ footer {
 /* Index section 01 */
 
 #home01 {
-	background: linear-gradient( rgba(0, 0, 0, 0.37), rgba(0, 0, 0, 0.32)), 
-							url('/images/dark_menu.jpg');
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+							url('/images/home_bg_img.jpg');
 	background-position: center top;
 	margin-top: -2.5em;
 	.row {
@@ -375,9 +375,19 @@ h2#mm-index-h2 {
 	margin-top: 3em;
 }
 
+@media (max-width: 767px) {
+	#home01 {
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+								url('/images/home_bg_img_sm.jpg');
+	}
+}
+
 @media (min-width: 992px) {
 	#home01 > .container-fluid {
-		min-height: 700px;
+		min-height: 600px;
+	}
+	#home01 .row:first-of-type {
+		padding-top: 0;
 	}
 	h1#mm-index-h1 {
 		font-size: 13em;
