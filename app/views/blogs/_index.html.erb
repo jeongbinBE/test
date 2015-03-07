@@ -19,7 +19,7 @@
 					<% if !@naver_blogs.blank? %>
 						<%= render partial: "/blogs/blog", locals: { blogs: @naver_blogs } %>
 					<% else %>
-						<p>nothings found</p>
+						<%= render "/blogs/no_blogs" %>
 					<% end %>
 				</div>
 
@@ -27,7 +27,7 @@
 					<% if !@daum_blogs.blank? %>
 						<%= render partial: "/blogs/blog", locals: { blogs: @daum_blogs } %>
 					<% else %>
-						<p>nothings found</p>
+						<%= render "/blogs/no_blogs" %>
 					<% end %>
 				</div>
 			</div>

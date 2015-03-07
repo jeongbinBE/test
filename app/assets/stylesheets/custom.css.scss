@@ -2392,11 +2392,25 @@ input#rest_img_img {
 	}
 }
 
+@media (min-width: 992px) {
+	#mm-blog {
+		max-width: 600px;
+		margin: 0 auto 1em;
+	}
+}
+
 .mm-blog-item {
 	margin: 0 0 0.5em;
 	padding: 0.5em;
 	box-shadow: 0 0 2px 2px #efefef;
 	border-radius: 0.5em;
+}
+
+.mm-blog-title {
+	max-width: 330px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 .mm-blog-desc, .mm-blog-name {
@@ -2409,6 +2423,21 @@ input#rest_img_img {
 
 .mm-blog-name {
 	float: right;
+}
+
+.mm-blog-nothing {
+	box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset, 
+							rgba(255, 32, 32, 1) 0px 0px 2px 0px;
+	color: #6f6d6d;
+	font-weight: bold;		
+}
+
+@media (min-width: 992px) {
+	.mm-blog-nothing {
+		margin-bottom: 2em;
+		box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset, 
+								rgba(255, 32, 32, 1) 0px 0px 5px 0px;
+	}
 }
 
 /* comments */
