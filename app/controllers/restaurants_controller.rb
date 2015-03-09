@@ -111,7 +111,6 @@ class RestaurantsController < ApplicationController
 	end
 
 	private
-		
 		def restaurant_picture_params
 			params.require(:restaurant).permit(:picture)
 		end
