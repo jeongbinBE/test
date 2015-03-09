@@ -53,26 +53,33 @@ class HomeController < ApplicationController
 	def test
 		@restaurant = Restaurant.find(1014823)
 		@test = google_maps_geocode(@restaurant.addr)
-		@test2 = foursquare_venue_id(@test[:lat], @test[:lng], "돈수백")
-		@image_url = foursquare_image_parse(@test2)
+		@test2 = foursquare_venue_id(@test[:lat], @test[:lng], "맥도날드")
+		@image_url = foursquare_image_parse(@test2) if !@test2.nil?
 	end
 
 	def foursquare_venue_id(lat, lng, name)
 		latlng = "ll=#{lat},#{lng}"
 		name = URI.encode(name)
-		other_params = "query=#{name}&intent=match&v=20150309" # version check
+		other_params = "query=#{name}&intent=match&v=20150309&m=foursquare" 
 
 		url  = "https://api.foursquare.com/v2/venues/search"
 		url  = foursquare_add_client_credentials(url)
 		url += "&#{latlng}&#{other_params}"
 		
-		venue_id = JSON.load(open(url))["response"]["venues"][0]["id"]
+		foursquare_json = JSON.load(open(url))
+
+		if foursquare_json["meta"]["code"] == 200 &&
+			 !foursquare_json["response"]["venues"][0].nil?
+			foursquare_json["response"]["venues"][0]["id"]
+		else
+			return nil
+		end
 	end
 
 	def foursquare_image_parse(venue_id)
 		url = "https://api.foursquare.com/v2/venues/#{venue_id}/photos"
 		url = foursquare_add_client_credentials(url)
-		url += "&v=20150309&limit=10"
+		url += "&limit=10&v=20150309&m=foursquare"
 		
 		images = []
 		JSON.load(open(url))["response"]["photos"]["items"].each do |item|
