@@ -99,13 +99,23 @@
 
 			<!--- restaurant's images -->
 			<div id="mm-show-btn2" class="collapse">
-				<% if !@restaurant.rest_imgs.empty? %>
+				<% if @restaurant.rest_imgs.empty? && @image_url.blank? %>
+					<p> 등록된 사진이 없습니다.<br />사진을 등록해주세요.</p>
+				<% else %>
 					<div id="mm-carousel" class="carousel slide" data-ride="carousel">
 						<div class="carousel-inner" role="listbox">
 							<% @rest_imgs.each do |img| %>
 								<div class="item">
 									<%= image_tag img.img.url(:big_size), class: "img-rounded" %>
 								</div>
+							<% end %>
+							
+							<% if !@image_url.blank? %>
+								<% @image_url.each do |img_f| %>
+									<div class="item">
+										<%= image_tag "#{img_f}", class: "img-rounded" %>
+									</div>
+								<% end %>
 							<% end %>
 						</div>
 
@@ -124,14 +134,12 @@
 							<span class="glyphicon glyphicon-chevron-right"></span>
 						</a>
 					</div>
-				<% else %>
-					<p> 등록된 사진이 없습니다.<br />사진을 등록해주세요.</p>
 				<% end %>
 
 				<div class="row">
 					<div class="col-xs-10 col-xs-offset-1">
 						<button type="button" class="btn btn-block btn-primary"
-																data-toggle="modal" data-target="#rest-img-modal">
+										data-toggle="modal" data-target="#rest-img-modal">
 							메뉴판, 음식점 사진 등록하기
 							<span class="glyphicon glyphicon-upload"></span>
 						</button>
