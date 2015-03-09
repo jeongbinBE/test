@@ -99,7 +99,7 @@
 
 			<!--- restaurant's images -->
 			<div id="mm-show-btn2" class="collapse">
-				<% if @restaurant.rest_imgs.empty? && @image_url.blank? %>
+				<% if @restaurant.rest_imgs.empty? && @venue_id.nil? %>
 					<p> 등록된 사진이 없습니다.<br />사진을 등록해주세요.</p>
 				<% else %>
 					<div id="mm-carousel" class="carousel slide" data-ride="carousel">

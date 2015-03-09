@@ -98,9 +98,9 @@ class RestaurantsController < ApplicationController
 		@page_description = "#{title_addr}지역에 위치한 #{"배달가능" if @restaurant.delivery} 음식점 #{@restaurant.name}(#{@restaurant.cat}, #{@restaurant.sub_cat})은 #{title_menu} 메뉴를 제공하고 있습니다. 주소는 #{@restaurant.addr}#{", 전화번호는 " if @restaurant.phnum}#{@restaurant.phnum if @restaurant.phnum}입니다."
 
 		# Foursquare API photos
-		@test = google_maps_geocode(@restaurant.addr)
-		@test2 = foursquare_venue_id(@test[:lat], @test[:lng], @restaurant.name)
-		@image_url = foursquare_image_parse(@test2) if !@test2.nil?
+		@latlng = google_maps_geocode(@restaurant.addr)
+		@venue_id = foursquare_venue_id(@latlng[:lat], @latlng[:lng], @restaurant.name)
+		@image_url = foursquare_image_parse(@venue_id) if !@venue_id.nil?
   end
 
 	def update
