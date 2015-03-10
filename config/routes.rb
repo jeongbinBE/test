@@ -1,6 +1,5 @@
 MenuMap::Application.routes.draw do
 
-  get "add_rest_requests/new"
 	# Root page is index and it's also brandpage.
 	root 'home#index'
 
@@ -45,6 +44,8 @@ MenuMap::Application.routes.draw do
 	resources :menus, 							only: [:create, :update, :destroy]
 	resources :comments, 						only: [:create, :update, :destroy]
 	resources :report_rest_errs, 		only: [:create, :destroy, :show]
+
+	get 'rest_imgs/parse_rest_imgs', as: 'parse_rest_imgs'
 
   # Example resource route with options:
   #   resources :products do

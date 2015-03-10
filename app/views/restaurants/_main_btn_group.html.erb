@@ -98,54 +98,21 @@
 			</div>
 
 			<!--- restaurant's images -->
-			<div id="mm-show-btn2" class="collapse">
-				<% if @restaurant.rest_imgs.empty? && @venue_id.nil? %>
-					<p> 등록된 사진이 없습니다.<br />사진을 등록해주세요.</p>
-				<% else %>
-					<div id="mm-carousel" class="carousel slide" data-ride="carousel">
-						<div class="carousel-inner" role="listbox">
-							<% @rest_imgs.each do |img| %>
-								<div class="item">
-									<%= image_tag img.img.url(:big_size), class: "img-rounded" %>
-								</div>
-							<% end %>
-							
-							<% if !@image_url.blank? %>
-								<% @image_url.each do |img_f| %>
-									<div class="item">
-										<%= image_tag "#{img_f}", class: "img-rounded" %>
-									</div>
-								<% end %>
-							<% end %>
-						</div>
+			<div id="mm-show-btn2" class="collapse"></div>
 
-						<script>
-							$(document).ready(function() {
-								$("#mm-carousel .item:first-of-type").addClass("active");
-							});
-						</script>
-
-						<a class="left carousel-control"  href="#mm-carousel"
-																						  role="button" data-slide="prev">
-							<span class="glyphicon glyphicon-chevron-left"></span>
-						</a>
-						<a class="right carousel-control" href="#mm-carousel" 
-																							role="button" data-slide="next">
-							<span class="glyphicon glyphicon-chevron-right"></span>
-						</a>
-					</div>
-				<% end %>
-
-				<div class="row">
-					<div class="col-xs-10 col-xs-offset-1">
-						<button type="button" class="btn btn-block btn-primary"
-										data-toggle="modal" data-target="#rest-img-modal">
-							메뉴판, 음식점 사진 등록하기
-							<span class="glyphicon glyphicon-upload"></span>
-						</button>
-					</div>
-				</div>
-			</div>
+			<script>
+				$(window).load(function() {
+					$.ajax({
+						url: "<%= parse_rest_imgs_path %>",
+						data: {
+							id:  <%= @restaurant.id %>,
+							name: 	 "<%= @restaurant.name %>",
+							addr: 	 "<%= @restaurant.addr %>"
+						},
+						dataType: "script"
+					});
+				});
+			</script>
 
 			<!-- google maps -->
 			<div id="mm-show-btn3" class="collapse">

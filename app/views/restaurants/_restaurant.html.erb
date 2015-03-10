@@ -1,15 +1,16 @@
 <div class="mm-rest-info">
-	<a href="/restaurants/<%= restaurant.id %>">
+	<%= link_to(restaurant_path(restaurant), data: { no_turbolink: true }) do %>
 		<div class="mm-rest-info-title">
 			<h1 class="mm-rest-name"><%= restaurant.name %></h1>
 		</div>
-	</a>
+	<% end %>
 	
 	<div class="mm-rest-info-cts">
 		<div class="row mm-rest-info-row">
 		
 			<div class="col-xs-4">
-				<%= link_to(restaurant_path(restaurant)) do %>
+				<%= link_to(restaurant_path(restaurant), 
+																					 data: { no_turbolink: true }) do %>
 					<div class="mm-rest-info-img">
 						<% if restaurant.picture? %>
 							<%= image_tag restaurant.picture.url(:thumb), 
