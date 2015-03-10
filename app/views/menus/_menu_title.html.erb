@@ -9,7 +9,10 @@
 			<div class="mm-menu-title">
 				<a data-toggle="collapse" href="#menu-<%= title.id %>">
 					<div class="mm-menu-title-name">
-						<h3><%= title.title_name %></h3>
+						<h3>
+							<%= title.title_name %>
+							<span class="glyphicon glyphicon-chevron-down"></span>
+						</h3>
 					</div>
 				</a>
 
@@ -47,6 +50,14 @@
 		if(<%= !current_user %>) {
 			alert("로그인 후 메뉴 추가가 가능합니다.");
 			return false;
+		};
+	});
+
+	$(".mm-menu-title-name").click(function() {
+		if($(this).children("h3").children("span").hasClass("glyphicon-chevron-down")) {
+			$(this).children("h3").children("span").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up")
+		} else {
+			$(this).children("h3").children("span").removeClass("glyphicon-chevron-up").addClass("glyphicon-chevron-down")
 		};
 	});
 </script>
