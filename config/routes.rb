@@ -1,7 +1,9 @@
 MenuMap::Application.routes.draw do
 
-  get "sitemap/show"
-	# Root page is index and it's also brandpage.
+	# Sitemap
+  get "sitemap.xml", to: "sitemap#show", :defaults => { format: 'xml' }
+
+	# root page & brandpage.
 	root 'home#index'
 
 	# Static pages =============================
