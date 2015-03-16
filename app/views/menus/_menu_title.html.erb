@@ -46,13 +46,6 @@
 </div>
 
 <script>
-	$(".mm-menu-form-title").click(function() {
-		if(<%= !current_user %>) {
-			alert("로그인 후 메뉴 추가가 가능합니다.");
-			return false;
-		};
-	});
-
 	$(".mm-menu-title-name").click(function() {
 		if($(this).children("h3").children("span").hasClass("glyphicon-chevron-down")) {
 			$(this).children("h3").children("span").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up")

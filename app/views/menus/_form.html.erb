@@ -84,11 +84,6 @@
 	});
 	
 	$("form#new_menu button[type=submit]").click(function() {
-		if ( <%= !current_user %> ) {
-			alert ("로그인 후 메뉴 등록이 가능합니다.");
-			return false;
-		};
-
 		if ( !$("#menu_menu_title_id").val() ) {
 			alert ("메뉴 목록을 선택해주세요.");
 			return false;
