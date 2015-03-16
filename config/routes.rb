@@ -1,5 +1,6 @@
 MenuMap::Application.routes.draw do
 
+  get "sitemap/show"
 	# Root page is index and it's also brandpage.
 	root 'home#index'
 
