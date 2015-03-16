@@ -1,10 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+	<!-- for static pages -->
   <url>
-		<loc>http://menumap.co.kr/</loc>
-		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
+		<loc><%= @static %></loc>
+		<changefreq>weekly</changefreq>
 	</url>
+  <url>
+		<loc><%= @static + "manual" %></loc>
+		<changefreq>monthly</changefreq>
+	</url>
+  <url>
+		<loc><%= @static + "help" %></loc>
+		<changefreq>monthly</changefreq>
+	</url>
+  <url>
+		<loc><%= @static + "search" %></loc>
+		<changefreq>monthly</changefreq>
+	</url>
+  <url>
+		<loc><%= @static + "login" %></loc>
+		<changefreq>monthly</changefreq>
+	</url>
+  <url>
+		<loc><%= @static + "signup" %></loc>
+		<changefreq>monthly</changefreq>
+	</url>
+  <url>
+		<loc><%= @static + "add_rest_requests/new" %></loc>
+		<changefreq>monthly</changefreq>
+	</url>
+
+	<% @restaurants.each do |restaurant| %>
+		<url>
+			<loc><%= restaurant_url(restaurant) %></loc>
+			<lastmod><%= restaurant.updated_at.strftime('%Y-%m-%d') %></lastmod>
+		</url>
+	<% end %>
 
 </urlset> 
