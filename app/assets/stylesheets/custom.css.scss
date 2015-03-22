@@ -2016,6 +2016,7 @@ p.mm-menu-p-warning {
 	line-height: 3.5em;
 	float: right;
 	margin-right: -1em;
+	margin-bottom: 0;
 }
 
 @media (min-width: 992px) {
@@ -2066,6 +2067,8 @@ p.mm-menu-p-warning {
 	}
 	.glyphicon {
 		font-size: 0.8em;
+		float: right;
+		top: 0.3em;
 	}
 }
 

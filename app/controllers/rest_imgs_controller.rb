@@ -34,7 +34,7 @@ class RestImgsController < ApplicationController
 		def google_maps_geocode(addr)
 			addr = URI.encode("#{addr}")
 			parameter = "address=#{addr}&sensor=false"
-			url = "http://maps.googleapis.com/maps/api/geocode/json?#{parameter}"
+			url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyB0s-wKE2YW_rreU6vcxkaR44MPzOa4JKg&#{parameter}"
 			
 			latlng = Hash.new
 			temp = JSON.load(open(url))["results"][0]["geometry"]["location"]

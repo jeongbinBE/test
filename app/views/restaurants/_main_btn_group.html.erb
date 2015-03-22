@@ -101,7 +101,7 @@
 			<div id="mm-show-btn2" class="collapse"></div>
 
 			<script>
-				$(window).load(function() {
+				$("button[data-target=#mm-show-btn2]").click(function() {
 					$.ajax({
 						url: "<%= parse_rest_imgs_path %>",
 						data: {
